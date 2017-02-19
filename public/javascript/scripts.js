@@ -141,3 +141,54 @@ $('.want-gender').on('click', function(event) {
 
     console.log(userPreferences)
 });
+
+/*
+    Finally, implements the sex act selection functionality. Note that sex acts
+    are not mutually exclusive, therefore function is different from the others!
+*/
+$('.activity').on('click', function(event) {
+
+    /*
+        Since sexual activities are not multually exclusive, checkbox-styled
+        functionality is implemented here for the buttons.
+    */
+    event.preventDefault();
+    if (($(this)).hasClass('active')) {
+        $(this).removeClass('active');
+        $(this).removeClass('btn-primary');
+    }
+    else {
+        $(this).addClass('active');
+        $(this).addClass('btn-primary');
+    }
+
+    /*
+        Updates userPreferences with new values for sex acts. Performs a check
+        on each button press, hence long if/else block.
+    */
+    // Making out
+    if (this.id == 'make_out' && ($(this)).hasClass('active')) {
+        userPreferences.make_out = true;
+    }
+    else if (this.id == 'make_out' && ($(this)).hasClass('active') == false) {
+        userPreferences.make_out = false;
+    }
+
+    // Eating out
+    if (this.id == 'eat' && ($(this)).hasClass('active')) {
+        userPreferences.eat = true;
+    }
+    else if (this.id == 'eat' && ($(this)).hasClass('active') == false) {
+        userPreferences.eat = false;
+    }
+
+    // Fucking
+    if (this.id == 'fuck' && ($(this)).hasClass('active')) {
+        userPreferences.fuck = true;
+    }
+    else if (this.id == 'make_out' && ($(this)).hasClass('active') == false) {
+        userPreferences.fuck = false;
+    }
+
+    console.log(userPreferences)
+});
