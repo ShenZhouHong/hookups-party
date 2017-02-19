@@ -5,6 +5,8 @@ var logger          = require('morgan');
 var cookieParser    = require('cookie-parser');
 var bodyParser      = require('body-parser');
 
+var session = require('express-session')
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 // var chat = require('.chat');
@@ -21,6 +23,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(session({
+    name: 'hoocookies',
+    secret: 'crazy cookie girl',
+    saveUninitialized: true,
+    resave: true,
+    // store: new FileStore()
+}));
 
 // Note: you must place sass-middleware *before* `express.static` or else it will
 // not work.
