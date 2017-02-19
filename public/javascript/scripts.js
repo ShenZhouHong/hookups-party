@@ -4,6 +4,7 @@
 
     Possible values:
         selfGender:    'male' | 'female' | 'other' | undefined
+        romance:        true | false | undefined
         partnerGender: 'male' | 'female' | 'both' | undefined
         make_out:       true | false
         eat:            true | false
@@ -15,6 +16,7 @@
 */
 var userPreferences = {
     selfGender: undefined,
+    romance: undefined,
     partnerGender: undefined,
     make_out: false,
     eat: false,
@@ -65,12 +67,11 @@ $('.is-gender').on('click', function(event) {
 
     toggleButton($(this), '.is-gender');
 
-    // Toggles the visibility of the next section and scrolls ONLY if first time
+    // Toggles the visibility of the next prompt
     if (userPreferences.selfGender == undefined) {
-        // Smooth-scrolling functionality
-        $('html, body').animate({
-            scrollTop: $("#preferences").offset().top
-        }, 1000);
+        // Displays the next prompt using FadeToggle (will run only once)
+        $('#self-gender-comma').fadeToggle();
+        $("#looking-for").fadeToggle();
     }
     else {
         // Otherwise, merely reassure user with comforting alert dialogue
@@ -87,14 +88,58 @@ $('.is-gender').on('click', function(event) {
     }
 
     // Finally, update userPreferences with the new values
-    if (this.id == '#man') {
+    if (this.id == 'man') {
         userPreferences.selfGender = 'male';
     }
-    if (this.id == '#woman') {
+    if (this.id == 'woman') {
         userPreferences.selfGender = 'female';
     }
-    if (this.id == '#other') {
+    if (this.id == 'other') {
         userPreferences.selfGender = 'other';
+    }
+
+    console.log(userPreferences)
+});
+
+/*
+    Allows the user to choose for the theme of their adventure. Either romance
+    or just some fun.
+*/
+$('.is-looking-for').on('click', function(event) {
+
+    toggleButton($(this), '.is-looking-for');
+
+    // Toggles the visibility of the next prompt
+    if (userPreferences.romance == undefined) {
+        // Displays the next prompt using FadeToggle (will run only once)
+        $('#looking-for-comma').fadeToggle();
+        $("#preferences").fadeToggle();
+
+        // Scrolls to the next prompt
+        $('html, body').animate({
+            scrollTop: $("#preferences").offset().top
+        }, 1000);
+    }
+    else {
+        // Otherwise, merely reassure user with comforting alert dialogue
+        throwAlert(
+            "#is-confirm-placeholder",
+            "success",
+            "Your romance setting has been changed"
+        );
+
+        // Message fades away after a second
+        $("#continue-message").fadeTo(1000, 200).slideUp(200, function(){
+            $("#continue-message").slideUp(200);
+        });
+    }
+
+    // Finally, update userPreferences with the new values
+    if (this.id == 'romance') {
+        userPreferences.romance = true;
+    }
+    if (this.id == 'some-fun') {
+        userPreferences.romance = false;
     }
 
     console.log(userPreferences)
@@ -113,6 +158,10 @@ $('.want-gender').on('click', function(event) {
         // Displays the next prompt using FadeToggle (will run only once)
         $('#want-gender-comma').fadeToggle(); // Makes grammatical sentence :P
         $('#sexual-preference').fadeToggle();
+
+        // Also displays the final confirmation prompt, because I have no where
+        // to put this. TODO: Move to somewhere else that makes sense!
+        $('#confirmation').fadeToggle();
     }
     else {
         // Otherwise, merely reassure user with comforting alert dialogue

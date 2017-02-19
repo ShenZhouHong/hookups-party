@@ -16,18 +16,28 @@
             </div>
         </div>
 
-        <!-- Gender selection prompt and buttons -->
         <div class="row">
             <!-- First column centers it's children -->
             <div class="col-md-4 col-md-offset-4">
-                <h2 class="text-center">
+
+                <!-- Gender selection prompt and buttons -->
+                <h2 class="" id="self-gender">
                     I identify as a
-                    <a class="btn btn-default btn-md is-gender" id="#man" href="#" role="button">👨 man</a>
-                    <a class="btn btn-default btn-md is-gender" id="#woman" href="#" role="button">👩 woman</a>
-                    <a class="btn btn-default btn-md is-gender" id="#other" href="#" role="button">😎 other</a>
+                    <a class="btn btn-default btn-md is-gender" id="man" href="#" role="button">👨 man</a>
+                    <a class="btn btn-default btn-md is-gender" id="woman" href="#" role="button">👩 woman</a>
+                    <a class="btn btn-default btn-md is-gender" id="other" href="#" role="button">😎 other</a>
+                </h2>
+
+                <!-- Romance selection prompt and buttons -->
+                <h2 class="" id="looking-for" style="display: none">
+                    and I am looking for
+                    <a class="btn btn-default btn-md is-looking-for" id="romance" href="#" role="button">🌹 romance</a>
+                    <a class="btn btn-default btn-md is-looking-for" id="some-fun" href="#" role="button">🌶️ fun</a>
+                    <span id="looking-for-comma" style="display: none"></span>
                 </h2>
             </div>
             <!-- End of first centering column in selection slide -->
+
         </div>
         <div class="row">
             <!-- An alert shows up here in subsequent presses, telling users that
@@ -38,7 +48,7 @@
     <!-- End of first selection slide -->
 
     <!-- Beginning of second slide, to select the gender desired -->
-    <div class="row" id="preferences">
+    <div class="row" id="preferences" style="display: none">
         <div class="col-md-6 col-md-offset-3">
 
             <!-- Gender preference selection -->
@@ -60,9 +70,14 @@
                 <span style="visibility: hidden"></span>
 
                 <a class="btn btn-default btn-md activity" href="#" role="button" id="eat">👅 eat</a>
+
+                <!-- These 'invisible' spans are used to populate the sentences -->
                 <span style="visibility: hidden"></span>
+
                 <a class="btn btn-default btn-md activity" href="#" role="button" id="fuck">💦 fuck</a>
-                <span style="visibility: hidden"></span>
+
+                <!-- These 'invisible' spans are used to populate the sentences -->
+                <span style="visibility: hidden"></span>.
             </h2>
         </div>
         <div class="row">
@@ -73,7 +88,7 @@
     </div>
 
     <!-- Beginning of third slide, for confirmation -->
-    <div class="row" id="confirmation">
+    <div class="row" id="confirmation" style="display: none">
         <div class="col-md-6 col-md-offset-3">
             <h2> confirmation placeholder </h2>
         </div
