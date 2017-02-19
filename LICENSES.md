@@ -10,3 +10,9 @@ Dancing Script, as created by [Pablo Impallari](www.impallari.com) is held under
 the terms of the OFL (Open Font License) license. Attribution to the creators
 and foundries of this font is given both in this document, as well as in the
 license body itself.
+
+## Strato
+Strato, as created by [BSozoo](http://cargocollective.com/Sozoo) is held under
+the terms of the OFL (Open Font License) license. Attribution to the creators
+and foundries of this font is given both in this document, as well as in the
+license body itself.

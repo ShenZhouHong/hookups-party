@@ -10,8 +10,21 @@
     padding-bottom: 3em;
 }
 
+.subtitle {
+   font-family: 'DancingScriptBold';
+   font-weight: normal;
+   font-style: normal;
+   font-size: 3em;
+}
+
 #main-title {
-    font-size: 10em;
+    font-family: 'StratoLinked';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 9em;
+
+    margin-top: 0.5em;
+    margin-bottom: 0.4em;
 }
 
 #button-prompt {
