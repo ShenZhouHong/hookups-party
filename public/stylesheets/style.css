@@ -1,28 +1,34 @@
-.jumbotron {
-    padding: 8em;
+#landing-page {
+    background-color: #eee;
     height: 100vh;
+}
+
+#logo-box {
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+
+#main-title {
+    font-size: 10em;
+}
+
+#button-prompt {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#button-container {
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 #preferences {
-    padding: 8em;
     height: 100vh;
+    padding-top: 5em;
 }
 
-#activities {
-    padding: 8em;
+#confirmation {
+    background-color: #eee;
     height: 100vh;
-}
-
-.bottom {
-    position: absolute;
-    margin: auto;
-    bottom: 0;
-    left: 8em;
-    right: 8em;
-}
-.row-eq-height {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+    padding-top: 5em;
 }
