@@ -47,6 +47,9 @@ var toggleButton = function(element, group) {
     the specified location, sets the type (success, warning, etc.) and message
 */
 var throwAlert = function(location, type, message) {
+    // I have purposely disabled this function
+    return true;
+
     // WARNING: the location will be cleared beforehand!
     $(location).val('');
 
@@ -186,6 +189,14 @@ $('.want-gender').on('click', function(event) {
     }
     if (this.id == 'any') {
         userPreferences.partnerGender = 'any';
+    }
+
+    // Make sentence grammatically correct, because I'm pedentic
+    if (userPreferences.partnerGender == "any") {
+        $('#want-gender-a').css("visibility", "hidden");
+    }
+    else {
+        $('#want-gender-a').css("visibility", "visible");
     }
 
     // If any buttons are pressed here, previous buttons will be disabled
