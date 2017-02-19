@@ -20,9 +20,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// Note: you must place sass-middleware *before* `express.static` or else it will
+// not work.
+
 app.use(require('node-sass-middleware')({
   src: path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
+  debug: true,
   indentedSyntax: true,
   sourceMap: true
 }));
