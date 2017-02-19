@@ -12,3 +12,17 @@
     padding: 8em;
     height: 100vh;
 }
+
+.bottom {
+    position: absolute;
+    margin: auto;
+    bottom: 0;
+    left: 8em;
+    right: 8em;
+}
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}

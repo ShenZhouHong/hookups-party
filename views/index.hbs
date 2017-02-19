@@ -1,14 +1,23 @@
 <div class="jumbotron text-center">
     <h1>Welcome to</h1>
     <h1>{{title}}</h1>
+
+    <!-- First option dialogue, for the user's gender -->
     <div class="container">
-        <h2 class="inline">I am a
-            <span>
-                <button type="button" class="btn btn-primary btn-md is-gender">Male</button>
-                <button type="button" class="btn btn-primary btn-md is-gender">Female</button>
-                <button type="button" class="btn btn-primary btn-md is-gender">Other</button>
-            </span>
-        </h2>
+        <div class="row">
+            <h2 class="inline">I am a
+                <span>
+                    <button type="button" class="btn btn-primary btn-md is-gender">Male</button>
+                    <button type="button" class="btn btn-primary btn-md is-gender">Female</button>
+                    <button type="button" class="btn btn-primary btn-md is-gender">Other</button>
+                </span>
+            </h2>
+        </div>
+        <div class="row row-eq-height">
+            <!-- An alert shows up here in subsequent presses, telling users that
+                 their gender selection has been updated. Hence, the placeholder -->
+            <div id="alert-placeholder-here"></div>
+        </div>
     </div>
 </div>
 <div class="container-fluid text-center" id="preferences">
@@ -21,18 +30,16 @@
     <h2>
 </div>
 <div class="container-fluid text-center" id="activities">
-    <h2>I am willing to perform
-        <span>
-            <button type="button" class="btn btn-primary btn-md want-gender">activity 1</button>
-            <button type="button" class="btn btn-primary btn-md want-gender">activity 2</button>
-            <button type="button" class="btn btn-primary btn-md want-gender">activity 3</button>
-        </span>
-    <h2>
-    <h2>I am willing to recieve
-        <span>
-            <button type="button" class="btn btn-primary btn-md want-gender">activity 1</button>
-            <button type="button" class="btn btn-primary btn-md want-gender">activity 2</button>
-            <button type="button" class="btn btn-primary btn-md want-gender">activity 3</button>
-        </span>
-    <h2>
+    <h2>I am willing to give </h2>
+    <span>
+        <button type="button" class="btn btn-primary btn-md want-gender">activity 1</button>
+        <button type="button" class="btn btn-primary btn-md want-gender">activity 2</button>
+        <button type="button" class="btn btn-primary btn-md want-gender">activity 3</button>
+    </span>
+    <h2>I am willing to recieve </h2>
+    <span>
+        <button type="button" class="btn btn-primary btn-md want-gender">activity 1</button>
+        <button type="button" class="btn btn-primary btn-md want-gender">activity 2</button>
+        <button type="button" class="btn btn-primary btn-md want-gender">activity 3</button>
+    </span>
 </div>
