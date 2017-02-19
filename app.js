@@ -7,6 +7,7 @@ var bodyParser      = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+// var chat = require('.chat');
 
 var app = express();
 
@@ -24,13 +25,6 @@ app.use(cookieParser());
 // Note: you must place sass-middleware *before* `express.static` or else it will
 // not work.
 
-app.use(require('node-sass-middleware')({
-  src: path.join(__dirname, 'public'),
-  dest: path.join(__dirname, 'public'),
-  debug: true,
-  indentedSyntax: true,
-  sourceMap: true
-}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
