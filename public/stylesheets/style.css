@@ -1,11 +1,13 @@
 #landing-page {
     background-color: #eee;
     height: 100vh;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
 #logo-box {
-    padding-top: 5em;
-    padding-bottom: 5em;
+    padding-top: 3em;
+    padding-bottom: 3em;
 }
 
 #main-title {

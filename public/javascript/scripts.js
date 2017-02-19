@@ -188,6 +188,16 @@ $('.want-gender').on('click', function(event) {
         userPreferences.partnerGender = 'any';
     }
 
+    // If any buttons are pressed here, previous buttons will be disabled
+    if ($('.want-gender').hasClass('active')) {
+        $('.is-gender').addClass('disabled');
+        $('.is-looking-for').addClass('disabled');
+    }
+    else if ($('.want-gender').hasClass('active') == false) {
+        $('.is-gender').removeClass('disabled');
+        $('.is-looking-for').removeClass('disabled');
+    }
+
     console.log(userPreferences)
 });
 
@@ -204,11 +214,11 @@ $('.activity').on('click', function(event) {
     event.preventDefault();
     if (($(this)).hasClass('active')) {
         $(this).removeClass('active');
-        $(this).removeClass('btn-primary');
+        $(this).removeClass('btn-warning');
     }
     else {
         $(this).addClass('active');
-        $(this).addClass('btn-primary');
+        $(this).addClass('btn-warning');
     }
 
     /*
