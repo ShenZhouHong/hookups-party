@@ -26,6 +26,9 @@ var userPreferences = {
     of buttons with a shared class (the 'group' argument).
 */
 var toggleButton = function(element, group) {
+    // Prevents link from being followed if button is an <a>
+    event.preventDefault();
+
     // Removes previously from the entire group
     if (($(group)).hasClass('active')) {
         $(group).removeClass('active');
@@ -93,6 +96,8 @@ $('.is-gender').on('click', function(event) {
     if (this.id == '#other') {
         userPreferences.selfGender = 'other';
     }
+
+    console.log(userPreferences)
 });
 
 /*
@@ -104,7 +109,7 @@ $('.want-gender').on('click', function(event) {
     toggleButton($(this), '.want-gender');
 
     // Toggles the visibility of the next section and scrolls ONLY if first time
-    if (userPreferences.selfGender == undefined) {
+    if (userPreferences.partnerGender == undefined) {
         // Displays the next prompt using FadeToggle (will run only once)
         $('#want-gender-comma').fadeToggle(); // Makes grammatical sentence :P
         $('#sexual-preference').fadeToggle();
@@ -124,13 +129,15 @@ $('.want-gender').on('click', function(event) {
     }
 
     // Finally, update userPreferences with the new values
-    if (this.id == '#male') {
+    if (this.id == 'male') {
         userPreferences.partnerGender = 'male';
     }
-    if (this.id == '#female') {
+    if (this.id == 'female') {
         userPreferences.partnerGender = 'female';
     }
-    if (this.id == '#any') {
+    if (this.id == 'any') {
         userPreferences.partnerGender = 'any';
     }
+
+    console.log(userPreferences)
 });
