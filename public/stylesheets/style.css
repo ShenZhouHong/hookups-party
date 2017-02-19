@@ -1,14 +1,87 @@
-.jumbotron {
-    padding: 8em;
+#landing-page {
+    background-color: #eee;
     height: 100vh;
+    padding-left: 2em;
+    padding-right: 2em;
+
+    /* Begin background-image settings */
+    background: url(/media/background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#logo-box {
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
+.subtitle {
+   font-family: 'DancingScriptBold';
+   font-weight: normal;
+   font-style: normal;
+   font-size: 3em;
+   text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+   color: #FFF;
+}
+
+#main-title {
+    font-family: 'StratoLinked';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 7em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    color: #db0000;
+    margin-top: 0.5em;
+    margin-bottom: 0.4em;
+}
+
+#envelope {
+    background-color: #FFF;
+    padding:1em;
+    height: 12em;
+
+    /* Rotation and transforms to make it look like an envelope */
+    transform: rotate(1deg);
+
+    border:2px dashed #db0000;
+    border-width:2px;
+    border-style:dashed;
+    border-color:#db0000;
+}
+
+#infolinks {
+    /* Rotation for it to match up and look nice */
+    transform: rotate(1deg);
+    margin-top: 1em;
+}
+
+#infolinks a {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    font-weight: bold;
+    padding: 0px 10px;
+    word-wrap: normal;
+    display: inline-block;
+}
+
+#button-prompt {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#button-container {
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 #preferences {
-    padding: 8em;
     height: 100vh;
+    padding-top: 5em;
 }
 
-#activities {
-    padding: 8em;
+#confirmation {
+    background-color: #eee;
     height: 100vh;
+    padding-top: 5em;
 }

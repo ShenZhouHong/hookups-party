@@ -1,38 +1,108 @@
-<div class="jumbotron text-center">
-    <h1>Welcome to</h1>
-    <h1>{{title}}</h1>
-    <div class="container">
-        <h2 class="inline">I am a
-            <span>
-                <button type="button" class="btn btn-primary btn-md is-gender">Male</button>
-                <button type="button" class="btn btn-primary btn-md is-gender">Female</button>
-                <button type="button" class="btn btn-primary btn-md is-gender">Other</button>
-            </span>
-        </h2>
+<!-- Main content div -->
+<div class="container-fluid">
+
+    <!-- First selection slide, for choosing gender. Doubles as landing page -->
+    <div class="row" id="landing-page">
+
+        <!-- Landing page content -->
+        <div class="row">
+            <div class="col-xs-16 text-center" id="logo-box">
+                <h2 class="subtitle">Welcome to</h2>
+
+                <!-- Main title -->
+                <h1 id="main-title">Hookups💋</h1>
+
+                <h2 class="subtitle">at UWC Changshu China</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- First column centers it's children -->
+            <div class="col-sm-6 col-sm-offset-3" id="envelope">
+
+                <!-- Gender selection prompt and buttons -->
+                <h2 class="text-center" id="self-gender">
+                    I identify as a
+                    <a class="btn btn-default btn-md is-gender" id="man" href="#" role="button">👨 man</a>
+                    <a class="btn btn-default btn-md is-gender" id="woman" href="#" role="button">👩 woman</a>
+                    <a class="btn btn-default btn-md is-gender" id="other" href="#" role="button">😎 other</a>
+                </h2>
+
+                <!-- Romance selection prompt and buttons -->
+                <h2 class="text-center" id="looking-for" style="display: none">
+                    and I am looking for
+                    <a class="btn btn-default btn-md is-looking-for" id="some-fun" href="#" role="button">🌶️ fun</a>
+                    <a class="btn btn-default btn-md is-looking-for" id="romance" href="#" role="button">🌹 romance</a>
+                    <span id="looking-for-comma" style="display: none"></span>
+                </h2>
+            </div>
+            <!-- End of first centering column in selection slide -->
+
+        </div>
+        <div class="row">
+            <!-- An alert shows up here in subsequent presses, telling users that
+                 their gender selection has been updated. Hence, the placeholder -->
+            <div class="col-sm-4 col-sm-offset-4" id="is-confirm-placeholder"></div>
+        </div>
+        <div class="row">
+            <div class="col-16-xs text-center" id="infolinks">
+                <a href="information/#about">About us</a>
+                <a href="information/#FAQ">FAQ</a>
+                <a href="information/#confused">Confused?</a>
+                <a href="information/#offended">Offended?</a>
+            </div>
+        </div>
     </div>
-</div>
-<div class="container-fluid text-center" id="preferences">
-    <h2>I am interested in
-        <span>
-            <button type="button" class="btn btn-primary btn-md want-gender">Men</button>
-            <button type="button" class="btn btn-primary btn-md want-gender">Women</button>
-            <button type="button" class="btn btn-primary btn-md want-gender">Both</button>
-        </span>
-    <h2>
-</div>
-<div class="container-fluid text-center" id="activities">
-    <h2>I am willing to perform
-        <span>
-            <button type="button" class="btn btn-primary btn-md want-gender">activity 1</button>
-            <button type="button" class="btn btn-primary btn-md want-gender">activity 2</button>
-            <button type="button" class="btn btn-primary btn-md want-gender">activity 3</button>
-        </span>
-    <h2>
-    <h2>I am willing to recieve
-        <span>
-            <button type="button" class="btn btn-primary btn-md want-gender">activity 1</button>
-            <button type="button" class="btn btn-primary btn-md want-gender">activity 2</button>
-            <button type="button" class="btn btn-primary btn-md want-gender">activity 3</button>
-        </span>
-    <h2>
+    <!-- End of first selection slide -->
+
+    <!-- Beginning of second slide, to select the gender desired -->
+    <div class="row" id="preferences" style="display: none">
+        <div class="col-sm-6 col-sm-offset-3">
+
+            <!-- Beginning prompt -->
+            <h2 class="text-center">
+                I am looking for
+            </h2>
+
+            <!-- Gender preference selection -->
+            <h2 class="text-center" id="gender-preference">
+                <span id="want-gender-a" style="visibility: visible">a</span>
+                <a class="btn btn-default btn-md want-gender" id="male" href="#" role="button">🍆 male</a>
+                <a class="btn btn-default btn-md want-gender" id="female" href="#" role="button">🍑 female</a>
+                <a class="btn btn-default btn-md want-gender" id="any" href="#" role="button">🍭 any</a>
+                partner<span id="want-gender-comma" style="display: none">,</span>
+            </h2>
+
+            <!-- Sexual preference selection -->
+            <h2 class="text-center" id="sexual-preference" style="display: none">
+                who I can
+                <a class="btn btn-default btn-md activity" href="#" role="button" id="make_out">💋 make out</a>
+
+                <!-- These 'invisible' spans are used to populate the sentences -->
+                <span style="visibility: hidden"></span>
+
+                <a class="btn btn-default btn-md activity" href="#" role="button" id="eat">👅 eat</a>
+
+                <!-- These 'invisible' spans are used to populate the sentences -->
+                <span style="visibility: hidden"></span>
+
+                <a class="btn btn-default btn-md activity" href="#" role="button" id="fuck">💦 fuck</a>.
+
+                <!-- These 'invisible' spans are used to populate the sentences -->
+                <span style="visibility: hidden"></span>
+            </h2>
+        </div>
+        <div class="row">
+            <!-- An alert shows up here in subsequent presses, telling users that
+                 their gender selection has been updated. Hence, the placeholder -->
+            <div class="col-sm-4 col-sm-offset-4" id="want-confirm-placeholder"></div>
+        </div>
+    </div>
+
+    <!-- Beginning of third slide, for confirmation -->
+    <div class="row" id="confirmation" style="display: none">
+        <div class="col-sm-6 col-sm-offset-3">
+            <h2> confirmation placeholder </h2>
+        </div
+    </div>
 </div>
