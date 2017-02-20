@@ -34,12 +34,22 @@ module.exports = function(app) {
     var io = require('socket.io')(app);
     var t = loadNames();
     var waiting = [];  // TODO change this to a better data structure
+    var roomNames = new Set();
     module.adjectives = t[0];
     module.animals = t[1];
 
+    /*
+        returns a new unique room name
+        (distinct from any other *currently* existing room name: old and
+        deleted names can be reused)
+    */
     function generateRoomName () {
-        // TODO implement edge case hash checking
-        return module.generateName(module.adjectives, module.animals);
+        var roomName = module.generateName(module.adjectives, module.animals);
+        while (roomNames.has(roomName)) {
+            roomName = module.generateName(module.adjectives, module.animals);
+        }
+        roomNames.add(roomName);
+        return roomName;
     }
 
     /*
