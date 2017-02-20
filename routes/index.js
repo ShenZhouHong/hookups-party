@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', {
       title: 'Hookups @ CSC',
-      script: 'scripts.js',
+      scripts: ['chat.js', 'scripts.js'],
       style: 'style.css'
   });
 });
@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 router.get('/chat', function(req, res, next) {
   res.render('chat', {
       title: 'Hooking Up ;)',
-      script: 'chat.js',
+      scripts: ['chat.js'],
       style: 'chat.css'
   });
 });

@@ -230,7 +230,5 @@ $('#search-button').on('click', function(event) {
     // Finally, paints the chatbar at the bottom of the screen
     $('#chatrow').fadeIn();
 
-
-    console.log("Final user preferences")
-    console.log(userPreferences)
+    initChat(userPreferences);
 });
