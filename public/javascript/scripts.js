@@ -3,24 +3,22 @@
     user completes the prompts. Eventually gets sent to server on submit.
 
     Possible values:
-        selfGender:    'male' | 'female' | 'other' | undefined
-        romance:        true | false | undefined
-        partnerGender: 'male' | 'female' | 'both' | undefined
-        make_out:       true | false | undefined
-        eat:            true | false | undefined
-        fuck:           true | false | undefined
+        selfGender:    'male' | 'female' | 'other'  | undefined
+        romance:       true   | false    | undefined
+        partnerGender: 'male' | 'female' | 'both'   | undefined
+        activities: [
+                       'make out', 'eat', 'fuck'
+    ]
 
-    By default, all sex acts are false. Because consent, that's why!
-    Note: An user_preferences object with undefined values or all sex acts
-    set to false is invalid, and should not be sent to server.
+    The 'activities' key contains an array that is empty by default, and
+    populated by a list of activities that the user has choosen.
 */
 var userPreferences = {
     selfGender: undefined,
     romance: undefined,
     partnerGender: undefined,
-    make_out: undefined,
-    eat: undefined,
-    fuck: undefined,
+    activities: [
+    ]
 };
 
 /*
@@ -41,6 +39,21 @@ var toggleButton = function(element, group, event) {
     $(element).addClass('active');
     $(element).addClass('btn-primary');
 };
+
+/*
+    Generic array element toggler. Adds an element to an array. However, if the
+    array already has that element, the element is removed. WARNING: Only does
+    this for the first instance of that element!
+*/
+function addOrRemove(array, value) {
+    var index = array.indexOf(value);
+
+    if (index === -1) {
+        array.push(value);
+    } else {
+        array.splice(index, 1);
+    }
+}
 
 /*
     Implements user gender prompt functionality. Scrolls down to the next page
@@ -161,27 +174,29 @@ $('.activity').on('click', function(event) {
     */
     // Making out
     if (this.id == 'make_out' && ($(this)).hasClass('active')) {
-        userPreferences.make_out = true;
+        addOrRemove(userPreferences.activities, "make_out")
     }
     else if (this.id == 'make_out' && ($(this)).hasClass('active') == false) {
-        userPreferences.make_out = false;
+        addOrRemove(userPreferences.activities, "make_out")
     }
 
     // Eating out
     if (this.id == 'eat' && ($(this)).hasClass('active')) {
-        userPreferences.eat = true;
+        addOrRemove(userPreferences.activities, "eat")
     }
     else if (this.id == 'eat' && ($(this)).hasClass('active') == false) {
-        userPreferences.eat = false;
+        addOrRemove(userPreferences.activities, "eat")
     }
 
     // Fucking
     if (this.id == 'fuck' && ($(this)).hasClass('active')) {
-        userPreferences.fuck = true;
+        addOrRemove(userPreferences.activities, "fuck")
     }
-    else if (this.id == 'make_out' && ($(this)).hasClass('active') == false) {
-        userPreferences.fuck = false;
+    else if (this.id == 'fuck' && ($(this)).hasClass('active') == false) {
+        addOrRemove(userPreferences.activities, "fuck")
     }
+
+    console.log(userPreferences.activities);
 });
 
 /* When the search button is pressed */
