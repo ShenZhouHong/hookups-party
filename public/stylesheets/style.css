@@ -3,6 +3,7 @@
     where all the slides live on. Every element on the Webapp is in a container,
     which is a direct child of the background-holder container-fluid
 */
+
 #background-holder.container-fluid {
     /* Begin background-image settings */
     background: url(/media/background.jpg) no-repeat center center fixed;
@@ -183,6 +184,21 @@
     #envelope03.envelope {
         height: 12.5em;
     }
+}
+
+/*
+    Chat styling
+*/
+#slide03 {
+    height:94.5vh;
+}
+
+#chatrow div {
+    height: 5.5vh;
+}
+
+#send-form {
+    margin: 0 1em;
 }
 
 /*
