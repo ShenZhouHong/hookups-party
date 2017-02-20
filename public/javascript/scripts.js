@@ -6,9 +6,9 @@
         selfGender:    'male' | 'female' | 'other' | undefined
         romance:        true | false | undefined
         partnerGender: 'male' | 'female' | 'both' | undefined
-        make_out:       true | false
-        eat:            true | false
-        fuck:           true | false
+        make_out:       true | false | undefined
+        eat:            true | false | undefined
+        fuck:           true | false | undefined
 
     By default, all sex acts are false. Because consent, that's why!
     Note: An user_preferences object with undefined values or all sex acts
@@ -18,9 +18,9 @@ var userPreferences = {
     selfGender: undefined,
     romance: undefined,
     partnerGender: undefined,
-    make_out: false,
-    eat: false,
-    fuck: false
+    make_out: undefined,
+    eat: undefined,
+    fuck: undefined,
 };
 
 /*
