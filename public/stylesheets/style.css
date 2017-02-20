@@ -146,19 +146,19 @@
 #envelope02.envelope {
     transform: rotate(-0.8deg);
 }
-@media(max-width:384px){
+@media(max-width:409px){
     #envelope02.envelope {
-        height: 17em;
+        height: 18em;
     }
 }
 
-@media(min-width:385px){
+@media(min-width:410px){
     #envelope02.envelope {
-        height: 15em;
+        height: 16em;
     }
 }
 
-@media(min-width:420px){
+@media(min-width:444px){
     #envelope02.envelope {
         height: 13em;
     }
