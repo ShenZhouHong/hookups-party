@@ -205,20 +205,28 @@ $('.activity').on('click', function(event) {
 
 /* When the search button is pressed */
 $('#search-button').on('click', function(event) {
-    $('#slide03').fadeIn();
-
-    // Scrolls to the confirmation prompt
-    $('html, body').animate({
-        scrollTop: $("#slide03").offset().top
-    }, 1000);
-
     // Disables all buttons above
     $('.want-gender').addClass('disabled');
     $('.activity').addClass('disabled');
 
+    // Reveals the loading slide
+    $('#slide03').fadeIn();
+
+    // Scrolls to the loading slide
+    $('html, body').animate({
+        scrollTop: $("#slide03").offset().top
+    }, 1000);
+
     // Destroys all slides above
     $('#slide01').delay(600).fadeOut();
     $('#slide02').delay(600).fadeOut();
+
+    // Slowly eases in the loading messages
+    $('#loading02').delay(1000).fadeIn();
+    $('#loading03').delay(1600).fadeIn();
+    $('#loading04').delay(2200).fadeIn();
+
+    // Sends the user preferences over
     initChat(userPreferences);
 });
 
