@@ -171,17 +171,17 @@
 }
 @media(max-width:432px){
     #envelope03.envelope {
-        height: 11em;
+        height: 12.5em;
     }
 }
 @media(min-width:433px){
     #envelope03.envelope {
-        height: 10em;
+        height: 11.5em;
     }
 }
 @media(min-width:991px){
     #envelope03.envelope {
-        height: 11em;
+        height: 12.5em;
     }
 }
 
@@ -224,4 +224,10 @@
     /* Rotation for it to match up and look nice */
     transform: rotate(1deg);
     margin-top: 1em;
+}
+
+/* Reset button for choices */
+#reset-choices {
+    font-size: 0.9em;
+    color: #777;
 }
