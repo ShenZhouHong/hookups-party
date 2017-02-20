@@ -148,7 +148,7 @@ $('.want-gender').on('click', function(event) {
 $('.activity').on('click', function(event) {
 
     // Displays hint that multiple sexual activities can be choosen
-    $('#hints').fadeIn();
+    $('#more-activities-hint').fadeIn();
 
     // Fades in the search prompt after a short delay
     $('#search-prompt').delay(1100).fadeIn();
@@ -196,7 +196,18 @@ $('.activity').on('click', function(event) {
         addOrRemove(userPreferences.activities, "fuck")
     }
 
-    console.log(userPreferences.activities);
+    /*
+        If there are no sexual activities chosen, the search button is disabled,
+        and the user is prompted by a hint
+    */
+    if ($('.activity').hasClass('active') == false ) {
+        $('#search-button').addClass('disabled');
+        $('#missing-activity-hint').fadeIn();
+    }
+    else {
+        $('#search-button').removeClass('disabled');
+        $('#missing-activity-hint').fadeOut();
+    }
 });
 
 /* When the search button is pressed */
@@ -213,8 +224,8 @@ $('#search-button').on('click', function(event) {
     $('.activity').addClass('disabled');
 
     // Destroys all slides above
-    $('#slide01').delay(300).fadeOut();
-    $('#slide02').delay(300).fadeOut();
+    $('#slide01').delay(500).fadeOut();
+    $('#slide02').delay(500).fadeOut();
 
 
     console.log("Final user preferences")

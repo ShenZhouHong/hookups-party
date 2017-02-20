@@ -203,18 +203,25 @@
     display: inline-block;
 }
 
-/*  Styles the hint */
-#hints {
+/*
+    Styling for various hints and popups.
+*/
+.hints {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    font-weight: bold;
+    padding: 0px 10px;
+    word-wrap: normal;
+    color: #ec971f;
+}
+
+#more-activities-hint {
     /* Rotation for it to match up and look nice */
     transform: rotate(-0.8deg);
     margin-top: 1em;
 }
 
-#hints p {
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
-    font-weight: bold;
-    padding: 0px 10px;
-    word-wrap: normal;
-    display: inline-block;
-    color: #ec971f;
+#missing-activity-hint {
+    /* Rotation for it to match up and look nice */
+    transform: rotate(1deg);
+    margin-top: 1em;
 }
