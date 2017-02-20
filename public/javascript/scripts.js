@@ -89,7 +89,7 @@ $('.is-looking-for').on('click', function(event) {
     $("#slide02").fadeIn();
 
     // Scrolls to the next prompt only once
-    if (userPreferences.romance == undefined) {
+    if (userPreferences.romance === undefined) {
         // Scrolls to the next prompt
         $('html, body').animate({
             scrollTop: $("#slide02").offset().top
@@ -174,33 +174,33 @@ $('.activity').on('click', function(event) {
     */
     // Making out
     if (this.id == 'make_out' && ($(this)).hasClass('active')) {
-        addOrRemove(userPreferences.activities, "make_out")
+        addOrRemove(userPreferences.activities, "make_out");
     }
-    else if (this.id == 'make_out' && ($(this)).hasClass('active') == false) {
-        addOrRemove(userPreferences.activities, "make_out")
+    else if (this.id == 'make_out' && ! ($(this)).hasClass('active')) {
+        addOrRemove(userPreferences.activities, "make_out");
     }
 
     // Eating out
     if (this.id == 'eat' && ($(this)).hasClass('active')) {
-        addOrRemove(userPreferences.activities, "eat")
+        addOrRemove(userPreferences.activities, "eat");
     }
-    else if (this.id == 'eat' && ($(this)).hasClass('active') == false) {
-        addOrRemove(userPreferences.activities, "eat")
+    else if (this.id == 'eat' && !($(this)).hasClass('active')) {
+        addOrRemove(userPreferences.activities, "eat");
     }
 
     // Fucking
     if (this.id == 'fuck' && ($(this)).hasClass('active')) {
-        addOrRemove(userPreferences.activities, "fuck")
+        addOrRemove(userPreferences.activities, "fuck");
     }
-    else if (this.id == 'fuck' && ($(this)).hasClass('active') == false) {
-        addOrRemove(userPreferences.activities, "fuck")
+    else if (this.id == 'fuck' && ! ($(this)).hasClass('active')) {
+        addOrRemove(userPreferences.activities, "fuck");
     }
 
     /*
         If there are no sexual activities chosen, the search button is disabled,
         and the user is prompted by a hint
     */
-    if ($('.activity').hasClass('active') == false ) {
+    if (! $('.activity').hasClass('active')) {
         $('#search-button').addClass('disabled');
         $('#missing-activity-hint').fadeIn();
     }
@@ -226,8 +226,6 @@ $('#search-button').on('click', function(event) {
     // Destroys all slides above
     $('#slide01').delay(600).fadeOut();
     $('#slide02').delay(600).fadeOut();
-    console.log("Final user preferences")
-    console.log(userPreferences)
     initChat(userPreferences);
 });
 
@@ -246,4 +244,4 @@ var DisplayChat = function() {
     $('html, body').animate({
         scrollTop: $("#chatrow").offset().top
     }, 1000);
-}
+};

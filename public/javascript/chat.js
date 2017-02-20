@@ -42,5 +42,5 @@
         socket.on("name", function (msg) {
             socket.name = msg;
         });
-    }
+    };
   })();
