@@ -95,26 +95,6 @@ module.exports = function(app) {
         waiting.push(obj);
     }
 
-    /*
-        returns true if the preferences are compatible, false otherwise
-    */
-    function comparePreferences(first, second) {
-        var t = _.clone(first);
-        var temp;
-        temp = t.selfGender;
-        t.selfGender = t.partnerGender;
-        t.partnerGender = temp;
-        //console.log("first", first);
-        //console.log("second", second);
-        //console.log("t", t);
-        return _.isEqual(t, second);
-
-        //return first.romance === second.romance &&
-        //first.selfGender === second.partnerGender &&
-        //second.selfGender === first.partnerGender &&
-        //first.activities ===
-
-    }
 
     /*
         returns, if exists, a socket from the waiting list which has a
@@ -135,6 +115,20 @@ module.exports = function(app) {
             }
         }
         return companion;
+    }
+    /*
+        returns true if the preferences are compatible, false otherwise
+    */
+    function comparePreferences (first, second) {
+        var romance, gender, activity;
+        gender = (first.partnerGender === second.selfGender ||
+                   first.partnerGender === any) &&
+                  (second.partnerGender === first.selfGender ||
+                   second.partnerGender === any);
+        romance = (first.romance === second.romance);
+        activity = (_.intersection(first.activities, second.activities).length);
+        return (romance && gender && activity );
+        //return _.isEqual(t, second);
     }
 
     /*
