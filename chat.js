@@ -56,6 +56,21 @@ module.exports = function(app) {
         second.emit("name", second.name);
         first.join(room);
         second.join(room);
+        var flag1 = false, flag2 = false;
+        var firsti, secondi;
+        for (var i = 0; i < waiting.length && !flag1 && !flag2; i++) {
+            if (waiting[i].socket === first) {
+                firsti = i;
+                flag1 = true;
+            } else if (waiting[i].socket === second) {
+                secondi = i;
+                flag2 = true;
+            }
+        }
+        if(firsti !== undefined)
+            waiting.splice(firsti, 1);
+        if(secondi !== undefined)
+            waiting.splice(secondi, 1);
     }
 
     function addToWaitingRoom(socket, userPreferences) {
@@ -89,33 +104,14 @@ module.exports = function(app) {
     function findMatch(socket, userPreferences) {
         console.log("findMatch");
         var companion;
-        var socketIndex;
-        var lastVisitedIndex = 0;
         // "waiting" is a LIFO, so the person that gets selected is the one that
         // has waited the most
-        console.log(waiting.length);
         for (var i = 0; i < waiting.length; i++) {
             var cur = waiting[i];
-            if (cur.socket === socket) {
-                socketIndex = i;
-                continue;
-            }
+            if (cur.socket === socket) continue;
             if (comparePreferences(userPreferences, cur.userPreferences)) {
-                console.log("found userPreferences match");
                 companion = cur.socket;
-                lastVisitedIndex = i;
-            }
-        }
-        if (companion !== undefined) {
-            if (socketIndex !== undefined) {
-                waiting.splice(socketIndex, 1);
-            } else {
-                for (var j = 0; j < waiting.length; j++) {
-                    if (waiting[j].socket === socket) {
-                        waiting.splice(j, 1);
-                        break;
-                    }
-                }
+                break;
             }
         }
         return companion;
@@ -146,7 +142,7 @@ module.exports = function(app) {
             //console.log(waiting);
             var companion = findMatch(socket, msg);
             // if there is no companion now, the sockets just gets added to
-            if (companion)
+            if (companion !== undefined)
                 mate(socket, companion);
         });
     });
