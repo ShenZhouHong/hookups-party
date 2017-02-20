@@ -212,7 +212,7 @@ $('.activity').on('click', function(event) {
     $('#hints').fadeIn();
 
     // Fades in the search prompt after a short delay
-    $('#search-prompt').delay(1600).fadeIn();
+    $('#search-prompt').delay(1200).fadeIn();
 
 
     /*
@@ -265,15 +265,15 @@ $('#search-button').on('click', function(event) {
     // Scrolls to the confirmation prompt
     $('html, body').animate({
         scrollTop: $("#confirmation").offset().top
-    }, 1000);
+    }, 500);
 
     // Disables all buttons above
     $('.want-gender').addClass('disabled');
     $('.activity').addClass('disabled');
 
     // Destroys all prompts above
-    $('#landing-page').fadeOut();
-    $('#preferences').fadeOut();
+    $('#landing-page').delay(100).fadeOut();
+    $('#preferences').delay(100).fadeOut();
 
 
     console.log("Final user preferences")

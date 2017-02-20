@@ -289,12 +289,6 @@
 #search-prompt {
     margin-top: 2em;
 }
-
-#confirmation {
-    height: 100vh;
-    padding-top: 5em;
-}
-
 /* Final envelope media-query wrapping */
 @media(max-width:432px){
     #search-envelope {
@@ -331,4 +325,9 @@
         border-style:dashed;
         border-color:#db0000;
     }
+}
+
+#confirmation {
+    height: 100vh;
+    padding-top: 5em;
 }
