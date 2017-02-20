@@ -1,20 +1,72 @@
-<!-- Main content container -->
-<div class="container-fluid">
-    <div class="row">
+<!-- Main content div -->
+<div class="container-fluid" id="background-holder">
 
-        <!-- Center items with columns -->
-        <div class="col-sm-6 col-sm-offset-3">
-            <h1 class="text-center">Information about us</h1>
-            <h2 id="about">Who are you? </h2>
+    <!--
+        Webapp is organized into slides. Each slide is a discrete container that
+        holds everything for that slide. Containers are usually set to the max
+        height of the viewpoint (e.g. height: 100vh).
 
-            <h2 id="FAQ">Frequently Asked Questions<h2>
-            <h3>Why are you doing this?</h3>
-            <h3>Is this for real?</h3>
-            <h3>I'm confused!</h3>
-            <h3>I'm offended!</h3>
+        The first slide is visible as it is the landing page, however subsequent
+        slides are collapsed. They are shown interactively
+        through javascript
+    -->
 
-            <h2 id="contact">Contact us</h2>
+    <!-- Primary information slide -->
+    <div class="slide" id="slide01">
+        <!-- First row displays the Hookups @ UWC Changshu China logo -->
+        <div class="row">
+            <div class="col-xs-16 text-center" id="logo-container">
+                <a href="/">
+                    <h1 class="subtitle">About <span id="main-title">Hookups💋</span></h1>
+                </a>
+            </div>
         </div>
-
+        <!-- First envelope -->
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 envelope textbox" id="envelope01">
+                <h2 id="about">What is this? </h2>
+                <p>
+                    <span class="logo-inline">Hookups💋</span>
+                    is a simple web app developed for the purpose of hooking up.
+                    Whether you have never hooked up before, or already have
+                    multiple partners,
+                    <span class="logo-inline">Hookups💋</span>
+                    is always here to help make those new connections.
+                </p>
+                <p>
+                    Wanna experiment? Try something new? Or just do what you know
+                    you like and you're comfortable with? Whatever the type of
+                    encounter,
+                    <span class="logo-inline">Hookups💋</span>
+                    can set you up. Simply select the options you want, and you
+                    will automatically be matched with a partner of the same
+                    preferences.
+                </p>
+            </div>
+        </div>
     </div>
+
+    <!-- Frequently asked questions -->
+    <div class="slide" id="slide02">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 envelope textbox" id="envelope02">
+                <h2 id="FAQ">Frequently Asked Questions<h2>
+                <h3>Why are you doing this?</h3>
+                <h3>Is this for real?</h3>
+                <h3 id="confused">I'm confused!</h3>
+                <h3 id="offended">I'm offended!</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact us -->
+    <div class="slide" id="slide03">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 envelope textbox" id="envelope03">
+                <h2 id="contact">Contact us</h2>
+            </div>
+        </div>
+    </div>
+
+
 </div>
