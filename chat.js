@@ -1,5 +1,6 @@
 var adjectives, animals;
 var _ = require("underscore");
+var xssFilters = require('xss-filters');
 
 function loadNames() {
     var animals = [], adjectives = [];
@@ -154,11 +155,12 @@ module.exports = function(app) {
     }
 
     io.on('connection', function(socket){
-        socket.on('disconnect', function(){
+        socket.on('disconnect', function(msg){
             // TODO handle disconnection code
         });
 
         socket.on('chat message', function(msg){
+            msg.text = xssFilters.inHTMLData(msg.text);
             msg.name = socket.name;
             sendMessage(socket, msg);
         });
