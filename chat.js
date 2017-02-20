@@ -39,7 +39,7 @@ module.exports = function(app) {
 
     function generateRoomName () {
         // TODO implement edge case hash checking
-        return module.generateName();
+        return module.generateName(module.adjectives, module.animals);
     }
 
     /*
@@ -47,10 +47,10 @@ module.exports = function(app) {
     */
     function mate(first, second) {
         var room = generateRoomName();
-        first.name = module.generateName();
-        second.name = module.generateName();
+        first.name = module.generateName(module.adjectives, module.animals);
+        second.name = module.generateName(module.adjectives, module.animals);
         while(second.name === first.name)
-            second.name = module.generateName();
+            second.name = module.generateName(module.adjectives, module.animals);
         first.emit("name", first.name);
         second.emit("name", second.name);
         first.join(room);
@@ -143,18 +143,24 @@ module.exports = function(app) {
         });
     });
 
-    module.generateName = function(){
-        var adjectives = module.adjectives;
-        var animals = module.animals;
+    /*
+        adjectives, animals arguments are arrays of strings
+        returns a String of the form AdjectiveAnimal
+    */
+    module.generateName = function(adjectives, animals){
         var first_adjective, second_adjective, animal;
         var rand;
-        first_adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
-        second_adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+        first_adjective =
+            adjectives[Math.floor(Math.random() * adjectives.length)];
+        second_adjective =
+            adjectives[Math.floor(Math.random() * adjectives.length)];
         animal = animals[Math.floor(Math.random() * adjectives.length)];
 
-        first_adjective = first_adjective.charAt(0).toUpperCase() + first_adjective.slice(1);
-        second_adjective = second_adjective.charAt(0).toUpperCase() + second_adjective.slice(1);
-        animal = animal.charAt(0).toUpperCase() + animal.slice(1);
+        first_adjective =
+            first_adjective[0].toUpperCase() + first_adjective.slice(1);
+        second_adjective =
+            second_adjective[0].toUpperCase() + second_adjective.slice(1);
+        animal = animal[0].toUpperCase() + animal.slice(1);
 
         return first_adjective + animal;
     };
