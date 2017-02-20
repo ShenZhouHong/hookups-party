@@ -67,6 +67,8 @@ module.exports = function(app) {
             second.name = module.generateName(module.adjectives, module.animals);
         first.emit("name", first.name);
         second.emit("name", second.name);
+        first.emit("mate", second.name);
+        second.emit("mate", first.name);
         first.join(room);
         second.join(room);
         var flag1 = false, flag2 = false;
