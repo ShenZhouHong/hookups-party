@@ -1,4 +1,4 @@
-(function() {
+(function () {
     var userPreferences = {
         selfGender: "male",
         romance: true,
@@ -11,12 +11,12 @@
     }
 
 
-    window.initChat = function() {
+    window.initChat = function(userPreferences) {
         var socket = io();
         socket.emit("login");
         socket.emit("remate", userPreferences);
 
-        $("#send-form").submit(function() {
+        $("#send-form").submit(function () {
             var msg = {};
             msg.text = $('.input-sm').val();
             sendMessage(socket, msg);
@@ -39,8 +39,8 @@
             $("#chat-messages").append(elem);
         });
 
-        socket.on("name", function(msg) {
+        socket.on("name", function (msg) {
             socket.name = msg;
         });
     };
-})();
+  })();
