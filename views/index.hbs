@@ -150,8 +150,10 @@
     <!-- Beginning of third slide, for confirmation -->
     <div class="slide collapse" id="slide03">
 
-        <!-- placeholder for matchmaking and chat functionality -->
-        <div class="row" id="matchbox">
+        <!-- Loading screen when waiting for a match to be made-->
+        <div class="row" id="loading-screen">
+
+            <!-- Column centers the loading messages -->
             <div class="col-sm-6 col-sm-offset-3 text-center">
                 <div class="row" id="loading01">
                     <h2 class="subtitle loading">
@@ -172,6 +174,7 @@
                     </h2>
                 </div>
             </div>
+
         </div>
 
         <!-- Chat message well where the messages come from -->
@@ -187,7 +190,7 @@
 
             <!-- Actual form used to center text -->
             <form id="send-form" class="input-group" autocomplete="off">
-                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." maxlength="128"/>
                 <span class="input-group-btn">
                     <button action="submit" class="btn btn-warning btn-sm" id="send">Send</button>
                 </span>

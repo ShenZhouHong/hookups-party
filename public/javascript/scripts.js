@@ -232,7 +232,7 @@ $('#search-button').on('click', function(event) {
 
 var DisplayChat = function() {
     //destrows the matchbox
-    $('#matchbox').fadeOut();
+    $('#loading-screen').fadeOut();
 
     // Finally, paints the chatbar at the bottom of the screen
     $('#chatrow').fadeIn();
