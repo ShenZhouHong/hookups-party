@@ -190,16 +190,21 @@
     Chat styling
 */
 #slide03 {
-    height:94.5vh;
+    height:94vh;
+}
+
+#chat-container {
+    height: 20em;
 }
 
 #chatrow div {
-    height: 5.5vh;
+    height: 6vh;
 }
 
 #send-form {
     margin: 0 1em;
 }
+
 
 /*
     Minimalistic footer styling. Essentially just centers the text and makes
