@@ -148,7 +148,7 @@
     </div>
 
     <!-- Beginning of third slide, for confirmation -->
-    <div class="container slide collapse" id="slide03">
+    <div class="slide collapse" id="slide03">
 
         <!-- placeholder for matchmaking and chat functionality -->
         <div class="row">
@@ -158,5 +158,25 @@
             </div>
         </div>
 
+        <!-- Chat message well where the messages come from -->
+        <div class="chat-container well" id="chat-container" style="margin-top: 2em;">
+            <ul id="chat-messages">
+                <li> Welcome to the chat </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Chat bar. Text is entered here. Sticks to the bottom of screen -->
+    <div class="collapse" id="chatrow">
+        <div class="text-center">
+
+            <!-- Actual form used to center text -->
+            <form id="send-form" class="input-group" autocomplete="off">
+                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                <span class="input-group-btn">
+                    <button action="submit" class="btn btn-warning btn-sm" id="send">Send</button>
+                </span>
+            </form>
+
+        </div>
     </div>
 </div>

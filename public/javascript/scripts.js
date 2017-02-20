@@ -224,8 +224,11 @@ $('#search-button').on('click', function(event) {
     $('.activity').addClass('disabled');
 
     // Destroys all slides above
-    $('#slide01').delay(500).fadeOut();
-    $('#slide02').delay(500).fadeOut();
+    $('#slide01').delay(600).fadeOut();
+    $('#slide02').delay(600).fadeOut();
+
+    // Finally, paints the chatbar at the bottom of the screen
+    $('#chatrow').fadeIn();
 
 
     console.log("Final user preferences")

@@ -3,6 +3,7 @@
     where all the slides live on. Every element on the Webapp is in a container,
     which is a direct child of the background-holder container-fluid
 */
+
 #background-holder.container-fluid {
     /* Begin background-image settings */
     background: url(/media/background.jpg) no-repeat center center fixed;
@@ -184,6 +185,26 @@
         height: 12.5em;
     }
 }
+
+/*
+    Chat styling
+*/
+#slide03 {
+    height:94vh;
+}
+
+#chat-container {
+    height: 20em;
+}
+
+#chatrow div {
+    height: 6vh;
+}
+
+#send-form {
+    margin: 0 1em;
+}
+
 
 /*
     Minimalistic footer styling. Essentially just centers the text and makes
