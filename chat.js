@@ -42,6 +42,7 @@ module.exports = function(app) {
         returns a new unique room name
         (distinct from any other *currently* existing room name: old and
         deleted names can be reused)
+        automatically adds the reeturned name to the used names
     */
     function generateRoomName () {
         var roomName = module.generateName(module.adjectives, module.animals);
@@ -54,6 +55,8 @@ module.exports = function(app) {
 
     /*
         Takes care of everything necessary to let these sockets chat between them
+        i.e. generates names, sets names, emits names, removes sockets from
+        waiting list, creates a room and makes the sockets join the room
     */
     function mate(first, second) {
         var room = generateRoomName();
@@ -76,12 +79,17 @@ module.exports = function(app) {
                 flag2 = true;
             }
         }
+        // TODO check, this might not actually work
         if(firsti !== undefined)
             waiting.splice(firsti, 1);
         if(secondi !== undefined)
             waiting.splice(secondi, 1);
     }
 
+    /*
+        self-explanatory: just adds the socket and its preferences to the
+        "waiting" list
+    */
     function addToWaitingRoom(socket, userPreferences) {
         // TODO make sure the socket is not already waiting
         var obj = {
@@ -91,6 +99,9 @@ module.exports = function(app) {
         waiting.push(obj);
     }
 
+    /*
+        returns true if the preferences are compatible, false otherwise
+    */
     function comparePreferences(first, second) {
         var t = first;
         var temp;
@@ -109,6 +120,12 @@ module.exports = function(app) {
 
     }
 
+    /*
+        returns, if exists, a socket from the waiting list which has a
+        "userPreferences" object matching the one given
+        such a socket is always the longest-waiting one (lower in the list)
+        DOES NOT DELETE THE ELEMETS FROM THE LIST
+    */
     function findMatch(socket, userPreferences) {
         var companion;
         // "waiting" is a LIFO, so the person that gets selected is the one that
@@ -124,6 +141,9 @@ module.exports = function(app) {
         return companion;
     }
 
+    /*
+        leaves all the rooms the socket is in
+    */
     function leaveRoom(socket) {
         // TODO finish this
         for (var i = 0; i < socket.rooms.length; i++){
