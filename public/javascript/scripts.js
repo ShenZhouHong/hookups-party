@@ -74,7 +74,7 @@ $('.is-gender').on('click', function(event) {
     if (userPreferences.selfGender == undefined) {
         // Displays the next prompt using FadeToggle (will run only once)
         $('#self-gender-comma').fadeToggle();
-        $("#looking-for").fadeToggle();
+        $("#romance-selection").fadeToggle();
     }
     else {
         // Otherwise, merely reassure user with comforting alert dialogue
