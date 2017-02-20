@@ -197,6 +197,10 @@
     height: 20em;
 }
 
+#chat-messages li {
+    list-style: none;
+}
+
 #chatrow div {
     height: 6vh;
 }
@@ -204,7 +208,6 @@
 #send-form {
     margin: 0 1em;
 }
-
 
 /*
     Minimalistic footer styling. Essentially just centers the text and makes
