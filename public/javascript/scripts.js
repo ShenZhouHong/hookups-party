@@ -230,8 +230,19 @@ $('#search-button').on('click', function(event) {
     console.log(userPreferences)
 });
 
+var DisplayChat = function() {
+    //destrows the matchbox
+    $('#matchbox').fadeOut();
 
     // Finally, paints the chatbar at the bottom of the screen
-    $('.slide03').css("height", "94vh")
     $('#chatrow').fadeIn();
     $('#chat-container').fadeIn();
+
+    // Resizes the container dynamically to fit #chatrow
+    $('#slide03').css("height", "94vh");
+
+    // Scrolls to the bottom
+    $('html, body').animate({
+        scrollTop: $("#chatrow").offset().top
+    }, 1000);
+}
