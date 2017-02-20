@@ -218,6 +218,12 @@ $('.want-gender').on('click', function(event) {
 */
 $('.activity').on('click', function(event) {
 
+    // Displays hint that multiple sexual activities can be choosen
+    if ($('#hints').hasClass('prompt-hidden')) {
+        $('#hints').fadeToggle();
+        $('#hints').removeClass('prompt-hidden');
+    }
+
     /*
         Since sexual activities are not multually exclusive, checkbox-styled
         functionality is implemented here for the buttons.

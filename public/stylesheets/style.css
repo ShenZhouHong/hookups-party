@@ -246,6 +246,22 @@
     padding-top: 5em;
 }
 
+
+#hints {
+    /* Rotation for it to match up and look nice */
+    transform: rotate(-0.8deg);
+    margin-top: 1em;
+}
+
+#hints p {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    font-weight: bold;
+    padding: 0px 10px;
+    word-wrap: normal;
+    display: inline-block;
+    color: #ec971f;
+}
+
 /* Second envelope has slightly different breaking characteristics, so we define
    it again here */
 @media(max-width:384px){
