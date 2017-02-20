@@ -55,6 +55,18 @@ module.exports = function(app) {
         return roomName;
     }
 
+    function mateSocket(socket, mate, room) {
+        socket.name = module.generateName(module.adjectives, module.animals);
+        if (mate.name !== undefined) {
+            while (socket.name === mate.name) {
+                socket.name = module.generateName(module.adjectives, module.animals);
+            }
+        }
+        socket.emit("name", socket.name);
+        socket.emit("mate", socket.name);
+        socket.join(room);
+    }
+
     /*
         Takes care of everything necessary to let these sockets chat between them
         i.e. generates names, sets names, emits names, removes sockets from
@@ -62,33 +74,12 @@ module.exports = function(app) {
     */
     function mate(first, second) {
         var room = generateRoomName();
-        first.name = module.generateName(module.adjectives, module.animals);
-        second.name = module.generateName(module.adjectives, module.animals);
-        while (second.name === first.name)
-            second.name = module.generateName(module.adjectives, module.animals);
-        first.emit("name", first.name);
-        second.emit("name", second.name);
-        first.emit("mate", second.name);
-        second.emit("mate", first.name);
-        first.join(room);
-        second.join(room);
-        var flag1 = false,
-            flag2 = false;
-        var firsti, secondi;
-        for (var i = 0; i < waiting.length && !flag1 && !flag2; i++) {
-            if (waiting[i].socket === first) {
-                firsti = i;
-                flag1 = true;
-            } else if (waiting[i].socket === second) {
-                secondi = i;
-                flag2 = true;
-            }
-        }
-        // TODO check, this might not actually work
-        if (firsti !== undefined)
-            waiting.splice(firsti, 1);
-        if (secondi !== undefined)
-            waiting.splice(secondi, 1);
+        mateSocket(first, second, room);
+        mateSocket(second, first, room);
+
+        waiting = _.filter(waiting, function(cur) {
+            return cur.socket != first && cur.socket != second;
+        });
     }
 
     /*
@@ -174,8 +165,9 @@ module.exports = function(app) {
             //console.log(waiting);
             var companion = findMatch(socket, msg);
             // if there is no companion now, the sockets just gets added to
-            if (companion !== undefined)
+            if (companion !== undefined) {
                 mate(socket, companion);
+            }
         });
     });
 
