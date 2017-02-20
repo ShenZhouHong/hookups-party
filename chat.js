@@ -46,7 +46,6 @@ module.exports = function(app) {
         Takes care of everything necessary to let these sockets chat between them
     */
     function mate(first, second) {
-        console.log("mate");
         var room = generateRoomName();
         first.name = module.generateName();
         second.name = module.generateName();
@@ -74,7 +73,6 @@ module.exports = function(app) {
     }
 
     function addToWaitingRoom(socket, userPreferences) {
-        console.log("addToWaitingRoom");
         // TODO make sure the socket is not already waiting
         var obj = {
             socket: socket,
@@ -102,7 +100,6 @@ module.exports = function(app) {
     }
 
     function findMatch(socket, userPreferences) {
-        console.log("findMatch");
         var companion;
         // "waiting" is a LIFO, so the person that gets selected is the one that
         // has waited the most
@@ -128,11 +125,10 @@ module.exports = function(app) {
 
     io.on('connection', function(socket){
         socket.on('disconnect', function(){
-            console.log('user disconnected');
+            // TODO handle disconnection code
         });
 
         socket.on('chat message', function(msg){
-            console.log("msg", msg)
             msg.name = socket.name;
             sendMessage(socket, msg);
         });
