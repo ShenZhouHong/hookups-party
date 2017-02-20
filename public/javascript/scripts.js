@@ -100,8 +100,6 @@ $('.is-gender').on('click', function(event) {
     if (this.id == 'other') {
         userPreferences.selfGender = 'other';
     }
-
-    console.log(userPreferences)
 });
 
 /*
@@ -144,8 +142,6 @@ $('.is-looking-for').on('click', function(event) {
     if (this.id == 'some-fun') {
         userPreferences.romance = false;
     }
-
-    console.log(userPreferences)
 });
 
 /*
@@ -161,10 +157,6 @@ $('.want-gender').on('click', function(event) {
         // Displays the next prompt using FadeToggle (will run only once)
         $('#want-gender-comma').fadeToggle(); // Makes grammatical sentence :P
         $('#sexual-preference').fadeToggle();
-
-        // Also displays the final confirmation prompt, because I have no where
-        // to put this. TODO: Move to somewhere else that makes sense!
-        $('#confirmation').fadeToggle();
     }
     else {
         // Otherwise, merely reassure user with comforting alert dialogue
@@ -208,8 +200,6 @@ $('.want-gender').on('click', function(event) {
         $('.is-gender').removeClass('disabled');
         $('.is-looking-for').removeClass('disabled');
     }
-
-    console.log(userPreferences)
 });
 
 /*
@@ -219,10 +209,11 @@ $('.want-gender').on('click', function(event) {
 $('.activity').on('click', function(event) {
 
     // Displays hint that multiple sexual activities can be choosen
-    if ($('#hints').hasClass('prompt-hidden')) {
-        $('#hints').fadeToggle();
-        $('#hints').removeClass('prompt-hidden');
-    }
+    $('#hints').fadeIn();
+
+    // Fades in the search prompt after a short delay
+    $('#search-prompt').delay(1600).fadeIn();
+
 
     /*
         Since sexual activities are not multually exclusive, checkbox-styled
@@ -265,6 +256,26 @@ $('.activity').on('click', function(event) {
     else if (this.id == 'make_out' && ($(this)).hasClass('active') == false) {
         userPreferences.fuck = false;
     }
+});
 
+/* When the search button is pressed */
+$('#search-button').on('click', function(event) {
+    $('#confirmation').fadeIn();
+
+    // Scrolls to the confirmation prompt
+    $('html, body').animate({
+        scrollTop: $("#confirmation").offset().top
+    }, 1000);
+
+    // Disables all buttons above
+    $('.want-gender').addClass('disabled');
+    $('.activity').addClass('disabled');
+
+    // Destroys all prompts above
+    $('#landing-page').fadeOut();
+    $('#preferences').fadeOut();
+
+
+    console.log("Final user preferences")
     console.log(userPreferences)
 });
