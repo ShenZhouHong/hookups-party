@@ -43,52 +43,15 @@ var toggleButton = function(element, group) {
 };
 
 /*
-    Generic bootstrap alert thrower. Dumps HTML for a dismissible alert inside
-    the specified location, sets the type (success, warning, etc.) and message
-*/
-var throwAlert = function(location, type, message) {
-    // I have purposely disabled this function
-    return true;
-
-    // WARNING: the location will be cleared beforehand!
-    $(location).val('');
-
-    $(location).html(`
-        <div class="alert alert-${type} alert-dismissible" role="alert" id="continue-message">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>${message}
-        </div>
-    `);
-};
-
-/*
     Implements user gender prompt functionality. Scrolls down to the next page
     on first selection, otherwise assures the user their choice is upddated.
 */
 $('.is-gender').on('click', function(event) {
-
     toggleButton($(this), '.is-gender');
 
     // Toggles the visibility of the next prompt
-    if (userPreferences.selfGender == undefined) {
-        // Displays the next prompt using FadeToggle (will run only once)
-        $('#self-gender-comma').fadeToggle();
-        $("#romance-selection").fadeToggle();
-    }
-    else {
-        // Otherwise, merely reassure user with comforting alert dialogue
-        throwAlert(
-            "#is-confirm-placeholder",
-            "success",
-            "Your gender has been changed <span>( ͡° ͜ʖ ͡°)</span>"
-        );
-
-        // Message fades away after a second
-        $("#continue-message").fadeTo(1000, 200).slideUp(200, function(){
-            $("#continue-message").slideUp(200);
-        });
-    }
+    $('#self-gender-comma').fadeIn();
+    $("#romance-selection").fadeIn();
 
     // Finally, update userPreferences with the new values
     if (this.id == 'man') {
@@ -107,32 +70,18 @@ $('.is-gender').on('click', function(event) {
     or just some fun.
 */
 $('.is-looking-for').on('click', function(event) {
-
     toggleButton($(this), '.is-looking-for');
 
     // Toggles the visibility of the next prompt
-    if (userPreferences.romance == undefined) {
-        // Displays the next prompt using FadeToggle (will run only once)
-        $('#looking-for-comma').fadeToggle();
-        $("#preferences").fadeToggle();
+    $('#looking-for-comma').fadeIn();
+    $("#preferences").fadeIn();
 
+    // Scrolls to the next prompt only once
+    if (userPreferences.romance == undefined) {
         // Scrolls to the next prompt
         $('html, body').animate({
             scrollTop: $("#preferences").offset().top
         }, 1000);
-    }
-    else {
-        // Otherwise, merely reassure user with comforting alert dialogue
-        throwAlert(
-            "#is-confirm-placeholder",
-            "success",
-            "Your romance setting has been changed"
-        );
-
-        // Message fades away after a second
-        $("#continue-message").fadeTo(1000, 200).slideUp(200, function(){
-            $("#continue-message").slideUp(200);
-        });
     }
 
     // Finally, update userPreferences with the new values
@@ -149,28 +98,11 @@ $('.is-looking-for').on('click', function(event) {
     first selection, otherwise throws an reassuring alert for the user
 */
 $('.want-gender').on('click', function(event) {
-
     toggleButton($(this), '.want-gender');
 
-    // Toggles the visibility of the next section and scrolls ONLY if first time
-    if (userPreferences.partnerGender == undefined) {
-        // Displays the next prompt using FadeToggle (will run only once)
-        $('#want-gender-comma').fadeToggle(); // Makes grammatical sentence :P
-        $('#sexual-preference').fadeToggle();
-    }
-    else {
-        // Otherwise, merely reassure user with comforting alert dialogue
-        throwAlert(
-            "want-confirm-placeholder",
-            "success",
-            "Your sexual preferences has been changed <span>( ͡° ͜ʖ ͡°)</span>"
-        );
-
-        // Message fades away after a second
-        $("#continue-message").fadeTo(1000, 200).slideUp(200, function(){
-            $("#continue-message").slideUp(200);
-        });
-    }
+    // Displays the next prompt using FadeToggle (will run only once)
+    $('#want-gender-comma').fadeIn(); // Makes grammatical sentence :P
+    $('#sexual-preference').fadeIn();
 
     // Finally, update userPreferences with the new values
     if (this.id == 'male') {
@@ -192,14 +124,9 @@ $('.want-gender').on('click', function(event) {
     }
 
     // If any buttons are pressed here, previous buttons will be disabled
-    if ($('.want-gender').hasClass('active')) {
-        $('.is-gender').addClass('disabled');
-        $('.is-looking-for').addClass('disabled');
-    }
-    else if ($('.want-gender').hasClass('active') == false) {
-        $('.is-gender').removeClass('disabled');
-        $('.is-looking-for').removeClass('disabled');
-    }
+    $('.is-gender').addClass('disabled');
+    $('.is-looking-for').addClass('disabled');
+
 });
 
 /*
@@ -212,7 +139,7 @@ $('.activity').on('click', function(event) {
     $('#hints').fadeIn();
 
     // Fades in the search prompt after a short delay
-    $('#search-prompt').delay(1200).fadeIn();
+    $('#search-prompt').delay(1100).fadeIn();
 
 
     /*
@@ -272,8 +199,8 @@ $('#search-button').on('click', function(event) {
     $('.activity').addClass('disabled');
 
     // Destroys all prompts above
-    $('#landing-page').delay(100).fadeOut();
-    $('#preferences').delay(100).fadeOut();
+    $('#landing-page').delay(300).fadeOut();
+    $('#preferences').delay(300).fadeOut();
 
 
     console.log("Final user preferences")
