@@ -1,9 +1,9 @@
-#landing-page {
-    background-color: #eee;
-    height: 100vh;
-    padding-left: 2em;
-    padding-right: 2em;
-
+/*
+    The #background-holder ID is used only once, and serves as the container
+    where all the slides live on. Every element on the Webapp is in a container,
+    which is a direct child of the background-holder container-fluid
+*/
+#background-holder.container-fluid {
     /* Begin background-image settings */
     background: url(/media/background.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -12,16 +12,27 @@
     background-size: cover;
 }
 
-#logo-box {
-    padding-top: 3em;
-    padding-bottom: 3em;
+/*  Slide class is used to standardize slide appearance, and set max viewport */
+.container-fluid .slide {
+    height: 100vh;
+    padding-top: 5em;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
+/*
+    The #main-title, .subtitle, and #logo-container are all styled in accordence
+    with the device's display width. Using media queries, this allows the logo
+    to break and resize appropriately, making it responsive.
+*/
+/* Begin with defining common styles */
+#slide01 #logo-container {
+    padding-bottom: 4em;
+}
 .subtitle {
    font-family: 'DancingScriptBold';
    font-weight: normal;
    font-style: normal;
-   font-size: 3em;
    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
    color: #FFF;
 }
@@ -30,34 +41,161 @@
     font-family: 'StratoLinked';
     font-weight: normal;
     font-style: normal;
-    font-size: 7em;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
     color: #db0000;
     margin-top: 0.5em;
     margin-bottom: 0.4em;
 }
 
-#envelope {
+/* Change text size dynamically using css media queries */
+@media(max-width:767px){
+    .subtitle {
+       font-size: 2em;
+    }
+    #main-title {
+        font-size: 3.5em;
+    }
+    .prompt-text {
+        font-size: 150%;
+    }
+}
+@media(min-width:768px){
+    .subtitle {
+       font-size: 3em;
+    }
+    #main-title {
+        font-size: 5em;
+    }
+    .prompt-text {
+        font-size: 150%;
+    }
+}
+@media(min-width:992px){
+    .subtitle {
+       font-size: 3em;
+    }
+    #main-title {
+        font-size: 7em;
+    }
+    .prompt-text {
+        font-size: 190%;
+    }
+}
+@media(min-width:1200px){
+    .subtitle {
+       font-size: 3em;
+    }
+    #main-title {
+        font-size: 7em;
+    }
+    .prompt-text {
+        font-size: 190%;
+    }
+}
+
+/*
+    The .envelope class is used to create the style and background for the cards
+    that display text and prompts to the user. It's common attributes are first
+    defined here, then it's height is dynamically given through media queries.
+*/
+/*  Begin with defining common styles */
+.envelope {
     background-color: #FFF;
-    padding:1em;
-    height: 12em;
-
-    /* Rotation and transforms to make it look like an envelope */
-    transform: rotate(1deg);
-
     border:2px dashed #db0000;
     border-width:2px;
     border-style:dashed;
     border-color:#db0000;
 }
 
-#infolinks {
-    /* Rotation for it to match up and look nice */
+/*  #envelope01 breaking and rotation styles */
+#envelope01.envelope {
+    transform: rotate(1deg);
+}
+@media(max-width:355px){
+    #envelope01.envelope {
+        height: 18em;
+    }
+}
+@media(min-width:356px){
+    #envelope01.envelope {
+        height: 15em;
+    }
+}
+@media(min-width:479px){
+    #envelope01.envelope {
+        height: 13em;
+    }
+}
+@media(min-width:538px){
+    #envelope01.envelope {
+        height: 10em;
+    }
+}
+@media(min-width:992px){
+    #envelope01.envelope {
+        height: 10em;
+    }
+}
+@media(min-width:1200px){
+    #envelope01.envelope {
+        height: 10em;
+    }
+}
+
+/* #envelope02 breaking and rotation styles */
+#envelope02.envelope {
+    transform: rotate(-0.8deg);
+}
+@media(max-width:409px){
+    #envelope02.envelope {
+        height: 18em;
+    }
+}
+
+@media(min-width:410px){
+    #envelope02.envelope {
+        height: 16em;
+    }
+}
+
+@media(min-width:444px){
+    #envelope02.envelope {
+        height: 13em;
+    }
+}
+
+/* #envelope03 breaking and rotation styles */
+/* Final envelope media-query wrapping */
+#envelope03.envelope {
+    transform: rotate(1deg);
+}
+@media(max-width:432px){
+    #envelope03.envelope {
+        height: 12.5em;
+    }
+}
+@media(min-width:433px){
+    #envelope03.envelope {
+        height: 11.5em;
+    }
+}
+@media(min-width:991px){
+    #envelope03.envelope {
+        height: 12.5em;
+    }
+}
+
+/*
+    Minimalistic footer styling. Essentially just centers the text and makes
+    the <a> links slightly prettier. Note: the footer is slightly rotated to
+    make it look good with the rotated envelope on top of it
+*/
+#footer {
     transform: rotate(1deg);
     margin-top: 1em;
 }
 
-#infolinks a {
+#footer a {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
     font-weight: bold;
     padding: 0px 10px;
@@ -65,23 +203,31 @@
     display: inline-block;
 }
 
-#button-prompt {
-    padding-top: 0;
-    padding-bottom: 0;
+/*
+    Styling for various hints and popups.
+*/
+.hints {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    font-weight: bold;
+    padding: 0px 10px;
+    word-wrap: normal;
+    color: #ec971f;
 }
 
-#button-container {
-    padding-top: 1em;
-    padding-bottom: 1em;
+#more-activities-hint {
+    /* Rotation for it to match up and look nice */
+    transform: rotate(-0.8deg);
+    margin-top: 1em;
 }
 
-#preferences {
-    height: 100vh;
-    padding-top: 5em;
+#missing-activity-hint {
+    /* Rotation for it to match up and look nice */
+    transform: rotate(1deg);
+    margin-top: 1em;
 }
 
-#confirmation {
-    background-color: #eee;
-    height: 100vh;
-    padding-top: 5em;
+/* Reset button for choices */
+#reset-choices {
+    font-size: 0.9em;
+    color: #777;
 }

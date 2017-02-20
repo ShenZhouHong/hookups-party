@@ -1,0 +1,136 @@
+/*
+    The #background-holder ID is used only once, and serves as the container
+    where all the slides live on. Every element on the Webapp is in a container,
+    which is a direct child of the background-holder container-fluid
+*/
+#background-holder.container-fluid {
+    /* Begin background-image settings */
+    background: url(/media/background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/*  Slide class is used to standardize slide appearance, and set max viewport */
+.container-fluid .slide {
+    height: 100vh;
+    padding-top: 5em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+/*
+    The #main-title and .subtitle are all styled in accordence with the device's
+    display width. Using media queries, this allows the logo to break and resize
+     appropriately, making it responsive. Inline logo styles also defined
+*/
+#logo-containe a:link {
+    text-decoration: none;
+}
+
+#logo-containe a:visited {
+    text-decoration: none;
+}
+
+#logo-containe a:hover {
+    text-decoration: underline;
+}
+
+#logo-containe a:active {
+    text-decoration: none;
+}
+
+.subtitle {
+   font-family: 'DancingScriptBold';
+   font-weight: normal;
+   font-style: normal;
+   text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+   color: #FFF;
+   margin-bottom: 1em;
+}
+
+#main-title {
+    font-family: 'StratoLinked';
+    font-weight: normal;
+    font-style: normal;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    color: #db0000;
+}
+
+.logo-inline {
+    font-family: 'StratoLinked';
+    font-weight: normal;
+    font-style: normal;
+    color: #db0000;
+}
+
+.trademark-inline {
+    font-family: 'DancingScriptBold';
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Change text size dynamically using css media queries */
+@media(max-width:767px){
+    .subtitle {
+       font-size: 3em;
+    }
+}
+@media(min-width:768px){
+    .subtitle {
+       font-size: 4em;
+    }
+}
+@media(min-width:992px){
+    .subtitle {
+       font-size: 4em;
+    }
+}
+@media(min-width:1200px){
+    .subtitle {
+       font-size: 5em;
+    }
+}
+
+/*
+    The .envelope class is used to create the style and background for the cards
+    that display text and prompts to the user. It's common attributes are first
+    defined here, then it's height is dynamically given through media queries.
+*/
+/*  Begin with defining common styles */
+.envelope {
+    background-color: #FFF;
+    border:2px dashed #db0000;
+    border-width:2px;
+    border-style:dashed;
+    border-color:#db0000;
+}
+
+/*  #envelope01 breaking and rotation styles */
+#envelope01.envelope {
+    transform: rotate(1deg);
+    margin-bottom: 2em;
+}
+
+/*  #envelope02 breaking and rotation styles */
+#envelope02.envelope {
+    transform: rotate(-0.7deg);
+    margin-bottom: 1em;
+}
+
+#envelope03.envelope {
+    transform: rotate(0.9deg);
+    margin-bottom: 1em;
+}
+
+/*
+    The .textbox class is used to create an appropriate level of margin, and
+    line spacing for large amounts of text. Also contains any other misc.
+    typographical improvements
+*/
+.textbox {
+    font-size: 1.2em;
+    padding: 0 2.5em !important;
+    line-height: 180%;
+}
