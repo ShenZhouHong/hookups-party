@@ -226,9 +226,24 @@ $('#search-button').on('click', function(event) {
     // Destroys all slides above
     $('#slide01').delay(600).fadeOut();
     $('#slide02').delay(600).fadeOut();
+    console.log("Final user preferences")
+    console.log(userPreferences)
+    initChat(userPreferences);
+});
+
+var DisplayChat = function() {
+    //destrows the matchbox
+    $('#matchbox').fadeOut();
 
     // Finally, paints the chatbar at the bottom of the screen
     $('#chatrow').fadeIn();
+    $('#chat-container').fadeIn();
 
-    initChat(userPreferences);
-});
+    // Resizes the container dynamically to fit #chatrow
+    $('#slide03').css("height", "94vh");
+
+    // Scrolls to the bottom
+    $('html, body').animate({
+        scrollTop: $("#chatrow").offset().top
+    }, 1000);
+}
