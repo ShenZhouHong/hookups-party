@@ -2,7 +2,6 @@
     height: 100vh;
     padding-left: 2em;
     padding-right: 2em;
-
 }
 
 #background-holder.container-fluid {
@@ -19,28 +18,102 @@
     padding-bottom: 3em;
 }
 
-.subtitle {
-   font-family: 'DancingScriptBold';
-   font-weight: normal;
-   font-style: normal;
-   font-size: 3em;
-   text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
-   color: #FFF;
-}
+/* Media queries to responsively size title content */
+@media(max-width:767px){
+    .subtitle {
+       font-family: 'DancingScriptBold';
+       font-weight: normal;
+       font-style: normal;
+       font-size: 2em;
+       text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+       color: #FFF;
+    }
 
-#main-title {
-    font-family: 'StratoLinked';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 7em;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
-    color: #db0000;
-    margin-top: 0.5em;
-    margin-bottom: 0.4em;
+    #main-title {
+        font-family: 'StratoLinked';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 3.5em;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+        color: #db0000;
+        margin-top: 0.5em;
+        margin-bottom: 0.4em;
+    }
+    .prompt-text {
+        font-size: 120%;
+    }
 }
+@media(min-width:768px){
+    .subtitle {
+       font-family: 'DancingScriptBold';
+       font-weight: normal;
+       font-style: normal;
+       font-size: 3em;
+       text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+       color: #FFF;
+    }
 
-.prompt-text {
-    font-size: 190%;
+    #main-title {
+        font-family: 'StratoLinked';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 5em;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+        color: #db0000;
+        margin-top: 0.5em;
+        margin-bottom: 0.4em;
+    }
+    .prompt-text {
+        font-size: 150%;
+    }
+}
+@media(min-width:992px){
+    .subtitle {
+       font-family: 'DancingScriptBold';
+       font-weight: normal;
+       font-style: normal;
+       font-size: 3em;
+       text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+       color: #FFF;
+    }
+
+    #main-title {
+        font-family: 'StratoLinked';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 7em;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+        color: #db0000;
+        margin-top: 0.5em;
+        margin-bottom: 0.4em;
+    }
+    .prompt-text {
+        font-size: 190%;
+    }
+}
+@media(min-width:1200px){
+    .subtitle {
+       font-family: 'DancingScriptBold';
+       font-weight: normal;
+       font-style: normal;
+       font-size: 3em;
+       text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+       color: #FFF;
+    }
+
+    #main-title {
+        font-family: 'StratoLinked';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 7em;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+        color: #db0000;
+        margin-top: 0.5em;
+        margin-bottom: 0.4em;
+    }
+    .prompt-text {
+        font-size: 190%;
+    }
 }
 
 .envelope {
