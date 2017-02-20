@@ -4,10 +4,11 @@
             <li> Welcome to the chat </li>
         </ul>
     </div>
-    <div class="input-group">
+    <form id="send-form" class="input-group">
         <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
         <span class="input-group-btn">
-            <button class="btn btn-warning btn-sm" id="send">Send</button>
+            <button action="submit" class="btn btn-warning btn-sm" id="send">Send</button>
         </span>
-        </div>
+    </form>
 </div>
+<script src="/javascript/socket.io.min.js"></script>
