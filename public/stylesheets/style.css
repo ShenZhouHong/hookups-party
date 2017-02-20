@@ -2,7 +2,6 @@
     height: 100vh;
     padding-left: 2em;
     padding-right: 2em;
-
 }
 
 #background-holder.container-fluid {
@@ -19,41 +18,192 @@
     padding-bottom: 3em;
 }
 
-.subtitle {
-   font-family: 'DancingScriptBold';
-   font-weight: normal;
-   font-style: normal;
-   font-size: 3em;
-   text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
-   color: #FFF;
+/* Media queries to responsively size title content */
+@media(max-width:767px){
+    .subtitle {
+       font-family: 'DancingScriptBold';
+       font-weight: normal;
+       font-style: normal;
+       font-size: 2em;
+       text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+       color: #FFF;
+    }
+
+    #main-title {
+        font-family: 'StratoLinked';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 3.5em;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+        color: #db0000;
+        margin-top: 0.5em;
+        margin-bottom: 0.4em;
+    }
+    .prompt-text {
+        font-size: 150%;
+    }
+}
+@media(min-width:768px){
+    .subtitle {
+       font-family: 'DancingScriptBold';
+       font-weight: normal;
+       font-style: normal;
+       font-size: 3em;
+       text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+       color: #FFF;
+    }
+
+    #main-title {
+        font-family: 'StratoLinked';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 5em;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+        color: #db0000;
+        margin-top: 0.5em;
+        margin-bottom: 0.4em;
+    }
+    .prompt-text {
+        font-size: 150%;
+    }
+}
+@media(min-width:992px){
+    .subtitle {
+       font-family: 'DancingScriptBold';
+       font-weight: normal;
+       font-style: normal;
+       font-size: 3em;
+       text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+       color: #FFF;
+    }
+
+    #main-title {
+        font-family: 'StratoLinked';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 7em;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+        color: #db0000;
+        margin-top: 0.5em;
+        margin-bottom: 0.4em;
+    }
+    .prompt-text {
+        font-size: 190%;
+    }
+}
+@media(min-width:1200px){
+    .subtitle {
+       font-family: 'DancingScriptBold';
+       font-weight: normal;
+       font-style: normal;
+       font-size: 3em;
+       text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+       color: #FFF;
+    }
+
+    #main-title {
+        font-family: 'StratoLinked';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 7em;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+        color: #db0000;
+        margin-top: 0.5em;
+        margin-bottom: 0.4em;
+    }
+    .prompt-text {
+        font-size: 190%;
+    }
 }
 
-#main-title {
-    font-family: 'StratoLinked';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 7em;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
-    color: #db0000;
-    margin-top: 0.5em;
-    margin-bottom: 0.4em;
+/* Envelope has a different height depending on the device screen size */
+@media(max-width:325px){
+    .envelope {
+        background-color: #FFF;
+        height: 18em;
+
+        /* Rotation and transforms to make it look like an envelope */
+        transform: rotate(1deg);
+
+        border:2px dashed #db0000;
+        border-width:2px;
+        border-style:dashed;
+        border-color:#db0000;
+    }
 }
 
-.prompt-text {
-    font-size: 190%;
+@media(min-width:326px){
+    .envelope {
+        background-color: #FFF;
+        height: 15em;
+
+        /* Rotation and transforms to make it look like an envelope */
+        transform: rotate(1deg);
+
+        border:2px dashed #db0000;
+        border-width:2px;
+        border-style:dashed;
+        border-color:#db0000;
+    }
 }
 
-.envelope {
-    background-color: #FFF;
-    height: 10em;
+@media(min-width:450px){
+    .envelope {
+        background-color: #FFF;
+        height: 13em;
 
-    /* Rotation and transforms to make it look like an envelope */
-    transform: rotate(1deg);
+        /* Rotation and transforms to make it look like an envelope */
+        transform: rotate(1deg);
 
-    border:2px dashed #db0000;
-    border-width:2px;
-    border-style:dashed;
-    border-color:#db0000;
+        border:2px dashed #db0000;
+        border-width:2px;
+        border-style:dashed;
+        border-color:#db0000;
+    }
+}
+
+@media(min-width:508px){
+    .envelope {
+        background-color: #FFF;
+        height: 10em;
+
+        /* Rotation and transforms to make it look like an envelope */
+        transform: rotate(1deg);
+
+        border:2px dashed #db0000;
+        border-width:2px;
+        border-style:dashed;
+        border-color:#db0000;
+    }
+}
+
+@media(min-width:992px){
+    .envelope {
+        background-color: #FFF;
+        height: 10em;
+
+        /* Rotation and transforms to make it look like an envelope */
+        transform: rotate(1deg);
+
+        border:2px dashed #db0000;
+        border-width:2px;
+        border-style:dashed;
+        border-color:#db0000;
+    }
+}
+@media(min-width:1200px){
+    .envelope {
+        background-color: #FFF;
+        height: 10em;
+
+        /* Rotation and transforms to make it look like an envelope */
+        transform: rotate(1deg);
+
+        border:2px dashed #db0000;
+        border-width:2px;
+        border-style:dashed;
+        border-color:#db0000;
+    }
 }
 
 #infolinks {
@@ -96,9 +246,85 @@
     padding-top: 5em;
 }
 
-#pref-envelope.envelope {
+
+#hints {
+    /* Rotation for it to match up and look nice */
     transform: rotate(-0.8deg);
-    height: 13.5em;
+    margin-top: 1em;
+}
+
+#hints p {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    font-weight: bold;
+    padding: 0px 10px;
+    word-wrap: normal;
+    display: inline-block;
+    color: #ec971f;
+}
+
+/* Second envelope has slightly different breaking characteristics, so we define
+   it again here */
+@media(max-width:384px){
+    #pref-envelope.envelope {
+        transform: rotate(-0.8deg);
+        height: 17em;
+    }
+}
+
+@media(min-width:385px){
+    #pref-envelope.envelope {
+        transform: rotate(-0.8deg);
+        height: 15em;
+    }
+}
+
+@media(min-width:420px){
+    #pref-envelope.envelope {
+        transform: rotate(-0.8deg);
+        height: 13em;
+    }
+}
+
+/* Search button envelope styling */
+#search-prompt {
+    margin-top: 2em;
+}
+/* Final envelope media-query wrapping */
+@media(max-width:432px){
+    #search-envelope {
+        background-color: #FFF;
+        transform: rotate(1deg);
+
+        height: 11em;
+        border:2px dashed #db0000;
+        border-width:2px;
+        border-style:dashed;
+        border-color:#db0000;
+    }
+}
+@media(min-width:433px){
+    #search-envelope {
+        background-color: #FFF;
+        transform: rotate(1deg);
+
+        height: 10em;
+        border:2px dashed #db0000;
+        border-width:2px;
+        border-style:dashed;
+        border-color:#db0000;
+    }
+}
+@media(min-width:991px){
+    #search-envelope {
+        background-color: #FFF;
+        transform: rotate(1deg);
+
+        height: 11em;
+        border:2px dashed #db0000;
+        border-width:2px;
+        border-style:dashed;
+        border-color:#db0000;
+    }
 }
 
 #confirmation {

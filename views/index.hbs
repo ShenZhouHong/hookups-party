@@ -45,7 +45,7 @@
                         </div>
                         <div class="col-md-6 col-xs-6">
                             <h2 class="text-left">
-                                <a class="btn btn-default btn-md is-looking-for" id="some-fun" href="#" role="button">🌶️some fun</a>
+                                <a class="btn btn-default btn-md is-looking-for" id="some-fun" href="#" role="button">🌶️ some fun</a>
                                 <a class="btn btn-default btn-md is-looking-for" id="romance" href="#" role="button">🌹 romance</a>
                                 <span id="looking-for-comma" style="display: none"></span>
                             </h2>
@@ -61,8 +61,10 @@
                  their gender selection has been updated. Hence, the placeholder -->
             <div class="col-sm-4 col-sm-offset-4" id="is-confirm-placeholder"></div>
         </div>
+
+        <!-- Information links to the FAQ -->
         <div class="row">
-            <div class="col-16-xs text-center" id="infolinks">
+            <div class="col-xs-16 text-center" id="infolinks">
                 <a href="information/#about">About us</a>
                 <a href="information/#FAQ">FAQ</a>
                 <a href="information/#confused">Confused?</a>
@@ -80,11 +82,11 @@
                 <!-- Beginning prompt -->
                 <h2 class="text-center prompt-text">
                     I am looking for
+                    <span id="want-gender-a" style="visibility: visible">a</span>
                 </h2>
 
                 <!-- Gender preference selection -->
                 <h2 class="text-center prompt-text" id="gender-preference">
-                    <span id="want-gender-a" style="visibility: visible">a</span>
                     <a class="btn btn-default btn-md want-gender" id="male" href="#" role="button">🍆 male</a>
                     <a class="btn btn-default btn-md want-gender" id="female" href="#" role="button">🍑 female</a>
                     <a class="btn btn-default btn-md want-gender" id="any" href="#" role="button">🍭 any</a>
@@ -115,13 +117,40 @@
                      their gender selection has been updated. Hence, the placeholder -->
                 <div class="col-sm-4 col-sm-offset-4" id="want-confirm-placeholder"></div>
             </div>
+
+            <!-- Prompts the user that multiple choices can be selected -->
+            <div class="row">
+                <div class="col-xs-16 text-center prompt-hidden" id="hints">
+                    <p>
+                        <span class="glyphicon glyphicon-question-sign"  aria-hidden="true"></span>
+                        <strong>Hint:</strong> Multiple 'activities' can be selected
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search button -->
+        <div class="row prompt-hidden" id="search-prompt">
+            <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-10 col-xs-offset-1" id="search-envelope">
+                <h2 class="text-center prompt-text">
+                    Does anyone want to hook up?
+                </h2>
+                <h2 class="text-center prompt-text">
+                    <a class="btn btn-danger btn-md" id="search-button" href="#" role="button">Let's find out 🔍</a>
+                </h2>
+            </div>
         </div>
     </div>
 
     <!-- Beginning of third slide, for confirmation -->
-    <div class="row" id="confirmation" style="display: none">
-        <div class="col-sm-6 col-sm-offset-3">
-            <h2> confirmation placeholder </h2>
+    <div class="container" id="confirmation" style="display: none">
+
+        <!-- placeholder for matchmaking and chat functionality -->
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 text-center" style="background-color: #FFF;">
+                <h2> Matchmaking, chat, and confirmation placeholder </h2>
+                <p> All previous containers have been destroyed at this point </p>
+            </div>
         </div>
     </div>
 </div>
