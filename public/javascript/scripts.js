@@ -226,11 +226,12 @@ $('#search-button').on('click', function(event) {
     // Destroys all slides above
     $('#slide01').delay(600).fadeOut();
     $('#slide02').delay(600).fadeOut();
-
-    // Finally, paints the chatbar at the bottom of the screen
-    $('#chatrow').fadeIn();
-
-
     console.log("Final user preferences")
     console.log(userPreferences)
 });
+
+
+    // Finally, paints the chatbar at the bottom of the screen
+    $('.slide03').css("height", "94vh")
+    $('#chatrow').fadeIn();
+    $('#chat-container').fadeIn();
