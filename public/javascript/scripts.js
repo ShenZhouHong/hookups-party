@@ -265,7 +265,7 @@ $('#search-button').on('click', function(event) {
     // Scrolls to the confirmation prompt
     $('html, body').animate({
         scrollTop: $("#confirmation").offset().top
-    }, 500);
+    }, 1000);
 
     // Disables all buttons above
     $('.want-gender').addClass('disabled');
