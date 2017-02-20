@@ -108,11 +108,11 @@ module.exports = function(app) {
         returns true if the preferences are compatible, false otherwise
     */
     function comparePreferences(first, second) {
-        var t = first;
+        var t = _.clone(first);
         var temp;
-        //temp = t.selfGender;
-        //t.selfGender = t.partnerGender;
-        //t.partnerGender = temp;
+        temp = t.selfGender;
+        t.selfGender = t.partnerGender;
+        t.partnerGender = temp;
         //console.log("first", first);
         //console.log("second", second);
         //console.log("t", t);
