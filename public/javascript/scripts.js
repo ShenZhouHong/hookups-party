@@ -27,7 +27,7 @@ var userPreferences = {
     Generic button toggler. Implements radio buttion functionality on a group
     of buttons with a shared class (the 'group' argument).
 */
-var toggleButton = function(element, group) {
+var toggleButton = function(element, group, event) {
     // Prevents link from being followed if button is an <a>
     event.preventDefault();
 
@@ -47,7 +47,7 @@ var toggleButton = function(element, group) {
     on first selection, otherwise assures the user their choice is upddated.
 */
 $('.is-gender').on('click', function(event) {
-    toggleButton($(this), '.is-gender');
+    toggleButton($(this), '.is-gender', event);
 
     // Toggles the visibility of the next prompt
     $('#self-gender-comma').fadeIn();
@@ -70,17 +70,16 @@ $('.is-gender').on('click', function(event) {
     or just some fun.
 */
 $('.is-looking-for').on('click', function(event) {
-    toggleButton($(this), '.is-looking-for');
+    toggleButton($(this), '.is-looking-for', event);
 
     // Toggles the visibility of the next prompt
-    $('#looking-for-comma').fadeIn();
-    $("#preferences").fadeIn();
+    $("#slide02").fadeIn();
 
     // Scrolls to the next prompt only once
     if (userPreferences.romance == undefined) {
         // Scrolls to the next prompt
         $('html, body').animate({
-            scrollTop: $("#preferences").offset().top
+            scrollTop: $("#slide02").offset().top
         }, 1000);
     }
 
@@ -98,7 +97,7 @@ $('.is-looking-for').on('click', function(event) {
     first selection, otherwise throws an reassuring alert for the user
 */
 $('.want-gender').on('click', function(event) {
-    toggleButton($(this), '.want-gender');
+    toggleButton($(this), '.want-gender', event);
 
     // Displays the next prompt using FadeToggle (will run only once)
     $('#want-gender-comma').fadeIn(); // Makes grammatical sentence :P
@@ -187,20 +186,20 @@ $('.activity').on('click', function(event) {
 
 /* When the search button is pressed */
 $('#search-button').on('click', function(event) {
-    $('#confirmation').fadeIn();
+    $('#slide03').fadeIn();
 
     // Scrolls to the confirmation prompt
     $('html, body').animate({
-        scrollTop: $("#confirmation").offset().top
+        scrollTop: $("#slide03").offset().top
     }, 1000);
 
     // Disables all buttons above
     $('.want-gender').addClass('disabled');
     $('.activity').addClass('disabled');
 
-    // Destroys all prompts above
-    $('#landing-page').delay(300).fadeOut();
-    $('#preferences').delay(300).fadeOut();
+    // Destroys all slides above
+    $('#slide01').delay(300).fadeOut();
+    $('#slide02').delay(300).fadeOut();
 
 
     console.log("Final user preferences")

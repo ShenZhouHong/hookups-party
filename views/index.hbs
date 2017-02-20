@@ -1,53 +1,64 @@
 <!-- Main content div -->
 <div class="container-fluid" id="background-holder">
 
-    <!-- First selection container, for choosing gender. Doubles as landing page -->
-    <div class="container" id="landing-page">
-        <div class="row">
-            <!-- Landing page content -->
+    <!--
+        Webapp is organized into slides. Each slide is a discrete container that
+        holds everything for that slide. Containers are usually set to the max
+        height of the viewpoint (e.g. height: 100vh).
+
+        The first slide is visible as it is the landing page, however subsequent
+        slides are collapsed. They are shown interactively
+        through javascript
+    -->
+
+    <!-- Begin first slide. Used as the landing page -->
+    <div class="slide" id="slide01">
+            <!-- First row displays the Hookups @ UWC Changshu China logo -->
             <div class="row">
-                <div class="col-xs-16 text-center" id="logo-box">
+                <div class="col-xs-16 text-center" id="logo-container">
                     <h2 class="subtitle">Welcome to</h2>
-
-                    <!-- Main title -->
                     <h1 id="main-title">Hookups💋</h1>
-
                     <h2 class="subtitle">at UWC Changshu China</h2>
                 </div>
             </div>
 
+            <!-- Second row contains the actual prompts for gender selection -->
             <div class="row">
-                <!-- First column centers it's children -->
-                <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-12 envelope">
+                <!-- Begins a centered envelope that contains the prompts -->
+                <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-12 envelope" id="envelope01">
 
                     <!-- Gender selection prompt and buttons -->
                     <div class="row">
+                        <!-- Gender selection prompt -->
                         <div class="col-md-4 col-xs-4">
                             <h2 class="text-right prompt-text" id="self-gender">
                                 I am a
                             </h2>
                         </div>
+                        <!-- Gender selection buttons -->
                         <div class="col-md-8 col-xs-8">
-                        <h2 class="text-left prompt-text" id="self-gender-buttons">
-                            <a class="btn btn-default btn-md is-gender" id="man" href="#" role="button">👨 man</a>
-                            <a class="btn btn-default btn-md is-gender" id="woman" href="#" role="button">👩 woman</a>
-                            <a class="btn btn-default btn-md is-gender" id="other" href="#" role="button">😎 other</a>
-                        </h2>
+                            <h2 class="text-left" id="self-gender-buttons">
+                                <a class="btn btn-default btn-md is-gender" id="man" href="#" role="button">👨 man</a>
+                                <a class="btn btn-default btn-md is-gender" id="woman" href="#" role="button">👩 woman</a>
+                                <a class="btn btn-default btn-md is-gender" id="other" href="#" role="button">😎 other</a>
+                            </h2>
                         </div>
                     </div>
 
                     <!-- Romance selection prompt and buttons -->
-                    <div class="row prompt-hidden" id="romance-selection">
+                    <div class="row collapse" id="romance-selection">
+                        <!-- Romance selection prompt -->
                         <div class="col-md-6 col-xs-6">
                             <h2 class="text-right prompt-text">
                                 I am looking for
                             </h2>
                         </div>
+
+                        <!-- Romance selection buttons -->
                         <div class="col-md-6 col-xs-6">
                             <h2 class="text-left">
                                 <a class="btn btn-default btn-md is-looking-for" id="some-fun" href="#" role="button">🌶️ some fun</a>
                                 <a class="btn btn-default btn-md is-looking-for" id="romance" href="#" role="button">🌹 romance</a>
-                                <span id="looking-for-comma" style="display: none"></span>
                             </h2>
                         </div>
                     </div>
@@ -55,16 +66,9 @@
                 <!-- End of first centering column in selection slide -->
             </div>
 
-        </div>
-        <div class="row">
-            <!-- An alert shows up here in subsequent presses, telling users that
-                 their gender selection has been updated. Hence, the placeholder -->
-            <div class="col-sm-4 col-sm-offset-4" id="is-confirm-placeholder"></div>
-        </div>
-
         <!-- Information links to the FAQ -->
         <div class="row">
-            <div class="col-xs-16 text-center" id="infolinks">
+            <div class="col-xs-16 text-center" id="footer">
                 <a href="information/#about">About us</a>
                 <a href="information/#FAQ">FAQ</a>
                 <a href="information/#confused">Confused?</a>
@@ -72,12 +76,11 @@
             </div>
         </div>
     </div>
-    <!-- End of first selection container -->
 
     <!-- Beginning of second slide, to select the gender desired -->
-    <div class="container" id="preferences" style="display: none">
+    <div class="container slide collapse" id="slide02">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-12 envelope" id="pref-envelope">
+            <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-12 envelope" id="envelope02">
 
                 <!-- Beginning prompt -->
                 <h2 class="text-center prompt-text">
@@ -90,26 +93,15 @@
                     <a class="btn btn-default btn-md want-gender" id="male" href="#" role="button">🍆 male</a>
                     <a class="btn btn-default btn-md want-gender" id="female" href="#" role="button">🍑 female</a>
                     <a class="btn btn-default btn-md want-gender" id="any" href="#" role="button">🍭 any</a>
-                    partner<span id="want-gender-comma" style="display: none">,</span>
+                    partner<span class="collapse" id="want-gender-comma">,</span>
                 </h2>
 
                 <!-- Sexual preference selection -->
-                <h2 class="text-center prompt-text" id="sexual-preference" style="display: none">
+                <h2 class="text-center prompt-text collapse" id="sexual-preference">
                     who I can
                     <a class="btn btn-default btn-md activity" href="#" role="button" id="make_out">💋 make out</a>
-
-                    <!-- These 'invisible' spans are used to populate the sentences -->
-                    <span style="visibility: hidden"></span>
-
                     <a class="btn btn-default btn-md activity" href="#" role="button" id="eat">👅 eat</a>
-
-                    <!-- These 'invisible' spans are used to populate the sentences -->
-                    <span style="visibility: hidden"></span>
-
                     <a class="btn btn-default btn-md activity" href="#" role="button" id="fuck">💦 fuck</a>.
-
-                    <!-- These 'invisible' spans are used to populate the sentences -->
-                    <span style="visibility: hidden"></span>
                 </h2>
             </div>
             <div class="row">
@@ -120,7 +112,7 @@
 
             <!-- Prompts the user that multiple choices can be selected -->
             <div class="row">
-                <div class="col-xs-16 text-center prompt-hidden" id="hints">
+                <div class="col-xs-16 text-center collapse" id="hints">
                     <p>
                         <span class="glyphicon glyphicon-question-sign"  aria-hidden="true"></span>
                         <strong>Hint:</strong> Multiple 'activities' can be selected
@@ -130,12 +122,12 @@
         </div>
 
         <!-- Search button -->
-        <div class="row prompt-hidden" id="search-prompt">
-            <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-10 col-xs-offset-1" id="search-envelope">
+        <div class="row collapse" id="search-prompt">
+            <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-10 col-xs-offset-1 envelope" id="envelope03">
                 <h2 class="text-center prompt-text">
                     Does anyone want to hook up?
                 </h2>
-                <h2 class="text-center prompt-text">
+                <h2 class="text-center">
                     <a class="btn btn-danger btn-md" id="search-button" href="#" role="button">Let's find out 🔍</a>
                 </h2>
             </div>
@@ -143,7 +135,7 @@
     </div>
 
     <!-- Beginning of third slide, for confirmation -->
-    <div class="container" id="confirmation" style="display: none">
+    <div class="container slide collapse" id="slide03">
 
         <!-- placeholder for matchmaking and chat functionality -->
         <div class="row">
