@@ -3,21 +3,22 @@ var _ = require("underscore");
 var xssFilters = require('xss-filters');
 
 function loadNames() {
-    var animals = [], adjectives = [];
+    var animals = [],
+        adjectives = [];
     var lineReader = require('readline').createInterface({
-    input: require('fs').createReadStream(__dirname + '/resources/adjectives')
+        input: require('fs').createReadStream(__dirname + '/resources/adjectives')
     });
 
-    lineReader.on('line', function (line) {
-      adjectives.push(line);
+    lineReader.on('line', function(line) {
+        adjectives.push(line);
     });
 
     lineReader = require('readline').createInterface({
-    input: require('fs').createReadStream(__dirname + '/resources/animals')
+        input: require('fs').createReadStream(__dirname + '/resources/animals')
     });
 
-    lineReader.on('line', function (line) {
-      animals.push(line);
+    lineReader.on('line', function(line) {
+        animals.push(line);
     });
     return [adjectives, animals];
 }
@@ -34,7 +35,7 @@ module.exports = function(app) {
     var module = {};
     var io = require('socket.io')(app);
     var t = loadNames();
-    var waiting = [];  // TODO change this to a better data structure
+    var waiting = []; // TODO change this to a better data structure
     var roomNames = new Set();
     module.adjectives = t[0];
     module.animals = t[1];
@@ -45,7 +46,7 @@ module.exports = function(app) {
         deleted names can be reused)
         automatically adds the reeturned name to the used names
     */
-    function generateRoomName () {
+    function generateRoomName() {
         var roomName = module.generateName(module.adjectives, module.animals);
         while (roomNames.has(roomName)) {
             roomName = module.generateName(module.adjectives, module.animals);
@@ -63,7 +64,7 @@ module.exports = function(app) {
         var room = generateRoomName();
         first.name = module.generateName(module.adjectives, module.animals);
         second.name = module.generateName(module.adjectives, module.animals);
-        while(second.name === first.name)
+        while (second.name === first.name)
             second.name = module.generateName(module.adjectives, module.animals);
         first.emit("name", first.name);
         second.emit("name", second.name);
@@ -71,7 +72,8 @@ module.exports = function(app) {
         second.emit("mate", first.name);
         first.join(room);
         second.join(room);
-        var flag1 = false, flag2 = false;
+        var flag1 = false,
+            flag2 = false;
         var firsti, secondi;
         for (var i = 0; i < waiting.length && !flag1 && !flag2; i++) {
             if (waiting[i].socket === first) {
@@ -83,9 +85,9 @@ module.exports = function(app) {
             }
         }
         // TODO check, this might not actually work
-        if(firsti !== undefined)
+        if (firsti !== undefined)
             waiting.splice(firsti, 1);
-        if(secondi !== undefined)
+        if (secondi !== undefined)
             waiting.splice(secondi, 1);
     }
 
@@ -117,9 +119,9 @@ module.exports = function(app) {
         return _.isEqual(t, second);
 
         //return first.romance === second.romance &&
-            //first.selfGender === second.partnerGender &&
-            //second.selfGender === first.partnerGender &&
-            //first.activities ===
+        //first.selfGender === second.partnerGender &&
+        //second.selfGender === first.partnerGender &&
+        //first.activities ===
 
     }
 
@@ -149,24 +151,24 @@ module.exports = function(app) {
     */
     function leaveRoom(socket) {
         // TODO finish this
-        for (var i = 0; i < socket.rooms.length; i++){
+        for (var i = 0; i < socket.rooms.length; i++) {
             var room = socket.rooms[i];
             if (room !== socket.id)
                 socket.leave(room);
         }
     }
 
-    io.on('connection', function(socket){
-        socket.on('disconnect', function(msg){
+    io.on('connection', function(socket) {
+        socket.on('disconnect', function(msg) {
             // TODO handle disconnection code
         });
 
-        socket.on('chat message', function(msg){
+        socket.on('chat message', function(msg) {
             msg.text = xssFilters.inHTMLData(msg.text);
             msg.name = socket.name;
             sendMessage(socket, msg);
         });
-        socket.on('remate', function(msg){
+        socket.on('remate', function(msg) {
             leaveRoom(socket);
             addToWaitingRoom(socket, msg);
             //console.log(waiting);
@@ -181,7 +183,7 @@ module.exports = function(app) {
         adjectives, animals arguments are arrays of strings
         returns a String of the form AdjectiveAnimal
     */
-    module.generateName = function(adjectives, animals){
+    module.generateName = function(adjectives, animals) {
         var first_adjective, second_adjective, animal;
         var rand;
         first_adjective =

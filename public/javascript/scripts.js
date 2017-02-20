@@ -17,8 +17,7 @@ var userPreferences = {
     selfGender: undefined,
     romance: undefined,
     partnerGender: undefined,
-    activities: [
-    ]
+    activities: []
 };
 
 /*
@@ -130,8 +129,7 @@ $('.want-gender').on('click', function(event) {
     // Make sentence grammatically correct, because I'm pedentic
     if (userPreferences.partnerGender == "any") {
         $('#want-gender-a').css("visibility", "hidden");
-    }
-    else {
+    } else {
         $('#want-gender-a').css("visibility", "visible");
     }
 
@@ -162,8 +160,7 @@ $('.activity').on('click', function(event) {
     if (($(this)).hasClass('active')) {
         $(this).removeClass('active');
         $(this).removeClass('btn-warning');
-    }
-    else {
+    } else {
         $(this).addClass('active');
         $(this).addClass('btn-warning');
     }
@@ -175,24 +172,21 @@ $('.activity').on('click', function(event) {
     // Making out
     if (this.id == 'make_out' && ($(this)).hasClass('active')) {
         addOrRemove(userPreferences.activities, "make_out");
-    }
-    else if (this.id == 'make_out' && ! ($(this)).hasClass('active')) {
+    } else if (this.id == 'make_out' && !($(this)).hasClass('active')) {
         addOrRemove(userPreferences.activities, "make_out");
     }
 
     // Eating out
     if (this.id == 'eat' && ($(this)).hasClass('active')) {
         addOrRemove(userPreferences.activities, "eat");
-    }
-    else if (this.id == 'eat' && !($(this)).hasClass('active')) {
+    } else if (this.id == 'eat' && !($(this)).hasClass('active')) {
         addOrRemove(userPreferences.activities, "eat");
     }
 
     // Fucking
     if (this.id == 'fuck' && ($(this)).hasClass('active')) {
         addOrRemove(userPreferences.activities, "fuck");
-    }
-    else if (this.id == 'fuck' && ! ($(this)).hasClass('active')) {
+    } else if (this.id == 'fuck' && !($(this)).hasClass('active')) {
         addOrRemove(userPreferences.activities, "fuck");
     }
 
@@ -200,11 +194,10 @@ $('.activity').on('click', function(event) {
         If there are no sexual activities chosen, the search button is disabled,
         and the user is prompted by a hint
     */
-    if (! $('.activity').hasClass('active')) {
+    if (!$('.activity').hasClass('active')) {
         $('#search-button').addClass('disabled');
         $('#missing-activity-hint').fadeIn();
-    }
-    else {
+    } else {
         $('#search-button').removeClass('disabled');
         $('#missing-activity-hint').fadeOut();
     }
