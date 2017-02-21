@@ -1,57 +1,87 @@
-/*
-    Gruntfile is used to configure grunt in order to automate tasks like
-    file minification. Everything has to be wrapped inside the module.exports
-    object. A Gruntfile is a valid javascript file.
-*/
+/*global module:false*/
 module.exports = function(grunt) {
 
-  // Project configuration.
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    // Project configuration.
+    grunt.initConfig({
+        // Metadata.
+        pkg: grunt.file.readJSON('package.json'),
 
-    // Minifies javascript files
-    uglify: {
-        options: {
-            banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-            mangle: false
-        },
-        javascript: {
-            src: 'resources/javascript/scripts.js',
-            dest: 'public/javascript/index.min.js',
-        }
-    },
+        /*
+            Task configuration. Grunt tasks consist of global options, followed
+            by per 'target' configuration. Targets can have abritary names, and
+            I have organized them by their source hbs names
+        */
+        // Minifies CSS stylesheets
+        cssmin: {
+            // Global options. Per target options can also be defined.
+            options: {
+                sourceMap: true,
+                mergeIntoShorthands: false,
+                roundingPrecision: -1
+            },
 
-    // Minifies CSS stylesheets
-    cssmin: {
-        options: {
-            mergeIntoShorthands: false,
-            roundingPrecision: -1
-        },
-        target: {
-            files: {
-                /* Creates the index.min.css file for index.hbs */
-                'public/stylesheets/index.min.css': [
-                    'resources/stylesheets/fonts.css',
-                    'resources/stylesheets/style.css',
-                ],
-                /* Creates the information.min.css file for information.hbs */
-                'public/stylesheets/information.min.css': [
-                    'resources/stylesheets/fonts.css',
-                    'resources/stylesheets/information.css',
-                ]
+            // Begin list of targets
+            index: {
+                // Syntax 'path/min.css': ['path/src1.css', 'path/src2.css']
+                files: {
+                    'public/css/index.min.css': [
+                        'node_modules/bootstrap/dist/css/bootstrap.css',
+                        'resources/sources/css/fonts.css',
+                        'resources/sources/css/index.css'
+                    ],
+                }
+            },
+            information: {
+                // Syntax 'path/min.css': ['path/src1.css', 'path/src2.css']
+                files: {
+                    'public/css/information.min.css': [
+                        'node_modules/bootstrap/dist/css/bootstrap.css',
+                        'resources/sources/css/fonts.css',
+                        'resources/sources/css/information.css'
+                    ],
+                }
             }
-        }
-    }
+        },
 
-  });
+        // Minifies Javascript files
+        uglify: {
+            // Global options. Per target options can also be defined.
+            options: {
+                sourceMap: true,
+                mangle: false
+            },
 
-  // Load the plugin that provides the "uglify" task.
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+            // Begin list of targets
+            index: {
+                // Syntax 'path/min.css': ['path/src1.css', 'path/src2.css']
+                files: {
+                    'public/js/index.min.js': [
+                            'node_modules/jquery/dist/jquery.js',
+                            'node_modules/socket.io-client/dist/socket.io.js',
+                            'node_modules/bootstrap/dist/js/bootstrap.js',
+                            'resources/sources/js/index.js',
+                            'resources/sources/js/chat.js'
+                        ],
+                }
+            },
+            information: {
+                // Syntax 'path/min.css': ['path/src1.css', 'path/src2.css']
+                files: {
+                    'public/js/information.min.js': [
+                            'node_modules/jquery/dist/jquery.js',
+                            'node_modules/bootstrap/dist/js/bootstrap.js',
+                            'resources/sources/js/information.js',
+                        ],
+                }
+            }
+        },
+    });
 
-  // Load the plugin that uglifys css as well
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
+    // These plugins provide necessary tasks.
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  // Default task(s).
-  grunt.registerTask('default', ['uglify', 'cssmin']);
+    // Default task.
+    grunt.registerTask('default', ['cssmin', 'uglify']);
 
 };

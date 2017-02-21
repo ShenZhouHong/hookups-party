@@ -23,78 +23,20 @@ function loadNames() {
     return [adjectives, animals];
 }
 
-function sendMessage(socket, msg) {
-    console.log(socket.rooms);
-    socket.emit("chat message", msg);
-    for (var room in socket.rooms) {
-        socket.to(room).emit("chat message", msg);
-    }
-}
 
 module.exports = function(app) {
     var module = {};
     var io = require('socket.io')(app);
     var t = loadNames();
-    var waiting = []; // TODO change this to a better data structure
+    var waiting = new WaitingList(); // TODO change this to a better data structure
     var roomNames = new Set();
+    var clients = [];
     module.adjectives = t[0];
     module.animals = t[1];
 
-    /*
-        returns a new unique room name
-        (distinct from any other *currently* existing room name: old and
-        deleted names can be reused)
-        automatically adds the reeturned name to the used names
-    */
-    function generateRoomName() {
-        var roomName = module.generateName(module.adjectives, module.animals);
-        while (roomNames.has(roomName)) {
-            roomName = module.generateName(module.adjectives, module.animals);
-        }
-        roomNames.add(roomName);
-        return roomName;
+    function WaitingList () {
+        this.waiting = [];
     }
-
-    function mateSocket(socket, mate, room) {
-        socket.name = module.generateName(module.adjectives, module.animals);
-        if (mate.name !== undefined) {
-            while (socket.name === mate.name) {
-                socket.name = module.generateName(module.adjectives, module.animals);
-            }
-        }
-        socket.emit("name", socket.name);
-        socket.emit("mate", socket.name);
-        socket.join(room);
-    }
-
-    /*
-        Takes care of everything necessary to let these sockets chat between them
-        i.e. generates names, sets names, emits names, removes sockets from
-        waiting list, creates a room and makes the sockets join the room
-    */
-    function mate(first, second) {
-        var room = generateRoomName();
-        mateSocket(first, second, room);
-        mateSocket(second, first, room);
-
-        waiting = _.filter(waiting, function(cur) {
-            return cur.socket != first && cur.socket != second;
-        });
-    }
-
-    /*
-        self-explanatory: just adds the socket and its preferences to the
-        "waiting" list
-    */
-    function addToWaitingRoom(socket, userPreferences) {
-        // TODO make sure the socket is not already waiting
-        var obj = {
-            socket: socket,
-            userPreferences: userPreferences
-        };
-        waiting.push(obj);
-    }
-
 
     /*
         returns, if exists, a socket from the waiting list which has a
@@ -102,67 +44,128 @@ module.exports = function(app) {
         such a socket is always the longest-waiting one (lower in the list)
         DOES NOT DELETE THE ELEMETS FROM THE LIST
     */
-    function findMatch(socket, userPreferences) {
+    WaitingList.prototype.findMatch = function (client) {
         var companion;
         // "waiting" is a LIFO, so the person that gets selected is the one that
         // has waited the most
-        for (var i = 0; i < waiting.length; i++) {
-            var cur = waiting[i];
-            if (cur.socket === socket) continue;
-            if (comparePreferences(userPreferences, cur.userPreferences)) {
-                companion = cur.socket;
-                break;
-            }
+        for (var i = 0; i < this.waiting.length; i++) {
+            var cur = this.waiting[i];
+            if (cur === client) continue;
+            if (client.comparePreferences(cur)) {
+                companion = cur;
+                    break;
+                }
         }
         return companion;
+    };
+
+    /*
+        self-explanatory: just adds the socket and its preferences to the
+        "waiting" list
+    */
+    WaitingList.prototype.push = function (client) {
+        // TODO make sure the socket is not already waiting
+        this.waiting.push(client);
+    };
+
+    /*
+        Takes care of everything necessary to let these sockets chat between them
+        i.e. generates names, sets names, emits names, removes sockets from
+        waiting list, creates a room and makes the sockets join the room
+    */
+    WaitingList.prototype.mate = function (first, second) {
+        var room = generateRoomName();
+        first.mate(second, room);
+        second.mate(first, room);
+
+        waiting = _.filter(waiting, function(cur) {
+            return cur.socket != first && cur.socket != second;
+        });
+    };
+
+    /*
+        Wraps a socket object nicely
+    */
+    function Client (socket, waitingList) {
+        this.socket = socket;
+        var that = this;
+        this.socket.on('disconnect', function(msg) {
+            // TODO handle disconnection code
+        });
+        this.socket.on('chat message', function(msg) {
+            msg.text = xssFilters.inHTMLData(msg.text);
+            msg.name = that.socket.name;
+            that.sendMessage(msg);
+        });
+        this.socket.on('remate', function(msg) {
+            that.leaveRoom();
+            that.userPreferences = msg;
+            waitingList.push(that);
+            //console.log(waiting);
+            var companion = waitingList.findMatch(that);
+            // if there is no companion now, the sockets just gets added to
+            if (companion !== undefined) {
+                waitingList.mate(that, companion);
+            }
+        });
     }
+
+    /*
+        leaves all the rooms the socket is in
+    */
+    Client.prototype.leaveRoom = function () {
+        // TODO finish this
+        for (var i = 0; i < this.socket.rooms.length; i++) {
+            var room = this.socket.rooms[i];
+            if (room !== this.socket.id)
+                this.socket.leave(room);
+        }
+    };
+
+    Client.prototype.mate = function (mate, room) {
+        this.name = module.generateName(module.adjectives, module.animals);
+        if (mate.name !== undefined) {
+            while (this.name === mate.name) {
+                this.name = module.generateName(module.adjectives, module.animals);
+            }
+        }
+        console.log("name: ", this.name);
+        this.socket.emit("name", this.name);
+        this.socket.emit("mate", mate.name);
+        this.socket.join(room);
+
+    };
+
+
+    Client.prototype.sendMessage = function (msg) {
+        this.socket.emit("chat message", msg);
+        console.log("msg: ", msg);
+        for (var room in this.socket.rooms) {
+            this.socket.to(room).emit("chat message", msg);
+        }
+    };
+
     /*
         returns true if the preferences are compatible, false otherwise
     */
-    function comparePreferences (first, second) {
+    Client.prototype.comparePreferences = function (partner) {
+        var first = this.userPreferences;
+        var second = partner.userPreferences;
         var romance, gender, activity;
         gender = (first.partnerGender === second.selfGender ||
-                   first.partnerGender === any) &&
+                   first.partnerGender === "any") &&
                   (second.partnerGender === first.selfGender ||
                    second.partnerGender === any);
         romance = (first.romance === second.romance);
         activity = (_.intersection(first.activities, second.activities).length);
         return (romance && gender && activity );
         //return _.isEqual(t, second);
-    }
-
-    /*
-        leaves all the rooms the socket is in
-    */
-    function leaveRoom(socket) {
-        // TODO finish this
-        for (var i = 0; i < socket.rooms.length; i++) {
-            var room = socket.rooms[i];
-            if (room !== socket.id)
-                socket.leave(room);
-        }
-    }
+    };
 
     io.on('connection', function(socket) {
-        socket.on('disconnect', function(msg) {
-            // TODO handle disconnection code
-        });
-
-        socket.on('chat message', function(msg) {
-            msg.text = xssFilters.inHTMLData(msg.text);
-            msg.name = socket.name;
-            sendMessage(socket, msg);
-        });
-        socket.on('remate', function(msg) {
-            leaveRoom(socket);
-            addToWaitingRoom(socket, msg);
-            //console.log(waiting);
-            var companion = findMatch(socket, msg);
-            // if there is no companion now, the sockets just gets added to
-            if (companion !== undefined) {
-                mate(socket, companion);
-            }
-        });
+        console.log("socket connected");
+        var client = new Client(socket, waiting);
+        clients.push(client);
     });
 
     /*
@@ -186,5 +189,20 @@ module.exports = function(app) {
 
         return first_adjective + animal;
     };
+
+    /*
+        returns a new unique room name
+        (distinct from any other *currently* existing room name: old and
+        deleted names can be reused)
+        automatically adds the reeturned name to the used names
+    */
+    function generateRoomName() {
+        var roomName = module.generateName(module.adjectives, module.animals);
+        while (roomNames.has(roomName)) {
+            roomName = module.generateName(module.adjectives, module.animals);
+        }
+        roomNames.add(roomName);
+        return roomName;
+    }
     return module;
 };

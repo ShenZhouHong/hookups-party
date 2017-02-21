@@ -11,8 +11,8 @@
         <link rel="icon" href="/media/favicon.ico" type="image/x-icon">
 
         <!-- CSS Files (incl. Bootstrap) -->
-        {{#each styles}}
-            <link href="/stylesheets/{{this}}" rel="stylesheet">
+        {{#each css}}
+            <link rel="stylesheet" href="/css/{{this}}" type="text/css"/>
         {{/each}}
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -25,9 +25,9 @@
     <body>
         {{{body}}}
 
-        <!-- Finally, add scripts for the webapp -->
-        {{#each scripts}}
-            <script src="/javascript/{{this}}"></script>
+        <!-- Adds scripts for the webapp -->
+        {{#each js}}
+            <script src="/js/{{this}}"></script>
         {{/each}}
     </body>
 </html>
