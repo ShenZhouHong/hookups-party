@@ -1,5 +1,4 @@
 /* Requires all packages */
-var compression = require('compression');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -10,40 +9,50 @@ var $ = require('jquery');
 var session = require('express-session');
 var index = require('./routes/index');
 var users = require('./routes/users');
-var minifyHTML = require('express-minify-html');
 
 var app = express();
 
-/* Uses gzip encoding for faster content encoding, and sets cache time */
-app.use(
-    compression(),
-    express.static(__dirname + '/public', { maxAge: 31557600 })
-);
+/*
+    Production mode specific configuration. Enables gzip content encoding, and
+    minifies rendered HTML for faster content transmission.
+    Of course, it logs to the console to let you know once it's enabled :P
+*/
+var env = app.settings.env || 'production';
+if ('production' == env) {
+    // Packages only required for Production
+    var minifyHTML = require('express-minify-html');
+    var compression = require('compression');
 
-app.use(
-    favicon(path.join(__dirname, 'public/img', 'favicon.ico'))
-)
+    console.info("App is now running in production mode.")
+    console.info("Gzip content encoding and HTML minify is enabled.")
 
-/* Minifies the HTML when npm is run as production mode */
-app.use(minifyHTML({
-    override:      true,
-    exception_url: false,
-    htmlMinifier: {
-        removeComments:            true,
-        collapseWhitespace:        true,
-        collapseBooleanAttributes: true,
-        removeAttributeQuotes:     true,
-        removeEmptyAttributes:     true,
-        minifyJS:                  true
-    }
-}));
+    // Uses gzip encoding for faster content encoding, and sets cache time
+    app.use(
+        compression(),
+        express.static(__dirname + '/public', { maxAge: 31557600 })
+    );
+
+    /* Minifies the HTML when npm is run as production mode */
+    app.use(minifyHTML({
+        override:      true,
+        exception_url: false,
+        htmlMinifier: {
+            removeComments:            true,
+            collapseWhitespace:        true,
+            collapseBooleanAttributes: true,
+            removeAttributeQuotes:     true,
+            removeEmptyAttributes:     true,
+            minifyJS:                  true
+        }
+    }));
+};
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-// uncomment after placing your f\avicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// Favicon rendering
+app.use(favicon(path.join(__dirname, 'public/img', 'favicon.ico')));
 //app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
