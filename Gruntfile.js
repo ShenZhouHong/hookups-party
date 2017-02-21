@@ -75,13 +75,27 @@ module.exports = function(grunt) {
                 }
             }
         },
+
+        // Copies fonts and other files
+        copy: {
+            // Bootstrap fonts are basically the only files that need copying
+            bootstrap: {
+                expand: true,
+                flatten: true,
+                filter: 'isFile',
+                src: 'node_modules/bootstrap/dist/fonts/*',
+                // NOTE: The trailing '/' must be kept to indicate directory
+                dest: 'public/fonts/',
+            }
+        }
     });
 
     // These plugins provide necessary tasks.
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Default task.
-    grunt.registerTask('default', ['cssmin', 'uglify']);
+    grunt.registerTask('default', ['cssmin', 'uglify', 'copy']);
 
 };

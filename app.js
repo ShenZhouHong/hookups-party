@@ -19,6 +19,9 @@ app.use(
     express.static(__dirname + '/public', { maxAge: 31557600 })
 );
 
+app.use(
+    favicon(path.join(__dirname, 'public/img', 'favicon.ico'))
+)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
