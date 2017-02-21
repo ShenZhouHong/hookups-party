@@ -27,6 +27,7 @@ module.exports = function(grunt) {
                     'public/css/index.min.css': [
                         'node_modules/bootstrap/dist/css/bootstrap.css',
                         'resources/sources/css/fonts.css',
+                        'resources/sources/css/common.css',
                         'resources/sources/css/index.css'
                     ],
                 }
@@ -37,6 +38,7 @@ module.exports = function(grunt) {
                     'public/css/information.min.css': [
                         'node_modules/bootstrap/dist/css/bootstrap.css',
                         'resources/sources/css/fonts.css',
+                        'resources/sources/css/common.css',
                         'resources/sources/css/information.css'
                     ],
                 }
