@@ -2,6 +2,12 @@
 A simple hookup app designed for anonymous romantic liaisons. Built using
 express, socket.io, and the latest HTML5 technologies.
 
+## TODO list
+- [X] Write documentation for changes
+- [ ] Get Giuseppe to look at the weird socket bugs in chat. Might be caused by some weird minify edge case?
+- [ ] Implement progressive font rendering to prevent FOIC
+- [ ] Implement 'bubble-styled' chat UI and replace placeholder well
+
 ## Installation
 ### Prerequisites
 In order to begin installing and developing the newest version of **Hookups💋**,
@@ -55,9 +61,9 @@ This process is extremely aggressive at optimizing javascript and CSS for file
 size, in order to speed up content delivery. Unused attributes and functions are
 stripped, and the finalized output is written to `public/`.
 
-** Under no circumstances is it necessary to edit the output files in
+**Under no circumstances is it necessary to edit the output files in
 `public/`!** In fact, these files are added to the `.gitignore` and should not
-be committed. 
+be committed.
 
 ## Running the project
 By default, npm should run this app in development mode. Therefore, certain
