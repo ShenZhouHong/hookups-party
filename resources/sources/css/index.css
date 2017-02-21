@@ -32,7 +32,7 @@
     padding-bottom: 4em;
 }
 .subtitle {
-   font-family: 'DancingScriptBold';
+   font-family: 'DancingScriptBold', "Arial Black", sans-serif;
    font-weight: normal;
    font-style: normal;
    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
@@ -40,7 +40,7 @@
 }
 
 #main-title {
-    font-family: 'StratoLinked';
+    font-family: 'StratoLinked', "Brush Script MT", sans-serif;
     font-weight: normal;
     font-style: normal;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
