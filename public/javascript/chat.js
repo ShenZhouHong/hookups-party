@@ -19,6 +19,7 @@
         $("#send-form").submit(function () {
             var msg = {};
             msg.text = $('.input-sm').val();
+            msg.name = socket.name;
             sendMessage(socket, msg);
             $(".input-sm").val('');
             return false;
@@ -40,7 +41,11 @@
         });
 
         socket.on("name", function (msg) {
+            console.log(msg);
             socket.name = msg;
         });
     };
+    // for fast debug
+    // FIXME remove this line before committing
+    //window.initChat(userPreferences);
   })();
