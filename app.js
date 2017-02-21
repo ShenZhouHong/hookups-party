@@ -10,6 +10,7 @@ var $ = require('jquery');
 var session = require('express-session');
 var index = require('./routes/index');
 var users = require('./routes/users');
+var minifyHTML = require('express-minify-html');
 
 var app = express();
 
@@ -22,6 +23,20 @@ app.use(
 app.use(
     favicon(path.join(__dirname, 'public/img', 'favicon.ico'))
 )
+
+/* Minifies the HTML when npm is run as production mode */
+app.use(minifyHTML({
+    override:      true,
+    exception_url: false,
+    htmlMinifier: {
+        removeComments:            true,
+        collapseWhitespace:        true,
+        collapseBooleanAttributes: true,
+        removeAttributeQuotes:     true,
+        removeEmptyAttributes:     true,
+        minifyJS:                  true
+    }
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
