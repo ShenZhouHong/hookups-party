@@ -53,7 +53,15 @@ toolchain component. This means the directory structure has changed. Previously,
 `.css` and `.js` files are not minified, and are stored under `public/`. These
 files were edited directly.
 
-### Simplified diagram
+Now, all source files are stored under `resources/sources`, and are not publicly
+accessible. These are read by `grunt`, combined with other relevant files, and
+then minified:
+
+### Simplified example diagram
+All files inside `resources/sources/css` are combined to form one minified css
+file (`index.min.css`) and a corresponding map file (`index.min.css.map`). The
+same process is repeated for the javascript files.
+
 ```
 .
 ├── app.js
@@ -74,13 +82,6 @@ files were edited directly.
             ├── chat.js
             └── index.js
 ```
-All files inside `resources/sources/css` are combined to form one minified css
-file (`index.min.css`) and a corresponding map file (`index.min.css.map`). The
-same process is repeated for the javascript files.
-
-Now, all source files are stored under `resources/sources`, and are not publicly
-accessible. These are read by `grunt`, combined with other relevant files, and
-then minified.
 
 This process is extremely aggressive at optimizing javascript and CSS for file
 size, in order to speed up content delivery. Unused attributes and functions are
