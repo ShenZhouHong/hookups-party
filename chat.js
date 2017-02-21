@@ -94,7 +94,7 @@ module.exports = function(app) {
         });
         this.socket.on('chat message', function(msg) {
             msg.text = xssFilters.inHTMLData(msg.text);
-            msg.name = that.socket.name;
+            msg.name = that.name;
             that.sendMessage(msg);
         });
         this.socket.on('remate', function(msg) {
