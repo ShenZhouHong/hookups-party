@@ -47,8 +47,11 @@ module.exports = function(grunt) {
         uglify: {
             // Global options. Per target options can also be defined.
             options: {
+                // Make development a joy :)
                 sourceMap: true,
-                mangle: false
+                sourceMapIncludeSources: true,
+                mangle: false,
+                report: 'gzip'
             },
 
             // Begin list of targets
