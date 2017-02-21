@@ -22,9 +22,10 @@ router.get('/', function(req, res, next) {
 /* GET information page. */
 router.get('/information', function(req, res, next) {
   res.render('information', {
-      title: 'Information',
-      scripts: 'information.js',
-      styles: 'information.css'
+    title: 'Information',
+    styles: [
+        'information.min.css',
+    ]
   });
 });
 

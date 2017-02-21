@@ -17,7 +17,6 @@ module.exports = function(grunt) {
         },
         javascript: {
             src: 'resources/javascript/scripts.js',
-            src: 'resources/javascript/chat.js',
             dest: 'public/javascript/index.min.js',
         }
     },
