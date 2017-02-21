@@ -9,40 +9,41 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    // Minifies javascript files
+    uglify: {
+        options: {
+            banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+            mangle: false
+        },
+        javascript: {
+            src: 'resources/javascript/scripts.js',
+            src: 'resources/javascript/chat.js',
+            dest: 'public/javascript/index.min.js',
+        }
+    },
+
+    // Minifies CSS stylesheets
     cssmin: {
         options: {
             mergeIntoShorthands: false,
             roundingPrecision: -1
         },
         target: {
-            files: [{
-                 expand: true,
-                 cwd: 'resources/stylesheets',
-                 src: ['*.css', '!*.min.css'],
-                 dest: 'public/stylesheets',
-                 ext: '.min.css'
-           }]
-       },
-       combine: {
             files: {
-                'public/stylesheets/index.min.css': ['public/stylesheets/**/*.css']
+                /* Creates the index.min.css file for index.hbs */
+                'public/stylesheets/index.min.css': [
+                    'resources/stylesheets/fonts.css',
+                    'resources/stylesheets/style.css',
+                ],
+                /* Creates the information.min.css file for information.hbs */
+                'public/stylesheets/information.min.css': [
+                    'resources/stylesheets/fonts.css',
+                    'resources/stylesheets/information.css',
+                ]
             }
         }
-    },
-
-    // Uglifies javascript files
-    uglify: {
-      options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-      },
-      javascript: {
-        src: 'resources/javascript/jquery.min.js',
-        src: 'resources/javascript/bootstrap.min.js',
-        src: 'resources/javascript/scripts.js',
-        src: 'resources/javascript/chat.js',
-        dest: 'public/javascript/index.min.js',
-      }
     }
+
   });
 
   // Load the plugin that provides the "uglify" task.
