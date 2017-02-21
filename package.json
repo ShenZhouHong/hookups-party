@@ -23,5 +23,8 @@
     "socketio": "^1.0.0",
     "underscore": "^1.8.3",
     "xss-filters": "^1.2.7"
+  },
+  "devDependencies": {
+    "grunt-contrib-cssmin": "^2.0.0"
   }
 }

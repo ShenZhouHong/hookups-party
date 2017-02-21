@@ -5,17 +5,8 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', {
       title: 'Hookups @ CSC',
-      scripts: ['chat.js', 'scripts.js'],
-      style: 'style.css'
-  });
-});
-
-/* GET chat page. */
-router.get('/chat', function(req, res, next) {
-  res.render('chat', {
-      title: 'Hooking Up ;)',
-      scripts: ['chat.js'],
-      style: 'chat.css'
+      scripts: 'index.min.js',
+      style: 'index.min.css'
   });
 });
 
@@ -23,8 +14,8 @@ router.get('/chat', function(req, res, next) {
 router.get('/information', function(req, res, next) {
   res.render('information', {
       title: 'Information',
-      script: 'information.js',
-      style: 'information.css'
+      script: 'information.min.js',
+      style: 'information.min.css'
   });
 });
 
