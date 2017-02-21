@@ -1,3 +1,20 @@
+var DisplayChat = function() {
+    //destrows the matchbox
+    $('#loading-screen').fadeOut();
+
+    // Finally, paints the chatbar at the bottom of the screen
+    $('#chatrow').fadeIn();
+    $('#chat-container').fadeIn();
+
+    // Resizes the container dynamically to fit #chatrow
+    $('#slide03').css("height", "94vh");
+
+    // Scrolls to the bottom
+    $('html, body').animate({
+        scrollTop: $("#chatrow").offset().top
+    }, 1000);
+};
+
 (function () {
     var userPreferences = {
         selfGender: "male",

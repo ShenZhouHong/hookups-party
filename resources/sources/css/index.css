@@ -1,27 +1,4 @@
 /*
-    The #background-holder ID is used only once, and serves as the container
-    where all the slides live on. Every element on the Webapp is in a container,
-    which is a direct child of the background-holder container-fluid
-*/
-
-#background-holder.container-fluid {
-    /* Begin background-image settings */
-    background: url(/media/background.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-/*  Slide class is used to standardize slide appearance, and set max viewport */
-.container-fluid .slide {
-    height: 100vh;
-    padding-top: 5em;
-    padding-left: 2em;
-    padding-right: 2em;
-}
-
-/*
     The #main-title, .subtitle, and #logo-container are all styled in accordence
     with the device's display width. Using media queries, this allows the logo
     to break and resize appropriately, making it responsive.
@@ -31,7 +8,7 @@
     padding-bottom: 4em;
 }
 .subtitle {
-   font-family: 'DancingScriptBold';
+   font-family: 'DancingScriptBold', "Arial Black", sans-serif;
    font-weight: normal;
    font-style: normal;
    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
@@ -39,7 +16,7 @@
 }
 
 #main-title {
-    font-family: 'StratoLinked';
+    font-family: 'StratoLinked', "Brush Script MT", sans-serif;
     font-weight: normal;
     font-style: normal;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
@@ -92,20 +69,6 @@
     .prompt-text {
         font-size: 190%;
     }
-}
-
-/*
-    The .envelope class is used to create the style and background for the cards
-    that display text and prompts to the user. It's common attributes are first
-    defined here, then it's height is dynamically given through media queries.
-*/
-/*  Begin with defining common styles */
-.envelope {
-    background-color: #FFF;
-    border:2px dashed #db0000;
-    border-width:2px;
-    border-style:dashed;
-    border-color:#db0000;
 }
 
 /*  #envelope01 breaking and rotation styles */

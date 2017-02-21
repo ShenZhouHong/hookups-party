@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'DancingScriptBold';
-    src: url('/fonts/Dancing-Script/DancingScript-Bold.ttf') format('truetype');
+    src: url('../fonts/Dancing-Script/DancingScript-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
@@ -8,21 +8,21 @@
 
 @font-face {
     font-family: 'DancingScriptRegular';
-    src: url('/fonts/Dancing-Script/DancingScript-Regular.ttf') format('truetype');
+    src: url('../fonts/Dancing-Script/DancingScript-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'StratoLinked';
-    src: url('/fonts/Strato/Strato-linked.ttf') format('truetype');
+    src: url('../fonts/Strato/Strato-linked.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'StratoUnlinked';
-    src: url('/fonts/Strato/Strato-unlinked.ttf') format('truetype');
+    src: url('../fonts/Strato/Strato-unlinked.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
