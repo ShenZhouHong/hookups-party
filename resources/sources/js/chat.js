@@ -56,10 +56,10 @@ var DisplayChat = function() {
 
             // Decides if the message came from the sender or reciever
             if (color === "primary") {
-                var elem = "<li class=\"me\"><span class=text-" + color + ">" + msg.name + "</span>: " + msg.text + "</li>";
+                var elem = "<li class=\"self-message\"><span class=text-" + color + ">" + msg.name + "</span>: " + msg.text + "</li>";
             }
             else {
-                var elem = "<li class=\"him\"><span class=text-" + color + ">" + msg.name + "</span>: " + msg.text + "</li>";
+                var elem = "<li class=\"other-message\"><span class=text-" + color + ">" + msg.name + "</span>: " + msg.text + "</li>";
             }
 
             // Appends message

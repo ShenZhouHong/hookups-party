@@ -221,27 +221,27 @@
     display:inline-block;
 }
 
-.him{
+.other-message{
     background: #eee;
     float: left;
 }
 
-.me{
+.self-message{
     float: right;
     color: #fff;
     background: #db0000;
 }
 
-.him + .me{
+.other-message + .self-message{
   border-bottom-right-radius: 5px !important;
 }
 
-.me + .me{
+.self-message + .self-message{
   border-top-right-radius: 5px !important;
   border-bottom-right-radius: 5px !important;
 }
 
-.me:last-of-type {
+.self-message:last-of-type {
   border-bottom-right-radius: 20px !important;
 }
 
