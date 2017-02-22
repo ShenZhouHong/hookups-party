@@ -103,3 +103,10 @@ This is generally done by exporting an environment variable to node.
 ```
 export NODE_ENV=production
 ```
+
+### Performance comparison
+Without `NODE_ENV=production`, `index.hbs` loads 528 KB of content in 6 requests.
+Features such as HTML minify and gzip content encoding is turned off. Javascript
+and CSS stylesheets are minified.
+
+When `NODE_ENV=production` is set, `index.hbs` loads only 216 KB in 6 requests!
