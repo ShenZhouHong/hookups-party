@@ -6,9 +6,11 @@ express, socket.io, and the latest HTML5 technologies.
 
 ## TODO list
 - [X] Write documentation for changes
-- [ ] Get Giuseppe to look at the weird socket bugs in chat. Might be caused by some weird minify edge case?
+- [X] Get Giuseppe to look at the weird socket bugs in chat. Might be caused by some weird minify edge case?
+- [X] Implement 'bubble-styled' chat UI and replace placeholder well
+- [ ] Secure websocket implementation and strictly check inputs
 - [ ] Implement progressive font rendering to prevent FOIC
-- [ ] Implement 'bubble-styled' chat UI and replace placeholder well
+- [ ] Further modularize CSS for chat
 
 ## Installation
 ### Prerequisites
