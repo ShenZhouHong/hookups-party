@@ -1,0 +1,111 @@
+/*
+    Client-side chat interface styling. We are trying to replicate a chat
+    experience that is as similar as possible to Facebook Messenger's UI.
+    Bubbles are modified through CSS pseudo-selectors.
+*/
+
+/*
+    General overview of styling:
+
+    The HTML chat structure is contained entirely in #slide03, which also serves
+    as the loading screen. When a match is made, the loading element
+    (#loading-screen) is destroyed, and the two chat elements (#chat-container
+    and #chatrow) are revealed.
+
+    #chat-container is a generic holder that aligns, centers, and holds the chat
+    messages (held in a ul called #chat-messages), and is 79.5vh tall. The text
+    box for submitting text is held in the #chatrow div that comes immediately
+    after, which is about 20.5vh tall.
+*/
+
+#slide03 {
+    height:100vh;
+}
+
+#chat-container {
+    height: 79.5vh;
+}
+
+.VAlignHelper:after {
+    content:'';
+    font-size:0;
+    height:100%;
+    vertical-align:middle;
+    display:inline-block;
+}
+
+/*
+    Chat message bubble styling:
+
+    Messages are recieved from the server in the form of <li> elements, with the
+    class .self-message for those sent by the client, and .other-message for
+    those recieved.
+
+    These messages are stored in the <ul> element #chat-messages, which the
+    appropriate styling.
+*/
+#chat-messages {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style:none;
+    vertical-align:bottom;
+    display: inline-block;
+    width: 99%;
+}
+
+#chat-messages li {
+    display:inline-block;
+    clear: both;
+    padding: 0.5em;
+    border-radius: 20px;
+    margin-bottom: 2px;
+    font-family: Helvetica, Arial, sans-serif;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+/*
+    Styling self and other chat bubbles:
+
+    Chat bubbles are designed to have differently shaped corners depending on
+    how they stack up. This is done purely through CSS via the usage of pseudo-
+    selectors.
+*/
+.other-message{
+    background: #eee;
+    float: left;
+}
+
+.self-message{
+    float: right;
+    color: #fff;
+    background: #db0000;
+}
+
+.other-message + .self-message{
+  border-bottom-right-radius: 5px !important;
+}
+
+.self-message + .self-message{
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+
+.self-message:last-of-type {
+  border-bottom-right-radius: 20px !important;
+}
+
+/*
+    Chat entry bar styling:
+
+    Finally, last but definitely not least, the box where the user enters text.
+*/
+
+#chatrow div {
+    height: 6vh;
+}
+
+#send-form {
+    margin: 0 1em;
+}

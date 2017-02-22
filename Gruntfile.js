@@ -33,7 +33,8 @@ module.exports = function(grunt) {
                         'node_modules/bootstrap/dist/css/bootstrap.css',
                         'resources/sources/css/fonts.css',
                         'resources/sources/css/common.css',
-                        'resources/sources/css/index.css'
+                        'resources/sources/css/index.css',
+                        'resources/sources/css/chat-ui.css'
                     ],
                 }
             },
