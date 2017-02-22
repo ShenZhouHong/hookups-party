@@ -1,0 +1,24 @@
+/*
+    Main fonts.css stylesheet. DancingScriptBold is a flowing, cursive font used
+    for subtitles, while StratoLinked is for the logo. Note: StratoLinked is
+     aggressively optimized and only contains the glyphs for "Hookups"!
+*/
+@font-face {
+    font-family: 'StratoLinked';
+    src:
+        url('../fonts/Strato-logo/Strato-logo.woff2') format('woff2'),
+        url('../fonts/Strato-logo/Strato-logo.woff') format('woff'),
+        url('../fonts/Strato-logo/Strato-logo.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DancingScriptBold';
+    src:
+        url('../fonts/Dancing-Script/DancingScript-Bold.woff2') format('woff2'),
+        url('../fonts/Dancing-Script/DancingScript-Bold.woff') format('woff'),
+        url('../fonts/Dancing-Script/DancingScript-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}

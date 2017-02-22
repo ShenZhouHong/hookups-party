@@ -1,6 +1,11 @@
-Copyright (c) 2010, Pablo Impallari (www.impallari.com|impallari@gmail.com),
-Copyright (c) 2010, Igino Marini. (www.ikern.com|mail@iginomarini.com),
-with Reserved Font Name Dancing Script.
+Copyright (c) 2016, Shen Zhou Hong (http://shen.hong.io/),
+with Reserved Font Name Strato logo.
+
+Derived from original work by BSozoo:
+Copyright (c)  2010,BSozoo (http://cargocollective.com/Sozoo|boataletr@gmail.com),
+with Reserved Font Name Strato .
+
+
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:
 http://scripts.sil.org/OFL
