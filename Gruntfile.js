@@ -13,6 +13,11 @@ module.exports = function(grunt) {
         */
         // Minifies CSS stylesheets
         cssmin: {
+            /*
+                IMPORTANT: Always include fonts.css as the 2nd stylesheet,
+                immediately after bootstrap.css. It is required by the logo
+                and subtitles.
+            */
             // Global options. Per target options can also be defined.
             options: {
                 sourceMap: true,
