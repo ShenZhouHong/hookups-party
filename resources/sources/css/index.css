@@ -191,8 +191,55 @@
     height: 20em;
 }
 
-#chat-messages li {
+/* UL in question */
+#chat-messages {
     list-style: none;
+    margin: 0;
+    padding: 0;
+    vertical-align:bottom;
+}
+
+.VAlignHelper:after {
+    content:'';
+    font-size:0;
+    height:100%;
+    vertical-align:middle;
+    display:inline-block;
+}
+
+#chat-messages li {
+    display:inline-block;
+    clear: both;
+    padding: 0.5em;
+    border-radius: 20px;
+    margin-bottom: 2px;
+    font-family: Helvetica, Arial, sans-serif;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.him{
+    background: #eee;
+    float: left;
+}
+
+.me{
+    float: right;
+    color: #fff;
+    background: #db0000;
+}
+
+.him + .me{
+  border-bottom-right-radius: 5px !important;
+}
+
+.me + .me{
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+
+.me:last-of-type {
+  border-bottom-right-radius: 20px !important;
 }
 
 #chatrow div {
