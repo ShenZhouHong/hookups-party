@@ -53,8 +53,18 @@ var DisplayChat = function() {
 
         socket.on('chat message', function(msg) {
             var color = msg.name === socket.name ? "primary" : "success";
-            var elem = "<li class=\"me\"><span class=text-" + color + ">" + msg.name + "</span>: " + msg.text + "</li>";
+
+            // Decides if the message came from the sender or reciever
+            if (color === "primary") {
+                var elem = "<li class=\"me\"><span class=text-" + color + ">" + msg.name + "</span>: " + msg.text + "</li>";
+            }
+            else {
+                var elem = "<li class=\"him\"><span class=text-" + color + ">" + msg.name + "</span>: " + msg.text + "</li>";
+            }
+
+            // Appends message
             $("#chat-messages").append(elem);
+
         });
 
         socket.on("name", function (msg) {
