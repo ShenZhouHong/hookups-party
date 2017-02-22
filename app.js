@@ -26,12 +26,6 @@ if ('production' == env) {
     console.info("App is now running in production mode.")
     console.info("Gzip content encoding and HTML minify is enabled.")
 
-    // Uses gzip encoding for faster content encoding, and sets cache time
-    app.use(
-        compression(),
-        express.static(__dirname + '/public', { maxAge: 31557600 })
-    );
-
     /* Minifies the HTML when npm is run as production mode */
     app.use(minifyHTML({
         override:      true,
@@ -73,7 +67,20 @@ app.session = session;
 // Note: you must place sass-middleware *before* `express.static` or else it will
 // not work.
 
-app.use(express.static(path.join(__dirname, 'public')));
+/*
+    Make sure to use gzip on all resources during production, and set an one
+    year long cache-expiry header. Otherwise, files are not to be cached, so
+    production changes show up instantly.
+*/
+if ('production' == env) {
+    app.use(
+        compression(),
+        express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 })
+    );
+}
+else {
+    app.use(express.static(path.join(__dirname, 'public'), { maxAge: 0 }));
+}
 
 app.use('/', index);
 app.use('/users', users);
