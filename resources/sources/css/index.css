@@ -188,11 +188,19 @@
 }
 
 #chat-container {
-    height: 20em;
+    height: 90vh;
 }
 
-#chat-messages li {
-    list-style: none;
+/* Cue quick random prototyping spaghetti code */
+.chatmessage {
+    background-color: #FFF;
+    border-radius: 4px;
+    border-bottom-left-radius: 0px;
+    margin-top: 1em;
+    padding: 1em;
+    -webkit-box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.75);
 }
 
 #chatrow div {

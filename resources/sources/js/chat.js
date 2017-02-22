@@ -53,8 +53,8 @@ var DisplayChat = function() {
 
         socket.on('chat message', function(msg) {
             var color = msg.name === socket.name ? "primary" : "success";
-            var elem = "<li><span class=text-" + color + ">" + msg.name + "</span>: " + msg.text + "</li>";
-            $("#chat-messages").append(elem);
+            var elem = "<div class=\"chatmessage\"><span class=text-" + color + ">" + msg.name + "</span>: " + msg.text + "</div>";
+            $("#chat-container").append(elem);
         });
 
         socket.on("name", function (msg) {
