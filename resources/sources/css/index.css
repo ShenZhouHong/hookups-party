@@ -26,8 +26,7 @@
     font-style: normal;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
     color: #db0000;
-    margin-top: 0.5em;
-    margin-bottom: 0.4em;
+    margin-top: 0.4em;
 }
 
 /* Change text size dynamically using css media queries */
@@ -200,6 +199,9 @@
     Uses icons to briefly introduce to the user how Hookups @ CSC would work.
     Presents everything in a simple 3 step pictogram.
 */
+#how-it-works {
+    margin-bottom: 3em;
+}
 
 #how-it-works img {
     width: 40%;
