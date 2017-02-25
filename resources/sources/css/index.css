@@ -5,8 +5,13 @@
 */
 /* Begin with defining common styles */
 #slide01 #logo-container {
-    padding-bottom: 4em;
+    padding-bottom: 2em;
 }
+
+#slide01 {
+    padding-top: 2em !important;
+}
+
 .subtitle {
    font-family: 'DancingScriptBold', "Arial Black", sans-serif;
    font-weight: normal;
@@ -188,6 +193,32 @@
 	100% {
 		-webkit-transform: rotate(-4deg);
 	}
+}
+
+/*
+    How it works:
+    Uses icons to briefly introduce to the user how Hookups @ CSC would work.
+    Presents everything in a simple 3 step pictogram.
+*/
+
+#how-it-works img {
+    width: 40%;
+}
+
+#how-it-works h3 {
+    font-family: 'DancingScriptBold', "Arial Black", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    color: #FFF;
+}
+
+#how-it-works p {
+    font-family: 'DancingScriptBold', "Arial Black", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    color: #FFF;
 }
 
 /*

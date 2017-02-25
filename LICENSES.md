@@ -20,3 +20,9 @@ license body itself.
 # Image Licenses
 ## Unsplash
 All photos published on Unsplash are licensed under Creative Commons Zero which means you can copy, modify, distribute and use the photos for free, including commercial purposes, without asking permission from or providing attribution to the photographer or Unsplash.
+
+## Google Material Design icons
+Icons used on the main page are from Google's
+[Material Design](https://material.io/icons/) icon site, which are all licensed
+under Apache License Version 2.0. This disclosure in the `LICENSES.md` file is
+the courtesy attribution that was requested.
