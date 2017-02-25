@@ -1,7 +1,7 @@
 var adjectives, animals;
 var _ = require("underscore");
 var xssFilters = require('xss-filters');
-var util = require('./util');
+var util = require('../util');
 
 module.exports = function(app) {
     var module = {};
