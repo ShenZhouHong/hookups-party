@@ -23,7 +23,8 @@ var DisplayChat = function() {
 */
 var StyleBubble = function() {
     // for each self message on the page
-    $( "li.self-message" ).each(function() {
+    $( "li.self-message:last-of-type, li.self-message:nth-last-of-type(2)" ).each(function() {
+        console.log("self-message");
         // If the bubble is the first in the chat
         if ($(this).is(':first-child') && $(this).next().hasClass('self-message')){
             $(this).addClass('self-message-top');
@@ -47,7 +48,8 @@ var StyleBubble = function() {
     });
 
     // for each other message on the page
-    $( "li.other-message" ).each(function() {
+    $( "li.other-message:last-of-type, li.other-message:nth-last-of-type(2)" ).each(function() {
+        console.log("other-message");
         // If the bubble is the first in the chat
         if ($(this).is(':first-child') && $(this).next().hasClass('other-message')){
             $(this).addClass('other-message-top');
