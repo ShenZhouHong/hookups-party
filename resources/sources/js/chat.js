@@ -21,56 +21,40 @@ var DisplayChat = function() {
     better later. It's so shit it is called every time a message is sent.
     Unforgivable.
 */
-var StyleBubble = function() {
+var StyleBubble = function(messageOwner) {
+    // Makes sure the other message property is set
+    if (messageOwner == "self") {
+        messageOther = "other";
+    }
+    else if (messageOwner == "other") {
+        messageOther = "self";
+    }
+
     // for each self message on the page
-    $( "li.self-message:last-of-type, li.self-message:nth-last-of-type(2)" ).each(function() {
-        console.log("self-message");
+    $( "li." + messageOwner + "-message" ).each(function() {
+
+        console.info("This has been called")
         // If the bubble is the first in the chat
-        if ($(this).is(':first-child') && $(this).next().hasClass('self-message')){
-            $(this).addClass('self-message-top');
+        if ($(this).is(':first-child') && $(this).next().hasClass(messageOwner + '-message')){
+            $(this).addClass(messageOwner + '-message-top');
         }
         // If the bubble is the first of it's siblings
-        else if ($(this).prev().hasClass('other-message') && $(this).next().hasClass('self-message')){
-            $(this).addClass('self-message-top');
+        else if ($(this).prev().hasClass(messageOther + '-message') && $(this).next().hasClass(messageOwner + '-message')){
+            $(this).addClass(messageOwner + '-message-top');
         }
         // If the bubble is in between it's siblings
-        else if ($(this).prev().hasClass('self-message') && $(this).next().hasClass('self-message')){
-            $(this).addClass('self-message-med');
+        else if ($(this).prev().hasClass(messageOwner + '-message') && $(this).next().hasClass(messageOwner + '-message')){
+            $(this).addClass(messageOwner + '-message-med');
         }
         // If the bubble is the last of it's siblings
-        else if ($(this).prev().hasClass('self-message') && $(this).next().hasClass('other-message')){
-            $(this).addClass('self-message-low');
+        else if ($(this).prev().hasClass(messageOwner + '-message') && $(this).next().hasClass(messageOther + '-message')){
+            $(this).addClass(messageOwner + '-message-low');
         }
         // If the bubble is the last in the chat
-        else if ($(this).prev().hasClass('self-message') && $(this).is(':last-child')){
-            $(this).addClass('self-message-low');
+        else if ($(this).prev().hasClass(messageOwner + '-message') && $(this).is(':last-child')){
+            $(this).addClass(messageOwner + '-message-low');
         }
     });
-
-    // for each other message on the page
-    $( "li.other-message:last-of-type, li.other-message:nth-last-of-type(2)" ).each(function() {
-        console.log("other-message");
-        // If the bubble is the first in the chat
-        if ($(this).is(':first-child') && $(this).next().hasClass('other-message')){
-            $(this).addClass('other-message-top');
-        }
-        // If the bubble is the first of it's siblings
-        else if ($(this).prev().hasClass('self-message') && $(this).next().hasClass('other-message')){
-            $(this).addClass('other-message-top');
-        }
-        // If the bubble is in between it's siblings
-        else if ($(this).prev().hasClass('other-message') && $(this).next().hasClass('other-message')){
-            $(this).addClass('other-message-med');
-        }
-        // If the bubble is the last of it's siblings
-        else if ($(this).prev().hasClass('other-message') && $(this).next().hasClass('self-message')){
-            $(this).addClass('other-message-low');
-        }
-        // If the bubble is the last in the chat
-        else if ($(this).prev().hasClass('other-message') && $(this).is(':last-child')){
-            $(this).addClass('other-message-low');
-        }
-     });
 };
 
 (function () {
@@ -121,15 +105,23 @@ var StyleBubble = function() {
 
             // Decides if the message came from the sender or reciever
             if (color === "primary") {
-                var elem = "<li class=\"self-message\"><span class=text-" + color + ">" + msg.name + "</span>: " + msg.text + "</li>";
+                messageOwner = "self"
+                var elem = "<li class=\"self-message\" style=\" display: none; \"><span class=text-" + color + ">" + msg.name + "</span>: " + msg.text + "</li>";
             }
             else {
-                var elem = "<li class=\"other-message\"><span class=text-" + color + ">" + msg.name + "</span>: " + msg.text + "</li>";
+                messageOwner = "other"
+                var elem = "<li class=\"other-message\" style=\" display: none; \"><span class=text-" + color + ">" + msg.name + "</span>: " + msg.text + "</li>";
             }
 
             // Appends message
             $("#chat-messages").append(elem);
-            StyleBubble();
+            $("#chat-messages :last-child").show(100, function() {
+                console.info("Trying to scroll to bottom now");
+                // Scrolls to bottom after done animating
+                $('#chat-container').scrollTop($('#chat-container')[0].scrollHeight - $('#chat-container')[0].clientHeight);
+                StyleBubble(messageOwner);
+
+            });
 
         });
 
@@ -141,4 +133,4 @@ var StyleBubble = function() {
     // for fast debug
     // FIXME remove this line before committing
     //window.initChat(userPreferences);
-  })();
+})();
