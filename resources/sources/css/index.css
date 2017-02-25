@@ -77,7 +77,8 @@
 
 /*  #envelope01 breaking and rotation styles */
 #envelope01.envelope {
-    transform: rotate(1deg);
+    -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
 }
 @media(max-width:355px){
     #envelope01.envelope {
@@ -112,7 +113,8 @@
 
 /* #envelope02 breaking and rotation styles */
 #envelope02.envelope {
-    transform: rotate(-0.8deg);
+    -webkit-transform: rotate(-0.8deg);
+            transform: rotate(-0.8deg);
 }
 @media(max-width:409px){
     #envelope02.envelope {
@@ -135,7 +137,8 @@
 /* #envelope03 breaking and rotation styles */
 /* Final envelope media-query wrapping */
 #envelope03.envelope {
-    transform: rotate(1deg);
+    -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
     margin-top: 3em;
 }
 @media(max-width:432px){
@@ -172,13 +175,16 @@
 
 @keyframes tossing {
 	0% {
-		transform: rotate(-0.5deg);
+		-webkit-transform: rotate(-0.5deg);
+		        transform: rotate(-0.5deg);
 	}
 	50% {
-		transform: rotate(0.5deg);
+		-webkit-transform: rotate(0.5deg);
+		        transform: rotate(0.5deg);
 	}
 	100% {
-		transform: rotate(-0.5deg);
+		-webkit-transform: rotate(-0.5deg);
+		        transform: rotate(-0.5deg);
 	}
 }
 
@@ -219,7 +225,7 @@
 
 /*
     Minimalistic footer styling. Essentially just centers the text and makes
-    the <a> links slightly prettier. EDIT: Rotation is now removed as the top
+    the  links slightly prettier. EDIT: Rotation is now removed as the top
     box is animated anyways.
 */
 #footer {
@@ -247,13 +253,15 @@
 
 #more-activities-hint {
     /* Rotation for it to match up and look nice */
-    transform: rotate(-0.8deg);
+    -webkit-transform: rotate(-0.8deg);
+            transform: rotate(-0.8deg);
     margin-top: 1em;
 }
 
 #missing-activity-hint {
     /* Rotation for it to match up and look nice */
-    transform: rotate(1deg);
+    -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
     margin-top: 1em;
 }
 

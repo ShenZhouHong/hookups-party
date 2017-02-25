@@ -36,7 +36,29 @@
 */
 .loading:after {
   content: ' .';
-  animation: dots 1s steps(5, end) infinite;
+  -webkit-animation: dots 1s steps(5, end) infinite;
+          animation: dots 1s steps(5, end) infinite;
+}
+
+@-webkit-keyframes dots {
+    0%, 20% {
+        color: rgba(0,0,0,0);
+        text-shadow:
+        .25em 0 0 rgba(0,0,0,0),
+        .5em 0 0 rgba(0,0,0,0);}
+    40% {
+        color: white;
+        text-shadow:
+        .25em 0 0 rgba(0,0,0,0),
+        .5em 0 0 rgba(0,0,0,0);}
+    60% {
+        text-shadow:
+        .25em 0 0 white,
+        .5em 0 0 rgba(0,0,0,0);}
+    80%, 100% {
+        text-shadow:
+        .25em 0 0 white,
+        .5em 0 0 white;}
 }
 
 @keyframes dots {
@@ -80,11 +102,11 @@
 /*
     Chat message bubble styling:
 
-    Messages are recieved from the server in the form of <li> elements, with the
+    Messages are recieved from the server in the form of  elements, with the
     class .self-message for those sent by the client, and .other-message for
     those recieved.
 
-    These messages are stored in the <ul> element #chat-messages, which the
+    These messages are stored in the  element #chat-messages, which the
     appropriate styling.
 */
 #chat-messages {
@@ -120,8 +142,6 @@
 .other-message {
     background: #eee;
     float: left;
-    -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
 }
 
@@ -129,8 +149,6 @@
     float: right;
     color: #fff;
     background: #db0000;
-    -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
 }
 
@@ -177,7 +195,8 @@
     position: fixed;
     top: 10%;
     left: 50%;
-    transform: translateX(-50%) rotate(-2deg);
+    -webkit-transform: translateX(-50%) rotate(-2deg);
+            transform: translateX(-50%) rotate(-2deg);
     padding: 2em;
 }
 

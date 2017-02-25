@@ -66,18 +66,21 @@
 
 /*  #envelope01 breaking and rotation styles */
 #envelope01.envelope {
-    transform: rotate(0.5deg);
+    -webkit-transform: rotate(0.5deg);
+            transform: rotate(0.5deg);
     margin-bottom: 2em;
 }
 
 /*  #envelope02 breaking and rotation styles */
 #envelope02.envelope {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
     margin-bottom: 1em;
 }
 
 #envelope03.envelope {
-    transform: rotate(-0.8deg);
+    -webkit-transform: rotate(-0.8deg);
+            transform: rotate(-0.8deg);
     margin-bottom: 1em;
 }
 
