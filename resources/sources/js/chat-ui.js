@@ -14,7 +14,17 @@ function DisplayChat() {
     $('html, body').animate({
         scrollTop: $("#chatrow").offset().top
     }, 1000);
-};
+}
+
+function displayError (msg) {
+    var html = '<div class="envelope error-box"><h2>Oh, fuck!</h2>'+ msg.text + '</div>';
+    $('body').append(html);
+    console.log("displayError");
+    $("#send").addClass("disabled");
+    $("#btn-input").attr("disabled", "");
+    $("#chat-messages li").addClass("grayout")
+    console.error(msg);
+}
 
 // Styles the chat bubbles to give them the correct borders
 /*
@@ -57,4 +67,4 @@ function StyleBubble(messageOwner) {
             $(this).addClass(messageOwner + '-message-low');
         }
     });
-};
+}

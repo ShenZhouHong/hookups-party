@@ -172,3 +172,19 @@
 #send-form {
     margin: 0 1em;
 }
+
+.error-box {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    padding: 2em;
+}
+
+.error-box h2 {
+    margin-top: 0;
+}
+
+.grayout {
+    opacity: 0.5;
+}

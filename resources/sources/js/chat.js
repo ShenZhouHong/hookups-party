@@ -2,11 +2,6 @@ function sendMessage(socket, msg) {
     socket.emit('chat message', msg);
 }
 
-function displayError (msg) {
-    alert("There has been an error:" + msg.type);
-    console.log(msg);
-}
-
 window.initChat = function(userPreferences) {
     var socket = io();
     socket.emit("login");
@@ -29,6 +24,9 @@ window.initChat = function(userPreferences) {
         // NOt yet implemented
         if (msg.severity === "fatal") {
             socket.emit('disconnect');
+        }
+        if (msg.type === "other-disconnected") {
+            msg.text = "Your virtual date has disconnected!";
         }
         displayError(msg);
     });
