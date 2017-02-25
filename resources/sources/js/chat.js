@@ -31,9 +31,10 @@ var StyleBubble = function(messageOwner) {
     }
 
     // for each self message on the page
-    $( "li." + messageOwner + "-message" ).each(function() {
+    var selector =  "li." + messageOwner + "-message";
+    $(selector + ":last-of-type, " + selector + ":nth-last-of-type(2)")
+        .each(function() {
 
-        console.info("This has been called")
         // If the bubble is the first in the chat
         if ($(this).is(':first-child') && $(this).next().hasClass(messageOwner + '-message')){
             $(this).addClass(messageOwner + '-message-top');
