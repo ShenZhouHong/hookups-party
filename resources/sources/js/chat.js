@@ -109,7 +109,6 @@ var StyleBubble = function(messageOwner) {
             // Appends message
             $("#chat-messages").append(elem);
             StyleBubble(messageOwner);
-
         });
 
         socket.on("name", function (msg) {
@@ -120,4 +119,4 @@ var StyleBubble = function(messageOwner) {
     // for fast debug
     // FIXME remove this line before committing
     //window.initChat(userPreferences);
-  })();
+})();
