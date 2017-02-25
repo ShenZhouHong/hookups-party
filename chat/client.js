@@ -1,4 +1,4 @@
-var util = require('../util')(); // required to generate names
+var util = require('../generatenames')(); // required to generate names
 var _ = require("underscore");
 var xssFilters = require('xss-filters'); // required to sanitize input
 /*

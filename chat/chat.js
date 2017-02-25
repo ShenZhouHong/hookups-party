@@ -1,5 +1,5 @@
 var adjectives, animals;
-var util = require('../util');
+var util = require('../generatenames');
 var RoomHandler = require('./roomhandler')
 var WaitingList = require('./waitinglist')
 var Client = require('./client')

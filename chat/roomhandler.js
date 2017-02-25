@@ -1,4 +1,4 @@
-var util = require('../util')();
+var util = require('../generatenames')();
 
 function RoomHandler () {
     this.roomNames = new Set();
