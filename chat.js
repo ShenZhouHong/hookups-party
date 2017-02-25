@@ -1,36 +1,15 @@
 var adjectives, animals;
 var _ = require("underscore");
 var xssFilters = require('xss-filters');
-
-function loadNames() {
-    var animals = [],
-        adjectives = [];
-    var lineReader = require('readline').createInterface({
-        input: require('fs').createReadStream(__dirname + '/resources/adjectives')
-    });
-
-    lineReader.on('line', function(line) {
-        adjectives.push(line);
-    });
-
-    lineReader = require('readline').createInterface({
-        input: require('fs').createReadStream(__dirname + '/resources/animals')
-    });
-
-    lineReader.on('line', function(line) {
-        animals.push(line);
-    });
-    return [adjectives, animals];
-}
-
+var util = require('./util');
 
 module.exports = function(app) {
     var module = {};
     var io = require('socket.io')(app);
-    var t = loadNames();
     var waiting = new WaitingList(); // TODO change this to a better data structure
     var roomNames = new Set();
     var clients = [];
+    var t = util.loadNames();
     module.adjectives = t[0];
     module.animals = t[1];
 
@@ -123,10 +102,10 @@ module.exports = function(app) {
     };
 
     Client.prototype.mate = function (mate, room) {
-        this.name = module.generateName(module.adjectives, module.animals);
+        this.name = util.generateName(module.adjectives, module.animals);
         if (mate.name !== undefined) {
             while (this.name === mate.name) {
-                this.name = module.generateName(module.adjectives, module.animals);
+                this.name = util.generateName(module.adjectives, module.animals);
             }
         }
         console.log("name: ", this.name);
@@ -169,37 +148,15 @@ module.exports = function(app) {
     });
 
     /*
-        adjectives, animals arguments are arrays of strings
-        returns a String of the form AdjectiveAnimal
-    */
-    module.generateName = function(adjectives, animals) {
-        var first_adjective, second_adjective, animal;
-        var rand;
-        first_adjective =
-            adjectives[Math.floor(Math.random() * adjectives.length)];
-        second_adjective =
-            adjectives[Math.floor(Math.random() * adjectives.length)];
-        animal = animals[Math.floor(Math.random() * adjectives.length)];
-
-        first_adjective =
-            first_adjective[0].toUpperCase() + first_adjective.slice(1);
-        second_adjective =
-            second_adjective[0].toUpperCase() + second_adjective.slice(1);
-        animal = animal[0].toUpperCase() + animal.slice(1);
-
-        return first_adjective + animal;
-    };
-
-    /*
         returns a new unique room name
         (distinct from any other *currently* existing room name: old and
         deleted names can be reused)
         automatically adds the reeturned name to the used names
     */
     function generateRoomName() {
-        var roomName = module.generateName(module.adjectives, module.animals);
+        var roomName = util.generateName(module.adjectives, module.animals);
         while (roomNames.has(roomName)) {
-            roomName = module.generateName(module.adjectives, module.animals);
+            roomName = util.generateName(module.adjectives, module.animals);
         }
         roomNames.add(roomName);
         return roomName;
