@@ -107,8 +107,8 @@ export NODE_ENV=production
 ```
 
 ### Performance comparison
-Without `NODE_ENV=production`, `index.hbs` loads 528 KB of content in 6 requests.
+Without `NODE_ENV=production`, `index.hbs` loads 381 KB of content in 5 requests.
 Features such as HTML minify and gzip content encoding is turned off. Javascript
 and CSS stylesheets are minified.
 
-When `NODE_ENV=production` is set, `index.hbs` loads only 216 KB in 6 requests!
+When `NODE_ENV=production` is set, `index.hbs` loads only 129 KB in 5 requests!
