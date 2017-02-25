@@ -199,12 +199,8 @@
     Uses icons to briefly introduce to the user how Hookups @ CSC would work.
     Presents everything in a simple 3 step pictogram.
 */
-#how-it-works {
-    margin-bottom: 3em;
-}
-
-#how-it-works img {
-    width: 40%;
+#how-it-works svg {
+    width: 60%;
 }
 
 #how-it-works h3 {
@@ -216,20 +212,17 @@
 }
 
 #how-it-works p {
-    font-family: 'DancingScriptBold', "Arial Black", sans-serif;
-    font-weight: normal;
-    font-style: normal;
+    font-weight: bolder;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
     color: #FFF;
 }
 
 /*
     Minimalistic footer styling. Essentially just centers the text and makes
-    the <a> links slightly prettier. Note: the footer is slightly rotated to
-    make it look good with the rotated envelope on top of it
+    the <a> links slightly prettier. EDIT: Rotation is now removed as the top
+    box is animated anyways.
 */
 #footer {
-    transform: rotate(1deg);
     margin-top: 1em;
 }
 
