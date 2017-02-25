@@ -1,8 +1,8 @@
 var adjectives, animals;
 var util = require('../generatenames');
-var RoomFactory = require('./roomfactory')
-var WaitingList = require('./waitinglist')
-var Client = require('./client')
+var RoomFactory = require('./roomfactory');
+var WaitingList = require('./waitinglist');
+var Client = require('./client');
 
 module.exports = function(app) {
     var module = {};
@@ -11,7 +11,6 @@ module.exports = function(app) {
     var clients = [];
 
     io.on('connection', function(socket) {
-        console.log("socket connected");
         var client = new Client(socket, waiting);
         clients.push(client);
     });
