@@ -99,16 +99,23 @@ var StyleBubble = function(messageOwner) {
             // Decides if the message came from the sender or reciever
             if (color === "primary") {
                 messageOwner = "self"
-                var elem = "<li class=\"self-message\"><span class=text-" + color + ">" + msg.name + "</span>: " + msg.text + "</li>";
+                var elem = "<li class=\"self-message\" style=\" display: none; \"><span class=text-" + color + ">" + msg.name + "</span>: " + msg.text + "</li>";
             }
             else {
                 messageOwner = "other"
-                var elem = "<li class=\"other-message\"><span class=text-" + color + ">" + msg.name + "</span>: " + msg.text + "</li>";
+                var elem = "<li class=\"other-message\" style=\" display: none; \"><span class=text-" + color + ">" + msg.name + "</span>: " + msg.text + "</li>";
             }
 
             // Appends message
             $("#chat-messages").append(elem);
-            StyleBubble(messageOwner);
+            $("#chat-messages :last-child").show(100, function() {
+                console.info("Trying to scroll to bottom now");
+                // Scrolls to bottom after done animating
+                $('#chat-container').scrollTop($('#chat-container')[0].scrollHeight - $('#chat-container')[0].clientHeight);
+                StyleBubble(messageOwner);
+
+            });
+
         });
 
         socket.on("name", function (msg) {
