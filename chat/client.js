@@ -83,6 +83,10 @@ Client.prototype.disconnect = function () {
         this.room.leave(this.socket);
         this.room = undefined; // so that there is no call stack
     }
+    if (this.quitWaitingList) {
+        this.quitWaitingList();
+        this.quitWaitingList = undefined;
+    }
 };
 
 module.exports = Client;

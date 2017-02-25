@@ -28,12 +28,26 @@ WaitingList.prototype.findMatch = function (client) {
 };
 
 /*
-    self-explanatory: just adds the socket and its preferences to the
-    "waiting" list
+    Adds the sockets to the 'waiting' list, giving the socket a callback
+    in case the sockets disconnects before finding a match
 */
 WaitingList.prototype.push = function (client) {
-    // TODO:60 make sure the socket is not already waiting
+    if (_.any(this.waiting, function (curClient) {
+        return (curClient !== client); })) {
+            // if the socket is already waiting
+            return;
+    }
     this.waiting.push(client);
+    var that = this;
+    client.quitWaitingList = function () {
+        that.remove(this);
+    };
+};
+
+WaitingList.prototype.remove = function (client) {
+    this.waiting = _.filter(this.waiting, function (curClient) {
+        return (curClient !== client);
+    });
 };
 
 /*
