@@ -22,7 +22,7 @@ function displayError (msg) {
     console.log("displayError");
     $("#send").addClass("disabled");
     $("#btn-input").attr("disabled", "");
-    $("#chat-messages li").addClass("grayout")
+    $("#chat-messages li").addClass("grayout");
     console.error(msg);
 }
 
