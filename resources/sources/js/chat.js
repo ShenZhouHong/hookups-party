@@ -23,7 +23,7 @@ window.initChat = function(userPreferences) {
     socket.on('my-error', function(msg) {
         // NOt yet implemented
         if (msg.severity === "fatal") {
-            socket.emit('disconnect');
+            socket.disconnect();
         }
         if (msg.type === "other-disconnected") {
             msg.text = "Your virtual date has disconnected!";

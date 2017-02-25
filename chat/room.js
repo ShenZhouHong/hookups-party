@@ -20,7 +20,9 @@ Room.prototype.leave = function (socket) {
     if (this.sockets.indexOf(socket) === -1)
         return;
     try {
-        socket.to(this.name).emit('my-error', {type: "other-disconnected"});
+        socket.to(this.name).emit('my-error', {
+            type: "other-disconnected",
+            severity: "fatal"});
         socket.leave(this.name);
     } catch (err) {
         console.log("leave catch");
