@@ -1,6 +1,8 @@
 var _ = require("underscore");
-function WaitingList (roomHandler) {
-    this.roomHandler = roomHandler || new RoomHandler();
+var RoomFactory = require('./roomfactory');
+
+function WaitingList (roomFactory) {
+    this.roomFactory = roomFactory || new RoomFactory();
     this.waiting = [];
 }
 
@@ -40,7 +42,7 @@ WaitingList.prototype.push = function (client) {
     waiting list, creates a room and makes the sockets join the room
 */
 WaitingList.prototype.mate = function (first, second) {
-    var room = this.roomHandler.newRoom();
+    var room = this.roomFactory.newRoom();
     first.mate(second, room);
     second.mate(first, room);
 

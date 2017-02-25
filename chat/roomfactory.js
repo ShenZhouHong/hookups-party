@@ -1,6 +1,6 @@
 var util = require('../generatenames')();
 
-function RoomHandler () {
+function RoomFactory () {
     this.roomNames = new Set();
 }
 
@@ -10,7 +10,7 @@ function RoomHandler () {
     deleted names can be reused)
     automatically adds the reeturned name to the used names
 */
-RoomHandler.prototype.newRoom = function () {
+RoomFactory.prototype.newRoom = function () {
     var roomName = util.generateName();
     while (this.hasRoom(roomName)) {
         roomName = util.generateName();
@@ -19,8 +19,8 @@ RoomHandler.prototype.newRoom = function () {
     return roomName;
 };
 
-RoomHandler.prototype.hasRoom = function (roomName) {
+RoomFactory.prototype.hasRoom = function (roomName) {
     return this.roomNames.has(roomName);
 };
 
-module.exports = RoomHandler;
+module.exports = RoomFactory;
