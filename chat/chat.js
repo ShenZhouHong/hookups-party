@@ -7,7 +7,7 @@ var Client = require('./client')
 module.exports = function(app) {
     var module = {};
     var io = require('socket.io')(app);
-    var waiting = new WaitingList(new RoomHandler()); // TODO change this to a better data structure
+    var waiting = new WaitingList(new RoomHandler());
     var clients = [];
 
     io.on('connection', function(socket) {

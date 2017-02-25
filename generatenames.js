@@ -1,5 +1,5 @@
-// TODO further isolate this code so that adjectives and animals are saved
-// in the module code and not somewhere else
+// TODO create some way to not always load two relatively big files every time
+// the module is instantiated
 
 function loadNames (adjectiveFile, animalFile) {
     var animals = [],
@@ -15,7 +15,6 @@ function loadNames (adjectiveFile, animalFile) {
     lineReader = require('readline').createInterface({
         input: require('fs').createReadStream(animalFile)
     });
-
     lineReader.on('line', function(line) {
         animals.push(line);
     });
