@@ -4,6 +4,10 @@
     which is a direct child of the background-holder container-fluid
 */
 
+body {
+    background-color: #0f161d;
+}
+
 #background-holder.container-fluid {
     /* Begin background-image settings */
     /* background: url(/img/background.jpg) no-repeat center center fixed; */
