@@ -86,8 +86,15 @@
     line spacing for large amounts of text. Also contains any other misc.
     typographical improvements
 */
+
+/* Center titles */
+h2 {
+    text-align: center;
+}
+
 .textbox {
     font-size: 1.2em;
     padding: 0 2.5em !important;
-    line-height: 180%;
+    line-height: 140%;
+    text-align: justify;
 }

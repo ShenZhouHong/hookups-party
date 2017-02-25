@@ -132,6 +132,7 @@
 /* Final envelope media-query wrapping */
 #envelope03.envelope {
     transform: rotate(1deg);
+    margin-top: 3em;
 }
 @media(max-width:432px){
     #envelope03.envelope {
