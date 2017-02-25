@@ -32,7 +32,7 @@ WaitingList.prototype.findMatch = function (client) {
     "waiting" list
 */
 WaitingList.prototype.push = function (client) {
-    // TODO make sure the socket is not already waiting
+    // TODO:60 make sure the socket is not already waiting
     this.waiting.push(client);
 };
 

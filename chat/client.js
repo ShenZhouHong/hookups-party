@@ -1,23 +1,34 @@
 var util = require('../generatenames')(); // required to generate names
 var _ = require("underscore");
 var xssFilters = require('xss-filters'); // required to sanitize input
+var debug = require('debug')('chat');
 /*
     Wraps a socket object nicely
 */
 function Client (socket, waitingList) {
     this.socket = socket;
     var that = this;
-    this.socket.on('disconnect', function(msg) {
-        // TODO handle disconnection code
+
+    // this.socket.on('error', this.handleError);
+
+    this.socket.on('disconnecting', function(msg) {
+        that.disconnect();
     });
+
+    this.socket.on('my-error', function(msg) {
+        if (msg.severity === 'fatal') {
+            that.disconnect();
+        }
+    });
+
     this.socket.on('chat message', function(msg) {
         msg.text = xssFilters.inHTMLData(msg.text);
         msg.name = that.name;
-        that.sendMessage(msg);
+        that.room.send(that.socket, msg);
     });
+
     this.socket.on('remate', function(msg) {
-        that.leaveRoom();
-        that.userPreferences = msg;
+        that.userPreferences = msg;  // TODO validate userPreferences
         waitingList.push(that);
         //console.log(waiting);
         var companion = waitingList.findMatch(that);
@@ -28,17 +39,6 @@ function Client (socket, waitingList) {
     });
 }
 
-/*
-    leaves all the rooms the socket is in
-*/
-Client.prototype.leaveRoom = function () {
-    // TODO finish this
-    for (var i = 0; i < this.socket.rooms.length; i++) {
-        var room = this.socket.rooms[i];
-        if (room !== this.socket.id)
-            this.socket.leave(room);
-    }
-};
 
 Client.prototype.mate = function (mate, room) {
     this.name = util.generateName();
@@ -47,20 +47,11 @@ Client.prototype.mate = function (mate, room) {
             this.name = util.generateName();
         }
     }
-    console.log("name: ", this.name);
+    debug("name: ", this.name);
     this.socket.emit("name", this.name);
     this.socket.emit("mate", mate.name);
-    this.socket.join(room);
-
-};
-
-
-Client.prototype.sendMessage = function (msg) {
-    this.socket.emit("chat message", msg);
-    console.log("msg: ", msg);
-    for (var room in this.socket.rooms) {
-        this.socket.to(room).emit("chat message", msg);
-    }
+    this.room = room;
+    this.room.join(this.socket);
 };
 
 /*
@@ -78,6 +69,20 @@ Client.prototype.comparePreferences = function (partner) {
     activity = (_.intersection(first.activities, second.activities).length);
     return (romance && gender && activity );
     //return _.isEqual(t, second);
+};
+
+/*
+    Leaves the room the socket is in, if any.
+    Do not call this function directly. Instead, use Client.socket.disconnect,
+    that would in turn fire a 'disconnect' event, that would be handled by
+    this function.
+    TODO otherwise makes sure to remove the socket from the WaitingList, if any
+*/
+Client.prototype.disconnect = function () {
+    if (this.room) {
+        this.room.leave(this.socket);
+        this.room = undefined; // so that there is no call stack
+    }
 };
 
 module.exports = Client;

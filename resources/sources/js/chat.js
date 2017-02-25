@@ -27,6 +27,10 @@ var DisplayChat = function() {
         socket.emit('chat message', msg);
     }
 
+    function displayError (msg) {
+        alert("There has been an error:" + msg.type);
+        console.log(msg);
+    }
 
     window.initChat = function(userPreferences) {
         var socket = io();
@@ -46,8 +50,11 @@ var DisplayChat = function() {
             DisplayChat();
         });
 
-        socket.on('error', function(msg) {
+        socket.on('my-error', function(msg) {
             // NOt yet implemented
+            if (msg.severity === "fatal") {
+                socket.emit('disconnect');
+            }
             displayError(msg);
         });
 
