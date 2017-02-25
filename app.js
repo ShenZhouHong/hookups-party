@@ -100,7 +100,12 @@ app.use(function(err, req, res, next) {
 
     // render the error page
     res.status(err.status || 500);
-    res.render('error');
+    res.render('error', {
+      title: 'error',
+      // Included resources
+      js: ['error.min.js'],
+      css: ['error.min.css']
+    });
 });
 
 module.exports = app;
