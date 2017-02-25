@@ -1,5 +1,5 @@
 # Hookups💋 @ CSC
-![Screenshot of index page](http://i.imgur.com/SWkBK3J.jpg)
+![Screenshot of index page](screenshot.png)
 
 A simple hookup app designed for anonymous romantic liaisons. Built using
 express, socket.io, and the latest HTML5 technologies.
@@ -11,6 +11,7 @@ express, socket.io, and the latest HTML5 technologies.
 - [X] Further modularize CSS for chat
 - [ ] Secure websocket implementation and strictly check inputs
 - [ ] Implement progressive font rendering to prevent FOIC
+- [ ] Working session management to prevent multiple users on the same client
 
 ## Installation
 ### Prerequisites
