@@ -19,12 +19,53 @@
 */
 
 #slide03 {
+    padding-top: 0;
     height:100vh;
 }
 
+/* Loading elements (that will be destroyed) */
+
+#loading-screen {
+    padding-top: 5em;
+}
+
+/*
+    Chat loading
+    Uses fancy keyframes to create a dynamic loading interface that goes:
+    dot, dot dot, dot dot dot, and so on ;)
+*/
+.loading:after {
+  content: ' .';
+  animation: dots 1s steps(5, end) infinite;
+}
+
+@keyframes dots {
+    0%, 20% {
+        color: rgba(0,0,0,0);
+        text-shadow:
+        .25em 0 0 rgba(0,0,0,0),
+        .5em 0 0 rgba(0,0,0,0);}
+    40% {
+        color: white;
+        text-shadow:
+        .25em 0 0 rgba(0,0,0,0),
+        .5em 0 0 rgba(0,0,0,0);}
+    60% {
+        text-shadow:
+        .25em 0 0 white,
+        .5em 0 0 rgba(0,0,0,0);}
+    80%, 100% {
+        text-shadow:
+        .25em 0 0 white,
+        .5em 0 0 white;}
+}
+
+/* Begin styling for chat elements */
+
 #chat-container {
-    height: 79.5vh;
+    height: 92vh;
     overflow-y: auto;
+    overflow: hidden;
 }
 
 /* Special CSS magic wizardry used to align bubbles to the bottom. */
@@ -76,7 +117,7 @@
 */
 
 /* Common styles for chat bubbles */
-.other-message{
+.other-message {
     background: #eee;
     float: left;
     -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
@@ -84,7 +125,7 @@
     box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
 }
 
-.self-message{
+.self-message {
     float: right;
     color: #fff;
     background: #db0000;
@@ -115,6 +156,7 @@
 }
 .other-message-low {
     border-top-left-radius: 5px !important;
+    margin-bottom: 1em;
 }
 
 /*
