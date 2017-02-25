@@ -6,14 +6,37 @@ var util = require('./util');
 module.exports = function(app) {
     var module = {};
     var io = require('socket.io')(app);
-    var waiting = new WaitingList(); // TODO change this to a better data structure
-    var roomNames = new Set();
+    var waiting = new WaitingList(new RoomHandler()); // TODO change this to a better data structure
     var clients = [];
     var t = util.loadNames();
     module.adjectives = t[0];
     module.animals = t[1];
 
-    function WaitingList () {
+    function RoomHandler () {
+        this.roomNames = new Set();
+    }
+
+    /*
+        returns a new unique room name
+        (distinct from any other *currently* existing room name: old and
+        deleted names can be reused)
+        automatically adds the reeturned name to the used names
+    */
+    RoomHandler.prototype.newRoom = function () {
+        var roomName = util.generateName(module.adjectives, module.animals);
+        while (this.hasRoom(roomName)) {
+            roomName = util.generateName(module.adjectives, module.animals);
+        }
+        this.roomNames.add(roomName);
+        return roomName;
+    };
+
+    RoomHandler.prototype.hasRoom = function (roomName) {
+        return this.roomNames.has(roomName);
+    };
+
+    function WaitingList (roomHandler) {
+        this.roomHandler = roomHandler || new RoomHandler();
         this.waiting = [];
     }
 
@@ -53,7 +76,7 @@ module.exports = function(app) {
         waiting list, creates a room and makes the sockets join the room
     */
     WaitingList.prototype.mate = function (first, second) {
-        var room = generateRoomName();
+        var room = this.roomHandler.newRoom();
         first.mate(second, room);
         second.mate(first, room);
 
@@ -61,6 +84,7 @@ module.exports = function(app) {
             return cur.socket != first && cur.socket != second;
         });
     };
+
 
     /*
         Wraps a socket object nicely
@@ -147,19 +171,5 @@ module.exports = function(app) {
         clients.push(client);
     });
 
-    /*
-        returns a new unique room name
-        (distinct from any other *currently* existing room name: old and
-        deleted names can be reused)
-        automatically adds the reeturned name to the used names
-    */
-    function generateRoomName() {
-        var roomName = util.generateName(module.adjectives, module.animals);
-        while (roomNames.has(roomName)) {
-            roomName = util.generateName(module.adjectives, module.animals);
-        }
-        roomNames.add(roomName);
-        return roomName;
-    }
     return module;
 };
