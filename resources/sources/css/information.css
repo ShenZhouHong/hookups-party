@@ -4,6 +4,14 @@
      appropriately, making it responsive. Inline logo styles also defined
 */
 
+/*  Slide class is used to standardize slide appearance, and set max viewport */
+.container-fluid .slide {
+    height: auto !important;
+    padding-top: 5em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
 .subtitle {
     font-family: 'DancingScriptBold', "Arial Black", sans-serif;
     font-weight: normal;
