@@ -1,3 +1,36 @@
-<h1>{{message}}</h1>
-<h2>{{error.status}}</h2>
-<pre>{{error.stack}}</pre>
+<!-- Main content div -->
+<div class="container-fluid" id="background-holder">
+
+    <div class="slide" id="slide01">
+        <!-- First row displays the Hookups @ UWC Changshu China logo -->
+        <div class="row">
+            <div class="col-xs-16 text-center" id="logo-container">
+                <a href="/">
+                    <h1 class="subtitle">Error @ <span id="main-title">Hookups💋</span></h1>
+                </a>
+            </div>
+        </div>
+
+        <!-- Second row displays the error contents -->
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 envelope">
+                <h1>{{message}}</h1>
+                <p class="textbox">
+                    Oops! Rather than hooking up, it appears we've got a problem
+                    here! Have you tried refreshing, and going back to the
+                    <a href="/">homepage</a>?
+
+                    Ignore the magic smoke below. It's just some developer-only
+                    output that's here for us to fix the problem.
+                </p>
+                <h2>
+                    {{error.status}}
+                </h2>
+                <pre>
+                    {{error.stack}}
+                </pre>
+            </div>
+        </div>
+    </div>
+
+</div>

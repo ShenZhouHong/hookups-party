@@ -5,8 +5,13 @@
 */
 /* Begin with defining common styles */
 #slide01 #logo-container {
-    padding-bottom: 4em;
+    padding-bottom: 2em;
 }
+
+#slide01 {
+    padding-top: 2em !important;
+}
+
 .subtitle {
    font-family: 'DancingScriptBold', "Arial Black", sans-serif;
    font-weight: normal;
@@ -21,8 +26,7 @@
     font-style: normal;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
     color: #db0000;
-    margin-top: 0.5em;
-    margin-bottom: 0.4em;
+    margin-top: 0.4em;
 }
 
 /* Change text size dynamically using css media queries */
@@ -132,6 +136,7 @@
 /* Final envelope media-query wrapping */
 #envelope03.envelope {
     transform: rotate(1deg);
+    margin-top: 3em;
 }
 @media(max-width:432px){
     #envelope03.envelope {
@@ -150,12 +155,74 @@
 }
 
 /*
+    Toss styling:
+    #envelope01 (title page) is styled to jiggle a little bit, in order to draw
+    the user's attention towards the prompt.
+*/
+.tossing{
+	animation-name: tossing;
+	-webkit-animation-name: tossing;
+
+	animation-duration: 2.5s;
+	-webkit-animation-duration: 2.5s;
+
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@keyframes tossing {
+	0% {
+		transform: rotate(-0.5deg);
+	}
+	50% {
+		transform: rotate(0.5deg);
+	}
+	100% {
+		transform: rotate(-0.5deg);
+	}
+}
+
+@-webkit-keyframes tossing {
+	0% {
+		-webkit-transform: rotate(-4deg);
+	}
+	50% {
+		-webkit-transform: rotate(4deg);
+	}
+	100% {
+		-webkit-transform: rotate(-4deg);
+	}
+}
+
+/*
+    How it works:
+    Uses icons to briefly introduce to the user how Hookups @ CSC would work.
+    Presents everything in a simple 3 step pictogram.
+*/
+#how-it-works svg {
+    width: 60%;
+}
+
+#how-it-works h3 {
+    font-family: 'DancingScriptBold', "Arial Black", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    color: #FFF;
+}
+
+#how-it-works p {
+    font-weight: bolder;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    color: #FFF;
+}
+
+/*
     Minimalistic footer styling. Essentially just centers the text and makes
-    the <a> links slightly prettier. Note: the footer is slightly rotated to
-    make it look good with the rotated envelope on top of it
+    the <a> links slightly prettier. EDIT: Rotation is now removed as the top
+    box is animated anyways.
 */
 #footer {
-    transform: rotate(1deg);
     margin-top: 1em;
 }
 

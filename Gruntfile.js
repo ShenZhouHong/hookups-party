@@ -48,6 +48,17 @@ module.exports = function(grunt) {
                         'resources/sources/css/information.css'
                     ],
                 }
+            },
+            error : {
+                // Syntax 'path/min.css': ['path/src1.css', 'path/src2.css']
+                files: {
+                    'public/css/error.min.css': [
+                        'node_modules/bootstrap/dist/css/bootstrap.css',
+                        'resources/sources/css/fonts.css',
+                        'resources/sources/css/common.css',
+                        'resources/sources/css/error.css'
+                    ],
+                }
             }
         },
 
@@ -82,6 +93,15 @@ module.exports = function(grunt) {
                             'node_modules/jquery/dist/jquery.js',
                             'node_modules/bootstrap/dist/js/bootstrap.js',
                             'resources/sources/js/information.js',
+                        ],
+                }
+            },
+            error: {
+                // Syntax 'path/min.css': ['path/src1.css', 'path/src2.css']
+                files: {
+                    'public/js/error.min.js': [
+                            'node_modules/jquery/dist/jquery.js',
+                            'node_modules/bootstrap/dist/js/bootstrap.js',
                         ],
                 }
             }
