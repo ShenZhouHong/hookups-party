@@ -22,7 +22,7 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-var chat = require('../chat')(server, app);
+var chat = require('../chat/chat')(server, app);
 
 /**
  * Listen on provided port, on all network interfaces.
