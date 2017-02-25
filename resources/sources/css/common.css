@@ -40,7 +40,7 @@ body {
     border-color:#db0000;
 }
 
-/* Logo link stylign */
+/* Logo link styling */
 #logo-containe a:link {
     text-decoration: none;
 }
@@ -55,4 +55,25 @@ body {
 
 #logo-containe a:active {
     text-decoration: none;
+}
+
+
+/*
+    Mobile collapsing class
+    The mobile collapsing class is a custom utility class that is designed to
+    hide any div assigned to it below a certain screen size
+*/
+.collapse-non-sm {
+    height: 0;
+    display: none;
+}
+.collapse-non-sm.collapsing {
+    display: block;
+}
+
+@media (min-width: 568px) {
+    .collapse-non-sm {
+        height: auto;
+        display: block;
+    }
 }
