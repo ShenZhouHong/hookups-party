@@ -191,6 +191,12 @@
     margin: 0 1em;
 }
 
+/*
+    Disconnect and error styling
+
+    For the generic error box that comes up when anything bad happens
+*/
+
 .error-box {
     position: fixed;
     top: 10%;
