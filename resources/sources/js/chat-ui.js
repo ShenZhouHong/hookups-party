@@ -24,7 +24,7 @@ function displayError (msg) {
             <h2 class="text-center">' + msg.title +'</h2>\
             <p>' + msg.text + '</p>\
             <p>Wanna head back and try for another match?</p>\
-            <a class="btn btn-primary text-center" href="\\">Let\'s go!</a>\
+            <a class="btn btn-primary" style="text-align: center" href="\\">Let\'s go!</a>\
         </div>';
 
     $('body').append(html);
