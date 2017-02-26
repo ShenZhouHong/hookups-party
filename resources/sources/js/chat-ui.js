@@ -53,33 +53,23 @@ function StyleBubble(messageOwner) {
                 var prev_has_class_other = $this.prev().hasClass(messageOther + '-message');
 
                 // If the bubble is the first in the chat or the bubble is the first of its siblings, add the "top" class.
-                if (
-                    ($this.is(':first-child') && next_has_class_owner) ||
-                    (prev_has_class_other && next_has_class_owner)
-                )
-                {
+                if (($this.is(':first-child') && next_has_class_owner) || (prev_has_class_other && next_has_class_owner)) {
                     return "-top";
                 }
 
                 // If the bubble is in between its siblings then add the "med" class.
-                if (
-                    prev_has_class_owner && next_has_class_owner
-                )
-                {
+                if (prev_has_class_owner && next_has_class_owner) {
                     return "-med";
                 }
 
                 // If the bubble is the last of its siblings or the bubble is the last in the chat, add the "low" class.
-                if (
-                    (prev_has_class_owner && next_has_class_other) ||
-                    (prev_has_class_owner && ($this.is(':last-child')))
-                )
-                {
+                if ((prev_has_class_owner && next_has_class_other) || (prev_has_class_owner && ($this.is(':last-child')))){
                     return "-low";
                 }
                 return "";
             } ();
 
+            // Finally, append the correct classes to the message
             $this.addClass(messageOwner + "-message" + position);
     });
 }
