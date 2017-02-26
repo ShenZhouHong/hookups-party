@@ -45,47 +45,41 @@ function StyleBubble(messageOwner) {
     var selector =  "li." + messageOwner + "-message";
     $(selector + ":last-of-type, " + selector + ":nth-last-of-type(2)")
         .each(function() {
+            var $this = $(this);
+            var position = function () {
+                var next_has_class_owner = $this.next().hasClass(messageOwner + '-message');
+                var prev_has_class_owner = $this.prev().hasClass(messageOwner + '-message');
+                var next_has_class_other = $this.next().hasClass(messageOther + '-message');
+                var prev_has_class_other = $this.prev().hasClass(messageOther + '-message');
 
-        // If the bubble is the first in the chat
-        if (
-            $(this).is(':first-child') &&
-            $(this).next().hasClass(messageOwner + '-message')
-        )
-        {
-            $(this).addClass(messageOwner + '-message-top');
-        }
+                // If the bubble is the first in the chat or the bubble is the first of its siblings, add the "top" class.
+                if (
+                    ($this.is(':first-child') && next_has_class_owner) ||
+                    (prev_has_class_other && next_has_class_owner)
+                )
+                {
+                    return "-top";
+                }
 
-        // If the bubble is the first of it's siblings
-        else if (
-            $(this).prev().hasClass(messageOther + '-message') &&
-            $(this).next().hasClass(messageOwner + '-message')
-        )
-        {
-            $(this).addClass(messageOwner + '-message-top');
-        }
+                // If the bubble is in between its siblings then add the "med" class.
+                if (
+                    prev_has_class_owner && next_has_class_owner
+                )
+                {
+                    return "-med";
+                }
 
-        // If the bubble is in between it's siblings
-        else if (
-            $(this).prev().hasClass(messageOwner + '-message') &&
-            $(this).next().hasClass(messageOwner + '-message')
-        ){
-            $(this).addClass(messageOwner + '-message-med');
-        }
+                // If the bubble is the last of its siblings or the bubble is the last in the chat, add the "low" class.
+                if (
+                    (prev_has_class_owner && next_has_class_other) ||
+                    (prev_has_class_owner && ($this.is(':last-child')))
+                )
+                {
+                    return "-low";
+                }
+                return "";
+            } ();
 
-        // If the bubble is the last of it's siblings
-        else if (
-            $(this).prev().hasClass(messageOwner + '-message') &&
-            $(this).next().hasClass(messageOther + '-message')
-        ){
-            $(this).addClass(messageOwner + '-message-low');
-        }
-        
-        // If the bubble is the last in the chat
-        else if (
-            $(this).prev().hasClass(messageOwner + '-message') &&
-            $(this).is(':last-child')
-        ){
-            $(this).addClass(messageOwner + '-message-low');
-        }
+            $this.addClass(messageOwner + "-message" + position);
     });
 }
