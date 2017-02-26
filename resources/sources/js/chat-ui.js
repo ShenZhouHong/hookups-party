@@ -47,23 +47,44 @@ function StyleBubble(messageOwner) {
         .each(function() {
 
         // If the bubble is the first in the chat
-        if ($(this).is(':first-child') && $(this).next().hasClass(messageOwner + '-message')){
+        if (
+            $(this).is(':first-child') &&
+            $(this).next().hasClass(messageOwner + '-message')
+        )
+        {
             $(this).addClass(messageOwner + '-message-top');
         }
+
         // If the bubble is the first of it's siblings
-        else if ($(this).prev().hasClass(messageOther + '-message') && $(this).next().hasClass(messageOwner + '-message')){
+        else if (
+            $(this).prev().hasClass(messageOther + '-message') &&
+            $(this).next().hasClass(messageOwner + '-message')
+        )
+        {
             $(this).addClass(messageOwner + '-message-top');
         }
+
         // If the bubble is in between it's siblings
-        else if ($(this).prev().hasClass(messageOwner + '-message') && $(this).next().hasClass(messageOwner + '-message')){
+        else if (
+            $(this).prev().hasClass(messageOwner + '-message') &&
+            $(this).next().hasClass(messageOwner + '-message')
+        ){
             $(this).addClass(messageOwner + '-message-med');
         }
+
         // If the bubble is the last of it's siblings
-        else if ($(this).prev().hasClass(messageOwner + '-message') && $(this).next().hasClass(messageOther + '-message')){
+        else if (
+            $(this).prev().hasClass(messageOwner + '-message') &&
+            $(this).next().hasClass(messageOther + '-message')
+        ){
             $(this).addClass(messageOwner + '-message-low');
         }
+        
         // If the bubble is the last in the chat
-        else if ($(this).prev().hasClass(messageOwner + '-message') && $(this).is(':last-child')){
+        else if (
+            $(this).prev().hasClass(messageOwner + '-message') &&
+            $(this).is(':last-child')
+        ){
             $(this).addClass(messageOwner + '-message-low');
         }
     });

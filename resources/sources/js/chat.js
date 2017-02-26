@@ -46,11 +46,11 @@ window.initChat = function(userPreferences) {
 
         // Appends message
         $("#chat-messages").append(elem);
+        StyleBubble(messageOwner);
         $("#chat-messages :last-child").show(100, function() {
             console.info("Trying to scroll to bottom now");
             // Scrolls to bottom after done animating
             $('#chat-container').scrollTop($('#chat-container')[0].scrollHeight - $('#chat-container')[0].clientHeight);
-            StyleBubble(messageOwner);
 
         });
 
