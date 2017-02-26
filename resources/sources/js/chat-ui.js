@@ -28,9 +28,9 @@ function displayError (msg) {
 
 // Styles the chat bubbles to give them the correct borders
 /*
-    This is some shit-ass spaghetti code. Please forgive me. I will make it
-    better later. It's so shit it is called every time a message is sent.
-    Unforgivable.
+    Cleaned refactored for legibility and performance, with the help of the
+    wonderful @CedarsHope and @Agamemnus from the #javascript channel at
+    irc.freenode.net
 */
 function StyleBubble(messageOwner) {
     // Makes sure the other message property is set
