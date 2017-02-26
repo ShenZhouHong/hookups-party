@@ -12,6 +12,7 @@ express, socket.io, and the latest HTML5 technologies.
 - [ ] Secure websocket implementation and strictly check inputs
 - [ ] Implement progressive font rendering to prevent FOIC
 - [ ] Working session management to prevent multiple users on the same client
+- [ ] Add match GUI to notify user when a match is found
 
 ## Installation
 ### Prerequisites
@@ -41,16 +42,35 @@ Hookups💋 now uses `Grunt` as an automated toolchain for combining, stripping,
 and minifying source javascript and HTML files. These files have to be built in
 order to run Hookups💋.
 
+As of commit `47446ee`, the `Grunt` build system has been refactored and
+modularized to have different build options for different environments. Hookups💋
+is configured to build according to two different buld targets:
+
+ - `development`: Javascript and CSS are combined and minified with sourcemaps, for the ease of debugging.
+ - `production`: Javascript and CSS are further optimized and minified without sourcemaps, for smaller filesizes.
+
+When running Hookups💋build `grunt` to the desired target environment. If you
+plan to develop Hookups💋, the `development` target will aid debugging, while
+the production target is optimized for a production environment:
+
 ```
-grunt
+grunt production
 ```
+or
+
+```
+grunt development
+```
+
+Of course, for switching between `production` and `development` toolchains, simply
+rerun the commands desired, and the files will be overwritten.
 
 **Please note:** compiled and minified javascript and CSS files are **NOT**
 including as a part of the project repository! Therefore, in order to run the
 project, these files must be built with `grunt`!
 
 At this point, if there are no errors, the installation process is complete.
-You may now start developing Hookups💋 @ CSC!
+You may now start developing or using Hookups💋 @ CSC!
 
 ## Project structure documentation
 As of the commit `fd3ab`, Hookups💋 has been refactored to use `grunt` as a
@@ -105,6 +125,13 @@ This is generally done by exporting an environment variable to node.
 
 ```
 export NODE_ENV=production
+```
+
+Of course, before running as production, be sure to rebuild the project using
+grunt to optimize the delivery of static files. This can be done by running:
+
+```
+grunt production
 ```
 
 ### Performance comparison
