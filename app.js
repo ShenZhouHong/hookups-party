@@ -80,6 +80,9 @@ if ('production' == env) {
 }
 else {
     app.use(express.static(path.join(__dirname, 'public'), { maxAge: 0 }));
+    console.info("Note: App is NOT running in production mode.")
+    console.info("HTML minify, cache-time, and gzip compression features")
+    console.info("are disabled for development.")
 }
 
 app.use('/', index);

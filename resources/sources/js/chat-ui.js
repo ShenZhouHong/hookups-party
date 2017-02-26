@@ -17,9 +17,20 @@ function DisplayChat() {
 }
 
 function displayError (msg) {
-    var html = '<div class="envelope error-box"><h2>Oh, fuck!</h2>'+ msg.text + '</div>';
+
+    // HTML for the error box
+    var html = '\
+        <div class="envelope error-box">\
+            <h2 class="text-center">' + msg.title +'</h2>\
+            <p>' + msg.text + '</p>\
+            <p>Wanna head back and try for another match?</p>\
+            <a class="btn btn-primary text-center" href="\\">Let\'s go!</a>\
+        </div>';
+
     $('body').append(html);
     console.log("displayError");
+
+    // Disables input methods and chat
     $("#send").addClass("disabled");
     $("#btn-input").attr("disabled", "");
     $("#chat-messages li").addClass("grayout");

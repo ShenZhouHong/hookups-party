@@ -34,7 +34,8 @@ window.initChat = function(userPreferences) {
             socket.disconnect();
         }
         if (msg.type === "other-disconnected") {
-            msg.text = "Your virtual date has disconnected!";
+            msg.title = "They're Gone!"
+            msg.text = "Looks like your partner has disconnected. Did the conversation go well? Have you set up a time to meet? 😉";
         }
         displayError(msg);  // shows a letterbox with the error
     });
