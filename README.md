@@ -13,6 +13,7 @@ express, socket.io, and the latest HTML5 technologies.
 - [ ] Implement progressive font rendering to prevent FOIC
 - [ ] Working session management to prevent multiple users on the same client
 - [ ] Add match GUI to notify user when a match is found
+- [ ] Add a comprehensive unit testing framework for javascript code
 
 ## Installation
 ### Prerequisites
@@ -46,11 +47,11 @@ As of commit `47446ee`, the `Grunt` build system has been refactored and
 modularized to have different build options for different environments. Hookups💋
 is configured to build according to two different buld targets:
 
- - `development`: Javascript and CSS are combined and minified with sourcemaps, for the ease of debugging.
+ - `development`: Javascript is linted for quality control. Furthermore Javascript and CSS are combined and minified with sourcemaps, for the ease of debugging.
  - `production`: Javascript and CSS are further optimized and minified without sourcemaps, for smaller filesizes.
 
 When running Hookups💋build `grunt` to the desired target environment. If you
-plan to develop Hookups💋, the `development` target will aid debugging, while
+plan to develop Hookups💋, the `development` target will aid debugging and provide linting while
 the production target is optimized for a production environment:
 
 ```
