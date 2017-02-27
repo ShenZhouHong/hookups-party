@@ -39,11 +39,13 @@ npm install --devDependencies
 ```
 
 ### Building javascript and CSS files with grunt
-Hookups💋 now uses `Grunt` as an automated toolchain for combining, stripping,
+Hookups💋 now uses `grunt` as an automated toolchain for combining, stripping,
 and minifying source javascript and HTML files. These files have to be built in
-order to run Hookups💋.
+order to run Hookups💋. In addition, `grunt` also assists development by automatically linting the javascript files using `jshint`.
 
-As of commit `47446ee`, the `Grunt` build system has been refactored and
+##### Build targets
+
+As of commit `47446ee`, the `grunt` build system has been refactored and
 modularized to have different build options for different environments. Hookups💋
 is configured to build according to two different buld targets:
 
@@ -69,6 +71,25 @@ rerun the commands desired, and the files will be overwritten.
 **Please note:** compiled and minified javascript and CSS files are **NOT**
 including as a part of the project repository! Therefore, in order to run the
 project, these files must be built with `grunt`!
+
+#### Build Pipeline Overview
+When running `grunt development`:
+
+```
+Development build pipeline:
+Step:   [Sources]   [Linting]   [Minify]    [Linting]   [Final]
+Files:  ├──.js  ---→ jshint ---→ uglify ---→ jshint ---→ ├──.min.js
+        └──.css ---------------→ cssmin ---------------→ └──.min.css
+```
+
+When running `grunt production`:
+
+```
+Production build pipeline:
+Step:   [Sources]              [Minify]                 [Final]
+Files:  ├──.js  --------------→ uglify ----------------→ ├──.min.js
+        └──.css --------------→ cssmin ----------------→ └──.min.css
+```
 
 At this point, if there are no errors, the installation process is complete.
 You may now start developing or using Hookups💋 @ CSC!
