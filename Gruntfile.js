@@ -175,6 +175,16 @@ module.exports = function(grunt) {
             },
         },
 
+        // Static code analyzer for javascript files
+        jshint: {
+            // Global options. Per target options can also be defined.
+            options: {
+
+            },
+
+            development: ['Gruntfile.js', 'resources/sources/js/**.js'],
+        },
+
         // Copies fonts and other files
         copy: {
             // Bootstrap fonts are basically the only files that need copying
@@ -193,9 +203,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 
     // Register seperate production versus development-based tasks
-    grunt.registerTask('development', ['env:development', 'cssmin:development', 'uglify:development', 'copy']);
-    grunt.registerTask('production', ['env:production', 'cssmin:production', 'uglify:production', 'copy']);
+    grunt.registerTask('development', ['jshint:development', 'cssmin:development', 'uglify:development', 'copy']);
+    grunt.registerTask('production', ['cssmin:production', 'uglify:production', 'copy']);
 
 };
