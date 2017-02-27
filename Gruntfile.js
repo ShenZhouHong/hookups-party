@@ -182,7 +182,9 @@ module.exports = function(grunt) {
 
             },
 
-            development: ['Gruntfile.js', 'resources/sources/js/**.js'],
+            // Allows options to check both source files and compressed outputs
+            sources: ['Gruntfile.js', 'resources/sources/js/**.js'],
+            minified: ['Gruntfile.js', 'resources/sources/js/**.js'],
         },
 
         // Copies fonts and other files
@@ -206,7 +208,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
 
     // Register seperate production versus development-based tasks
-    grunt.registerTask('development', ['jshint:development', 'cssmin:development', 'uglify:development', 'copy']);
+    grunt.registerTask('development', ['jshint:sources', 'cssmin:development', 'uglify:development', 'jshint:minified', 'copy']);
     grunt.registerTask('production', ['cssmin:production', 'uglify:production', 'copy']);
 
 };
