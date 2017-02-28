@@ -59,7 +59,7 @@ WaitingList.prototype.mate = function (first, second) {
     var room = this.roomFactory.newRoom();
     first.mate(second, room);
     second.mate(first, room);
-    var msgTemplate = _.template("We've found you a match! You are now chatting with <%= name %>! <%= pronoun %> also want to <%= activity %>!");
+    var msgTemplate = _.template("We've found you a match! You are now chatting with <%= name %>! <%= pronoun %> also wants to <%= activity %>!");
     var firstMsg = {
         text: msgTemplate({
             name: first.name,

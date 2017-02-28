@@ -1,8 +1,12 @@
 # Hookups💋 @ CSC
+A simple hookup app designed for anonymous romantic liaisons.
+
+Built using express, socket.io, and the latest HTML5 technologies. Responsive and
+mobile-first.
+
 ![Screenshot of index page](screenshot.png)
 
-A simple hookup app designed for anonymous romantic liaisons. Built using
-express, socket.io, and the latest HTML5 technologies.
+![Sample conversation](conversation.png)
 
 ## TODO list
 - [X] Write documentation for changes
