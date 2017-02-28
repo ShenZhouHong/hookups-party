@@ -11,9 +11,18 @@ window.initChat = function(userPreferences) {
     // When the message form is submit, collect the text and send it
     $("#send-form").submit(function () {
         var msg = {};
-        msg.text = $('.input-sm').val();
-        msg.name = socket.name;
-        sendMessage(socket, msg);
+        var rawInput = $('.input-sm').val();
+
+        // Basic sanity check against empty or zero-length messages
+        if ((rawInput.length === 0) || (/^\s*$/.test(rawInput))) {
+            // console.info("Message size is zero. Discarding");
+        }
+        else {
+            msg.text = $('.input-sm').val();
+            msg.name = socket.name;
+            sendMessage(socket, msg);
+        }
+
         $(".input-sm").val('');
         return false;
     });
