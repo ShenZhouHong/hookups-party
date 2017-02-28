@@ -18,7 +18,8 @@ module.exports = function(grunt) {
             // Global options. Per target options can also be defined.
             options: {
                 mergeIntoShorthands: false,
-                roundingPrecision: -1
+                roundingPrecision: -1,
+                level: 2,
             },
 
             /*
