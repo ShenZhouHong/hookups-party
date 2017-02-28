@@ -234,4 +234,23 @@ $(function () {
         // Sends the user preferences over
         initChat(userPreferences);
     });
+
+    /*
+        Asks if the user really wants to exit the chat
+    */
+    // Makes sure to prompt the user at least once.
+
+    // Exit prompt to display
+    var confirmed = false;
+
+    $('#leave').on("click", function() {
+        $('#leave').html('<span style="font-weight: bold">Are you sure?</span>');
+        if (confirmed === true) {
+            // Reloads the page
+            window.location.href = '/';
+        }
+        else {
+            confirmed = true;
+        }
+    });
 });
