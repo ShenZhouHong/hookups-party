@@ -54,6 +54,26 @@ body {
     text-decoration: none;
 }
 
+/*
+    Error styling
+
+    For the generic error box that comes up when anything bad happens. Also used
+    to style <noscript> messages when client has javascript disabled.
+*/
+
+.error-box {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) rotate(-2deg);
+            transform: translateX(-50%) rotate(-2deg);
+    padding: 2em;
+    z-index: 1000;
+}
+
+.error-box h2 {
+    margin-top: 0;
+}
 
 /*
     Mobile collapsing class

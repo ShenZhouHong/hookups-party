@@ -191,25 +191,6 @@
     margin: 0 1em;
 }
 
-/*
-    Disconnect and error styling
-
-    For the generic error box that comes up when anything bad happens
-*/
-
-.error-box {
-    position: fixed;
-    top: 10%;
-    left: 50%;
-    -webkit-transform: translateX(-50%) rotate(-2deg);
-            transform: translateX(-50%) rotate(-2deg);
-    padding: 2em;
-}
-
-.error-box h2 {
-    margin-top: 0;
-}
-
 .grayout {
     opacity: 0.5;
 }
