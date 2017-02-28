@@ -8,7 +8,7 @@
         partnerGender: 'male' | 'female' | 'both'   | undefined
         activities: [
                        'make out', 'eat', 'fuck'
-    ]
+                    ]
 
     The 'activities' key contains an array that is empty by default, and
     populated by a list of activities that the user has choosen.
