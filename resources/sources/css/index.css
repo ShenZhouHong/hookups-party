@@ -8,7 +8,7 @@
     padding-bottom: 2em;
 }
 
-#main-title svg {
+.main-title svg {
     display: inline-block;
     vertical-align: middle;
     height: 2em;
@@ -26,7 +26,7 @@
    color: #FFF;
 }
 
-#main-title {
+.main-title {
     font-family: 'StratoLinked', "Brush Script MT", sans-serif;
     font-weight: normal;
     font-style: normal;
@@ -40,7 +40,7 @@
     .subtitle {
        font-size: 2em;
     }
-    #main-title {
+    .main-title {
         font-size: 3.5em;
     }
     .prompt-text {
@@ -51,7 +51,7 @@
     .subtitle {
        font-size: 3em;
     }
-    #main-title {
+    .main-title {
         font-size: 5em;
     }
     .prompt-text {
@@ -62,7 +62,7 @@
     .subtitle {
        font-size: 3em;
     }
-    #main-title {
+    .main-title {
         font-size: 7em;
     }
     .prompt-text {
@@ -73,7 +73,7 @@
     .subtitle {
        font-size: 3em;
     }
-    #main-title {
+    .main-title {
         font-size: 7em;
     }
     .prompt-text {
