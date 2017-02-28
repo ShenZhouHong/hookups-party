@@ -75,6 +75,10 @@ body {
     margin-top: 0;
 }
 
+.failedcss {
+    display: none;
+}
+
 /*
     Mobile collapsing class
     The mobile collapsing class is a custom utility class that is designed to
