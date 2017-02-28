@@ -59,6 +59,25 @@ WaitingList.prototype.mate = function (first, second) {
     var room = this.roomFactory.newRoom();
     first.mate(second, room);
     second.mate(first, room);
+    var msgTemplate = _.template("We've found you a match! You are now chatting with <%= name %>! <%= pronoun %> also want to <%= activity %>!");
+    var firstMsg = {
+        text: msgTemplate({
+            name: first.name,
+            pronoun: first.userPreferences.selfGender === "male" ? "He" : (first.userPreferences.selfGender === "female" ? "She" : "They"),
+            activity: first.userPreferences.activities.join()
+        }),
+        name: second.name
+    };
+    var secondMsg = {
+        text: msgTemplate({
+            name: second.name,
+            pronoun: second.userPreferences.selfGender === "male" ? "He" : (second.userPreferences.selfGender === "female" ? "She" : "They"),
+            activity: second.userPreferences.activities.join()
+        }),
+        name: first.name
+    };
+    first.socket.emit("chat message", firstMsg);
+    second.socket.emit("chat message", secondMsg);
 
     this.waiting = _.filter(this.waiting, function(cur) {
         return cur.socket != first && cur.socket != second;
