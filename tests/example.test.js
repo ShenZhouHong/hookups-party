@@ -1,0 +1,4 @@
+/*
+    Qunit unit testing framework test. Just an example to figure out how unit
+    testing actually works with javascript
+*/

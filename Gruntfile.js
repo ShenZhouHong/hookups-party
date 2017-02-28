@@ -206,6 +206,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-qunit');
 
     // Register seperate production versus development-based tasks
     grunt.registerTask('development', ['jshint:sources', 'cssmin:development', 'uglify:development', 'jshint:minified', 'copy']);
