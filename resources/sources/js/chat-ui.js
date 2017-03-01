@@ -39,7 +39,11 @@ function displayError (msg) {
 */
 function StyleBubble(messageOwner) {
     // Makes sure the other message property is set
-    if (messageOwner == "self") {
+    var messageOther;
+    if (messageOwner === "server") {
+        return;
+    }
+    else if (messageOwner == "self") {
         messageOther = "other";
     }
     else if (messageOwner == "other") {
@@ -54,8 +58,8 @@ function StyleBubble(messageOwner) {
             var position = function () {
                 var next_has_class_owner = $this.next().hasClass(messageOwner + '-message');
                 var prev_has_class_owner = $this.prev().hasClass(messageOwner + '-message');
-                var next_has_class_other = $this.next().hasClass(messageOther + '-message');
-                var prev_has_class_other = $this.prev().hasClass(messageOther + '-message');
+                var next_has_class_other = $this.next().hasClass(messageOther + '-message') || $this.next().hasClass('server-message');
+                var prev_has_class_other = $this.prev().hasClass(messageOther + '-message') || $this.prev().hasClass('server-message');
 
                 // If the bubble is the first in the chat or the bubble is the first of its siblings, add the "top" class.
                 if (($this.is(':first-child') && next_has_class_owner) || (prev_has_class_other && next_has_class_owner)) {

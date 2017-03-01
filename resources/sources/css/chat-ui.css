@@ -117,6 +117,7 @@
     vertical-align:bottom;
     display: inline-block;
     width: 99%;
+    clear: both;
 }
 
 #chat-messages li {
@@ -149,6 +150,13 @@
     float: right;
     color: #fff;
     background: #db0000;
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+}
+
+.server-message {
+    float: left;
+    background: #ec971f;
+    color: #fff;
     box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
 }
 

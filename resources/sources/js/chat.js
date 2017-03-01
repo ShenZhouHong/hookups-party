@@ -49,12 +49,7 @@ window.initChat = function(userPreferences) {
         displayError(msg);  // shows a letterbox with the error
     });
 
-    // A message is received
-    socket.on('chat message', function(msg) {
-        // Decides if the message came from the sender or reciever
-        var messageOwner = msg.name === socket.name ? "self" : "other";
-        var elem = '<li class="' + messageOwner + '-message" style=" display: none; ">' + msg.text + "</li>";
-
+    function addChatMessage(elem, messageOwner) {
         // Appends message
         $("#chat-messages").append(elem);
         StyleBubble(messageOwner);
@@ -63,7 +58,19 @@ window.initChat = function(userPreferences) {
             // Scrolls to bottom after done animating
             $('#chat-container').scrollTop($('#chat-container')[0].scrollHeight - $('#chat-container')[0].clientHeight);
         });
+    }
+    socket.on('server message', function(msg) {
+        var messageOwner = "server";
+        var elem = '<li class="' + messageOwner + '-message" style=" display: none; ">' + msg.text + "</li>";
+        addChatMessage(elem, messageOwner);
+    });
 
+    // A message is received
+    socket.on('chat message', function(msg) {
+        // Decides if the message came from the sender or reciever
+        var messageOwner = msg.name === socket.name ? "self" : "other";
+        var elem = '<li class="' + messageOwner + '-message" style=" display: none; ">' + msg.text + "</li>";
+        addChatMessage(elem, messageOwner);
     });
 
     // Server determined name. Not displayed currently, but used as a unique ID
