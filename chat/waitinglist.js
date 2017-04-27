@@ -86,8 +86,8 @@ WaitingList.prototype.mate = function (first, second) {
     };
     console.log(firstMsg);
     console.log(secondMsg);
-    first.socket.emit("chat message", firstMsg);
-    second.socket.emit("chat message", secondMsg);
+    first.socket.emit("server message", firstMsg);
+    second.socket.emit("server message", secondMsg);
 
     this.waiting = _.filter(this.waiting, function(cur) {
         return cur.socket != first && cur.socket != second;
