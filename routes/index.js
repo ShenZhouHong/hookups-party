@@ -21,4 +21,14 @@ router.get('/information', function(req, res, next) {
     });
 });
 
+/* GET session error page. */
+router.get('/session', function(req, res, next) {
+    res.render('session', {
+      title: 'Session Error!',
+      // Included resources
+      js: ['session.min.js'],
+      css: ['session.min.css']
+    });
+});
+
 module.exports = router;

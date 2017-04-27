@@ -56,6 +56,12 @@ module.exports = function(grunt) {
                         'resources/sources/css/common.css',
                         'resources/sources/css/information.css'
                     ],
+                    'public/css/session.min.css': [
+                        'node_modules/bootstrap/dist/css/bootstrap.css',
+                        'resources/sources/css/fonts.css',
+                        'resources/sources/css/common.css',
+                        'resources/sources/css/session.css'
+                    ],
                     'public/css/error.min.css': [
                         'node_modules/bootstrap/dist/css/bootstrap.css',
                         'resources/sources/css/fonts.css',
@@ -90,6 +96,12 @@ module.exports = function(grunt) {
                         'resources/sources/css/fonts.css',
                         'resources/sources/css/common.css',
                         'resources/sources/css/information.css'
+                    ],
+                    'public/css/session.min.css': [
+                        'node_modules/bootstrap/dist/css/bootstrap.css',
+                        'resources/sources/css/fonts.css',
+                        'resources/sources/css/common.css',
+                        'resources/sources/css/session.css'
                     ],
                     'public/css/error.min.css': [
                         'node_modules/bootstrap/dist/css/bootstrap.css',
@@ -135,6 +147,10 @@ module.exports = function(grunt) {
                             'node_modules/bootstrap/dist/js/bootstrap.js',
                             'resources/sources/js/information.js',
                     ],
+                    'public/js/session.min.js': [
+                            'node_modules/jquery/dist/jquery.js',
+                            'node_modules/bootstrap/dist/js/bootstrap.js',
+                    ],
                     'public/js/error.min.js': [
                             'node_modules/jquery/dist/jquery.js',
                             'node_modules/bootstrap/dist/js/bootstrap.js',
@@ -164,6 +180,11 @@ module.exports = function(grunt) {
                             'resources/sources/js/chat-ui.js'
                     ],
                     'public/js/information.min.js': [
+                            'node_modules/jquery/dist/jquery.js',
+                            'node_modules/bootstrap/dist/js/bootstrap.js',
+                            'resources/sources/js/information.js',
+                    ],
+                    'public/js/session.min.js': [
                             'node_modules/jquery/dist/jquery.js',
                             'node_modules/bootstrap/dist/js/bootstrap.js',
                             'resources/sources/js/information.js',
