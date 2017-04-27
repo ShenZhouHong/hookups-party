@@ -6,7 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var $ = require('jquery');
-var session = require('express-session');
+var sessionMiddleware = require('express-session');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
@@ -54,13 +54,13 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 
-app.use(session({
-    name: 'hoocookies',
+var session = sessionMiddleware({
     secret: 'crazy cookie girl',
     saveUninitialized: true,
     resave: true,
     // store: new FileStore()
-}));
+});
+app.use(session);
 
 app.session = session;
 

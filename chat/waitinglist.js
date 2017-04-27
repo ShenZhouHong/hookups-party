@@ -59,25 +59,35 @@ WaitingList.prototype.mate = function (first, second) {
     var room = this.roomFactory.newRoom();
     first.mate(second, room);
     second.mate(first, room);
-    var msgTemplate = _.template("We've found you a match! You are now chatting with <b> <%= name %></b>! <%= pronoun %> also wants to <%= activity %>!");
+    var msgTemplate = _.template("We've found you a match! You are now chatting with <%= name %>! <%= pronoun %> also wants to <strong><%= activity %></strong>!");
+    var activities = _.map(
+            _.intersection(first.userPreferences.activities, second.userPreferences.activities), 
+            function(id) {
+                return id.replace('_', ' ');
+            }
+        ).join(', ');
     var firstMsg = {
         text: msgTemplate({
             name: first.name,
             pronoun: first.userPreferences.selfGender === "male" ? "He" : (first.userPreferences.selfGender === "female" ? "She" : "They"),
-            activity: _.map(first.userPreferences.activities, function(elem){return elem.replace("_", " ");}).join()
+            activity: activities
         }),
-        name: first.name
+        name: second.name,
+        type: 1
     };
     var secondMsg = {
         text: msgTemplate({
             name: second.name,
             pronoun: second.userPreferences.selfGender === "male" ? "He" : (second.userPreferences.selfGender === "female" ? "She" : "They"),
-            activity: _.map(second.userPreferences.activities, function(elem){return elem.replace("_", " ");}).join()
+            activity: activities
         }),
-        name: second.name
+        name: first.name,
+        type: 1
     };
-    first.socket.emit("server message", firstMsg);
-    second.socket.emit("server message", secondMsg);
+    console.log(firstMsg);
+    console.log(secondMsg);
+    first.socket.emit("chat message", firstMsg);
+    second.socket.emit("chat message", secondMsg);
 
     this.waiting = _.filter(this.waiting, function(cur) {
         return cur.socket != first && cur.socket != second;

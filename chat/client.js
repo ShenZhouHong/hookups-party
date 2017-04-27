@@ -6,14 +6,14 @@ var debug = require('debug')('chat');
     Wraps a socket object nicely
 */
 function Client (socket, waitingList) {
-    this.socket = socket;
+    this.socket = socket; // TODO figure out a way to catch socket exceptions
     var that = this;
 
     // this.socket.on('error', this.handleError);
 
-    this.socket.on('disconnecting', function(msg) {
-        that.disconnect();
-    });
+    // this.socket.on('disconnecting', function(msg) {
+    //     that.disconnect();
+    // });
 
     this.socket.on('my-error', function(msg) {
         if (msg.severity === 'fatal') {
@@ -22,6 +22,12 @@ function Client (socket, waitingList) {
     });
 
     this.socket.on('chat message', function(msg) {
+        if (that.room === undefined) { // TODO maybe add a "that.connected" flag
+            // TODO add send error
+            that.disconnect();
+            throw Exception("Client not connected");
+            return;
+        }
         msg.text = xssFilters.inHTMLData(msg.text);
         msg.name = that.name;
         that.room.send(that.socket, msg);
@@ -29,6 +35,7 @@ function Client (socket, waitingList) {
 
     this.socket.on('remate', function(msg) {
         that.userPreferences = msg;  // TODO validate userPreferences
+        console.log('remate');
         waitingList.push(that);
         //console.log(waiting);
         var companion = waitingList.findMatch(that);
@@ -87,6 +94,10 @@ Client.prototype.disconnect = function () {
         this.quitWaitingList();
         this.quitWaitingList = undefined;
     }
+};
+
+Client.prototype.send = function () {
+    // TODO implement in order to replace Room.send
 };
 
 module.exports = Client;
