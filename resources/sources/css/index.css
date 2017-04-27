@@ -8,12 +8,6 @@
     padding-bottom: 2em;
 }
 
-.main-title svg {
-    display: inline-block;
-    vertical-align: middle;
-    height: 2em;
-}
-
 #slide01 {
     padding-top: 2em !important;
 }
