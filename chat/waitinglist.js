@@ -60,11 +60,12 @@ WaitingList.prototype.mate = function (first, second) {
     first.mate(second, room);
     second.mate(first, room);
     var msgTemplate = _.template("We've found you a match! You are now chatting with <%= name %>! <%= pronoun %> also wants to <%= activity %>!");
+    var activities = _.intersection(first.userPreferences.activities, second.userPreferences.activities).join();
     var firstMsg = {
         text: msgTemplate({
             name: first.name,
             pronoun: first.userPreferences.selfGender === "male" ? "He" : (first.userPreferences.selfGender === "female" ? "She" : "They"),
-            activity: first.userPreferences.activities.join()
+            activity: activities
         }),
         name: second.name
     };
@@ -72,10 +73,12 @@ WaitingList.prototype.mate = function (first, second) {
         text: msgTemplate({
             name: second.name,
             pronoun: second.userPreferences.selfGender === "male" ? "He" : (second.userPreferences.selfGender === "female" ? "She" : "They"),
-            activity: second.userPreferences.activities.join()
+            activity: activities
         }),
         name: first.name
     };
+    console.log(firstMsg);
+    console.log(secondMsg);
     first.socket.emit("chat message", firstMsg);
     second.socket.emit("chat message", secondMsg);
 

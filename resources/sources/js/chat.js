@@ -6,6 +6,7 @@ window.initChat = function(userPreferences) {
     var socket = io();
     socket.emit("login");
     // tell the server I want a match with these preferences
+    console.log(userPreferences);
     socket.emit("remate", userPreferences);
 
     // When the message form is submit, collect the text and send it

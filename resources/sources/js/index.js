@@ -7,7 +7,7 @@
         romance:       true   | false    | undefined
         partnerGender: 'male' | 'female' | 'both'   | undefined
         activities: [
-                       'make out', 'eat', 'fuck'
+                       'cuddle', 'make out', 'eat', 'fuck'
                     ]
 
     The 'activities' key contains an array that is empty by default, and
@@ -121,14 +121,11 @@ $(function () {
         $('#sexual-preference').fadeIn();
 
         // Finally, update userPreferences with the new values
-        if (this.id == 'male') {
-            userPreferences.partnerGender = 'male';
-        }
-        if (this.id == 'female') {
-            userPreferences.partnerGender = 'female';
-        }
-        if (this.id == 'any') {
-            userPreferences.partnerGender = 'any';
+        var possibleIds = ['male', 'female', 'any'];
+        if (possibleIds.indexOf(this.id) !== -1) {
+            userPreferences.partnerGender = this.id;
+        } else {
+            console.error('Id not allowed');
         }
 
         // Make sentence grammatically correct, because I'm pedentic
@@ -170,29 +167,10 @@ $(function () {
             $(this).addClass('btn-warning');
         }
 
-        /*
-            Updates userPreferences with new values for sex acts. Performs a check
-            on each button press, hence long if/else block.
-        */
-        // Making out
-        if (this.id == 'make_out' && ($(this)).hasClass('active')) {
-            addOrRemove(userPreferences.activities, "make_out");
-        } else if (this.id == 'make_out' && !($(this)).hasClass('active')) {
-            addOrRemove(userPreferences.activities, "make_out");
-        }
+        var possibleActivities = ['cuddle', 'make_out', 'eat', 'fuck'];
 
-        // Eating out
-        if (this.id == 'eat' && ($(this)).hasClass('active')) {
-            addOrRemove(userPreferences.activities, "eat");
-        } else if (this.id == 'eat' && !($(this)).hasClass('active')) {
-            addOrRemove(userPreferences.activities, "eat");
-        }
-
-        // Fucking
-        if (this.id == 'fuck' && ($(this)).hasClass('active')) {
-            addOrRemove(userPreferences.activities, "fuck");
-        } else if (this.id == 'fuck' && !($(this)).hasClass('active')) {
-            addOrRemove(userPreferences.activities, "fuck");
+        if (possibleActivities.indexOf(this.id) !== -1) {
+            addOrRemove(userPreferences.activities, this.id);
         }
 
         /*
