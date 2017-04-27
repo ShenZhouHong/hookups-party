@@ -59,15 +59,21 @@ WaitingList.prototype.mate = function (first, second) {
     var room = this.roomFactory.newRoom();
     first.mate(second, room);
     second.mate(first, room);
-    var msgTemplate = _.template("We've found you a match! You are now chatting with <%= name %>! <%= pronoun %> also wants to <%= activity %>!");
-    var activities = _.intersection(first.userPreferences.activities, second.userPreferences.activities).join();
+    var msgTemplate = _.template("We've found you a match! You are now chatting with <%= name %>! <%= pronoun %> also wants to <strong><%= activity %></strong>!");
+    var activities = _.map(
+            _.intersection(first.userPreferences.activities, second.userPreferences.activities), 
+            function(id) {
+                return id.replace('_', ' ');
+            }
+        ).join(', ');
     var firstMsg = {
         text: msgTemplate({
             name: first.name,
             pronoun: first.userPreferences.selfGender === "male" ? "He" : (first.userPreferences.selfGender === "female" ? "She" : "They"),
             activity: activities
         }),
-        name: second.name
+        name: second.name,
+        type: 1
     };
     var secondMsg = {
         text: msgTemplate({
@@ -75,7 +81,8 @@ WaitingList.prototype.mate = function (first, second) {
             pronoun: second.userPreferences.selfGender === "male" ? "He" : (second.userPreferences.selfGender === "female" ? "She" : "They"),
             activity: activities
         }),
-        name: first.name
+        name: first.name,
+        type: 1
     };
     console.log(firstMsg);
     console.log(secondMsg);

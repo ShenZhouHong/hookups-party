@@ -7,7 +7,7 @@ var _ = require('underscore');
 */
 function Room (name) {
     this.name = name; // Do NOT change this attribute after instantiation
-    this.sockets = [];
+    this.sockets = []; // TODO IMPORTANT refactor so that it is a list of Clients, not sockets
 }
 
 Room.prototype.join = function (socket) {
@@ -40,6 +40,7 @@ Room.prototype.leave = function (socket) {
 };
 
 Room.prototype.send = function (socket, message, type) {
+    // TODO move this to Client prototype
     type = type || "chat message";
     socket.emit("chat message", message);
     try {

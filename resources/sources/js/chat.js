@@ -39,15 +39,17 @@ window.initChat = function(userPreferences) {
     // There should be a complex switch case once many msg types are created,
     // but for now the only possible error is 'other-disconnected'
     socket.on('my-error', function(msg) {
-        // NOt yet implemented
         if (msg.severity === "fatal") {
             socket.disconnect();
         }
         if (msg.type === "other-disconnected") {
-            msg.title = "They're Gone!";
-            msg.text = "Looks like your partner has disconnected. Did the conversation go well? Have you set up a time to meet? 😉";
+            var result = {};
+            result.title = "They're Gone!";
+            result.text = "Looks like your partner has disconnected. Did the conversation go well? Have you set up a time to meet? 😉";
+            displayError(result);  // shows a letterbox with the error
+        } else if (msg.type === "already-connected") {
+            window.location.replace("/session");
         }
-        displayError(msg);  // shows a letterbox with the error
     });
 
     // A message is received
