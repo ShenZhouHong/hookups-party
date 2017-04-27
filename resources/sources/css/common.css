@@ -47,6 +47,7 @@ body {
     border-width:2px;
     border-style:dashed;
     border-color:#db0000;
+    padding-bottom: 0.5em;
 }
 
 /* Logo link styling */

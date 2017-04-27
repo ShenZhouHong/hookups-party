@@ -64,11 +64,11 @@ $(function () {
         on first selection, otherwise assures the user their choice is upddated.
     */
     $('.is-gender').on('click', function(event) {
+
         toggleButton($(this), '.is-gender', event);
 
         // Toggles the visibility of the next prompt
-        $('#self-gender-comma').fadeIn();
-        $("#romance-selection").fadeIn();
+        $("#romance-selection").css('visibility','visible').hide().fadeIn();
 
         // Finally, update userPreferences with the new values
         if (this.id == 'man') {
@@ -117,8 +117,10 @@ $(function () {
         toggleButton($(this), '.want-gender', event);
 
         // Displays the next prompt using FadeToggle (will run only once)
-        $('#want-gender-comma').fadeIn(); // Makes grammatical sentence :P
-        $('#sexual-preference').fadeIn();
+
+        if ($('#sexual-preference').css('visibility') !== 'visible') {
+            $('#sexual-preference').css('visibility','visible').hide().fadeIn();
+        }
 
         // Finally, update userPreferences with the new values
         var possibleIds = ['male', 'female', 'any'];
