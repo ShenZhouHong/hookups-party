@@ -31,6 +31,10 @@
     margin-bottom: 0;
 }
 
+#loading-title {
+    margin-top: 0.5em;
+}
+
 /* Change text size dynamically using css media queries */
 @media(max-width:767px){
     .subtitle {
