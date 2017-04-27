@@ -8,12 +8,6 @@
     padding-bottom: 2em;
 }
 
-.main-title svg {
-    display: inline-block;
-    vertical-align: middle;
-    height: 2em;
-}
-
 #slide01 {
     padding-top: 2em !important;
 }
@@ -24,6 +18,7 @@
    font-style: normal;
    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
    color: #FFF;
+   margin-top: 0;
 }
 
 .main-title {
@@ -32,7 +27,12 @@
     font-style: normal;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
     color: #db0000;
-    margin-top: 0.4em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#loading-title {
+    margin-top: 0.5em;
 }
 
 /* Change text size dynamically using css media queries */
@@ -124,19 +124,19 @@
 }
 @media(max-width:409px){
     #envelope02.envelope {
-        height: 18em;
+        height: 20em;
     }
 }
 
 @media(min-width:410px){
     #envelope02.envelope {
-        height: 16em;
+        height: 18em;
     }
 }
 
 @media(min-width:444px){
     #envelope02.envelope {
-        height: 13em;
+        height: 16em;
     }
 }
 
