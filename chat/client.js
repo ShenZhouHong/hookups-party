@@ -91,6 +91,7 @@ Client.prototype.comparePreferences = function (partner) {
               (second.partnerGender === first.selfGender ||
                second.partnerGender === "any");
     romance = (first.romance === second.romance);
+    romance = true; // placebo romance
     activity = (_.intersection(first.activities, second.activities).length);
     return (romance && gender && activity );
     //return _.isEqual(t, second);
