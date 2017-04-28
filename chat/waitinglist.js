@@ -1,5 +1,6 @@
 var _ = require("underscore");
 var RoomFactory = require('./roomfactory');
+var winston = require('winston');
 
 function WaitingList (roomFactory) {
     this.roomFactory = roomFactory || new RoomFactory();
@@ -24,7 +25,10 @@ WaitingList.prototype.findMatch = function (client) {
                 break;
             }
     }
-    return companion;
+    if (companion !== undefined) {
+        winston.debug("companion");
+        this.mate(client, companion);
+    }
 };
 
 /*
@@ -116,10 +120,15 @@ WaitingList.prototype.mate = function (first, second) {
     second.socket.emit("server message", secondGreetingMsg);
     second.socket.emit("server message", ActivityMsg);
 
-
+    var l = this.waiting.length;
     this.waiting = _.filter(this.waiting, function(cur) {
-        return cur.socket != first && cur.socket != second;
+        return cur.socket !== first.socket && cur.socket !== second.socket;
     });
+    if (this.waiting.length === l) {
+        winston.error("FUCKING WAITING LIST");
+    } else {
+        winston.info("GOOD");
+    }
 };
 
 module.exports = WaitingList;
