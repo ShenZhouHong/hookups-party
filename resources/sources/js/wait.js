@@ -9,7 +9,7 @@ $(function () {
         var remaining = (((23 - hour) * 60) + 30 - minute) * 60 - second;
         console.log(remaining);
         if (! remaining) {
-            $(location).attr('href', '/');
+            location.reload();
         }
         $("#heartbeats").text(remaining);
     };
