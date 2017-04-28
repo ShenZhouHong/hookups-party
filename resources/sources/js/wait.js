@@ -6,7 +6,7 @@ $(function () {
         var second = parseInt(date.toLocaleString('en-US', {second: '2-digit', hour12: false, timeZone: 'Asia/Shanghai' }));
         var minute = parseInt(date.toLocaleString('en-US', {minute: '2-digit', hour12: false, timeZone: 'Asia/Shanghai' }));
         var hour = parseInt(date.toLocaleString('en-US', {hour: '2-digit', hour12: false, timeZone: 'Asia/Shanghai' }));
-        var remaining = (((23 - hour) * 60) - minute) * 60 - second;
+        var remaining = (((23 - hour) * 60) + 30 - minute) * 60 - second;
         console.log(remaining);
         if (! remaining) {
             $(location).attr('href', '/');
