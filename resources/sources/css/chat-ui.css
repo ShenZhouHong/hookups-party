@@ -19,7 +19,7 @@
 */
 
 #slide03 {
-    padding-top: 0;
+    padding: 0;
     height:100vh;
 }
 
@@ -89,6 +89,7 @@
     height: 92vh;
     overflow-y: auto;
     overflow: hidden;
+
 }
 
 /* Special CSS magic wizardry used to align bubbles to the bottom. */
@@ -131,6 +132,7 @@
     max-width: 70%;
     word-wrap: break-word;
     line-height: 1.4em;
+    font-size: 1.2em;
 }
 
 /*
@@ -198,9 +200,19 @@
 }
 
 #send-form {
-    margin: 0 1em;
+    margin: 0;
 }
 
 .grayout {
     opacity: 0.5;
+}
+
+/*
+    Prevents iOS's annoying default zoom on selected input element, by increasing
+    font-size beyond 16px.
+*/
+
+input[type='text'],
+textarea {
+    font-size: 1.2em;
 }
