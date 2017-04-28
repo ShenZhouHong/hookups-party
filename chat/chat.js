@@ -6,6 +6,7 @@ var Client = require('./client');
 var sharedsession = require("express-socket.io-session");
 var _ = require("underscore");
 var TIMEOUT = 60000;  // 1 minute reconnection timeout
+var winston = require('winston');
 
 module.exports = function(server, app) {
     var module = {};
@@ -20,11 +21,13 @@ module.exports = function(server, app) {
     var waiting = new WaitingList(new RoomFactory());
 
     io.on('connection', function(socket) {
-        console.log("connection");
         var isNewConnection = ! _.any(clients, function(client) {
             return client.sessionID === socket.handshake.sessionID;
         });
-        
+        winston.info("CONNECTION", {
+            userAgent: socket.handshake.headers["user-agent"],
+            sessionID: socket.handshake.sessionID
+            });
         var isOldConnection = _.any(idleClients, function(client) {
             return client.sessionID = socket.handshake.sessionID;
         });
@@ -32,7 +35,6 @@ module.exports = function(server, app) {
             var client = _.find(idleClients, function (client) {
                 return client.sessionID = socket.handshake.sessionID;
             }); 
-            console.log("isOldConnection");
             idleClients = _.without(idleClients, client);
             clients.push(client);
             client.assignSocket(socket);
@@ -41,7 +43,6 @@ module.exports = function(server, app) {
             var client = new Client(socket, waiting);
             clients.push(client);
             client.sessionID = socket.handshake.sessionID;
-            console.log("valid connection");
         } else {
             socket.emit('my-error', {type: 'already-connected'});
         }

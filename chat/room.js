@@ -1,4 +1,5 @@
 var _ = require('underscore');
+var winston = require('winston');
 /*
     Provides a higher abstraction level that socket.io rooms.
     A Room has a name and a list of conencted sockets.
@@ -13,6 +14,12 @@ function Room (name) {
 Room.prototype.join = function (socket) {
     this.sockets.push(socket);
     socket.join(this.name);
+
+    if (this.sockets.length > 1) {
+        winston.info("JOINROOM", {
+            sessionIDs: _.reduce(this.sockets, function(memo, sock) { return memo + sock.handshake.sessionID + ", ";}, ""),
+        });
+    }
 };
 
 Room.prototype.leave = function (socket) {

@@ -9,6 +9,8 @@ var $ = require('jquery');
 var sessionMiddleware = require('express-session');
 var index = require('./routes/index');
 var users = require('./routes/users');
+var winston = require('winston');
+winston.add(winston.transports.File, { timestamp: true, filename: 'chatRequests.log' });
 
 var app = express();
 
