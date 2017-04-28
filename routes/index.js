@@ -1,6 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
+router.use(function (req, res, next) {
+    if (req.cookies.blocked === "blocked") {
+        res.redirect("http://www.solidhookups.com/");
+    } else {
+        next()
+    }
+})
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
     var date = new Date();
@@ -41,6 +49,11 @@ router.get('/session', function(req, res, next) {
       js: ['session.min.js'],
       css: ['session.min.css']
     });
+});
+
+router.get('/blockme', function(req,res,next){
+    res.cookies('blocked', 'blocked', {maxAge: -1});
+    res.redirect("/");
 });
 
 module.exports = router;
