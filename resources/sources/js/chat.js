@@ -10,7 +10,7 @@ window.initChat = function(userPreferences) {
     socket.emit("remate", userPreferences);
 
     // When the message form is submit, collect the text and send it
-    $("#send-form").submit(function () {
+    $("#send-form").submit(function (event) {
         event.preventDefault();
 
         var msg = {};
