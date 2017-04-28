@@ -207,13 +207,3 @@
 .grayout {
     opacity: 0.5;
 }
-
-/*
-    Prevents iOS's annoying default zoom on selected input element, by increasing
-    font-size beyond 16px.
-*/
-
-input[type='text'],
-textarea {
-    font-size: 1.2em;
-}

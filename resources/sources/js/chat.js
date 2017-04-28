@@ -63,6 +63,14 @@ window.initChat = function(userPreferences) {
             // Scrolls to bottom after done animating
             $('#chat-container').scrollTop($('#chat-container')[0].scrollHeight - $('#chat-container')[0].clientHeight);
         });
+
+        /*
+            Notification sound handler. Plays a sound when the other sends a
+            message, AND when the current tab is not in focus.
+        */
+        if (messageOwner === "other") {
+            playSound('pop');
+        }
     }
     socket.on('server message', function(msg) {
         var messageOwner = "server";

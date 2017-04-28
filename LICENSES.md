@@ -26,3 +26,8 @@ Icons used on the main page are from Google's
 [Material Design](https://material.io/icons/) icon site, which are all licensed
 under Apache License Version 2.0. This disclosure in the `LICENSES.md` file is
 the courtesy attribution that was requested.
+
+# Sound Licenses
+The pop.mp3 and pop.ogg sounds located at `public/sounds` are from the [Notification Sounds](https://notificationsounds.com/message-tones/all-eyes-on-me-465) Project,
+and they are licensed under the Creative Commons Attribution license. The original
+name of the sound file is "All Eyes on Me", and the page is linked above.
