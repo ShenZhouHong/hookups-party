@@ -42,8 +42,8 @@ Room.prototype.leave = function (socket) {
 Room.prototype.send = function (socket, message, type) {
     // TODO move this to Client prototype
     type = type || "chat message";
-    socket.emit("chat message", message);
     try {
+        socket.emit("chat message", message);
         socket.to(this.name).emit(type, message);
     } catch (err) {
         // The socket is most likely not in this room

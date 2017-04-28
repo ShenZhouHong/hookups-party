@@ -14,6 +14,9 @@ function Client (socket, waitingList) {
     // this.socket.on('disconnecting', function(msg) {
     //     that.disconnect();
     // });
+    this.socket.on('reconnecting', function (msg) {
+        console.log('reconnecting');
+    });
 
     this.socket.on('my-error', function(msg) {
         if (msg.severity === 'fatal') {
@@ -25,7 +28,6 @@ function Client (socket, waitingList) {
         if (that.room === undefined) { // TODO maybe add a "that.connected" flag
             // TODO add send error
             that.disconnect();
-            throw Exception("Client not connected");
             return;
         }
         msg.text = xssFilters.inHTMLData(msg.text);
