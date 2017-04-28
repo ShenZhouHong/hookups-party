@@ -74,6 +74,9 @@
     }
 }
 
+#heartbeats {
+    transition: all linear 0.3s;
+}
 /*
     Styling for the heartbeats counter
     Uses media queries to ensure correct size.
