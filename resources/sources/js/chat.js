@@ -33,7 +33,6 @@ window.initChat = function(userPreferences) {
     // When the server reports that a match is found, display the chat UI
     socket.on('mate', function(msg) {
         DisplayChat();
-        playSound('match');
     });
 
     // Aparently not self-explanatory

@@ -14,6 +14,10 @@ function DisplayChat() {
     $('html, body').animate({
         scrollTop: $("#chatrow").offset().top
     }, 1000);
+
+    // Plays match sound
+    playSound('match');
+
 }
 
 function displayError (msg) {
