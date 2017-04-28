@@ -2,5 +2,5 @@ node_modules/
 public/css/*
 public/js/*
 public/fonts/glyphicon*
-
+chatRequests.log
 npm-debug.log
