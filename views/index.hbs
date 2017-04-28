@@ -141,25 +141,28 @@
                     <a class="btn btn-default btn-md activity" href="#" role="button" id="eat">👅 eat</a>
                     <a class="btn btn-default btn-md activity" href="#" role="button" id="fuck">💦 fuck</a>
                 </h2>
-            </div>
-            <div class="row">
-                <!-- An alert shows up here in subsequent presses, telling users that
-                     their gender selection has been updated. Hence, the placeholder -->
-                <div class="col-sm-4 col-sm-offset-4" id="want-confirm-placeholder"></div>
-            </div>
 
-            <!-- Prompts the user that multiple choices can be selected -->
-            <div class="row">
-                <div class="col-xs-16 text-center collapse" id="more-activities-hint">
-                    <p class="hints">
-                        <span class="glyphicon glyphicon-question-sign"  aria-hidden="true"></span>
-                        <strong>Hint:</strong> Multiple 'activities' can be selected
+                <!-- Activity description placeholder. Dynamically puts a rich text
+                description of what each activity is onhover() -->
+                <div class="row">
+                    <p class="hints text-info text-center" id="activity-description" style="visibility: hidden">
+                        <span id="activity-description-text">
+                            Unsure what these mean 😕? You can hover your mouse over the 'activities' for a description!
+                        </span>
                     </p>
                 </div>
             </div>
         </div>
-
-
+        
+        <!-- Prompts the user that multiple choices can be selected -->
+        <div class="row">
+            <div class="col-xs-16 text-center collapse" id="more-activities-hint">
+                <p class="hints">
+                    <span class="glyphicon glyphicon-question-sign"  aria-hidden="true"></span>
+                    Hint: Multiple 'activities' can be selected
+                </p>
+            </div>
+        </div>
 
         <!-- Search button -->
         <div class="row collapse" id="search-prompt">

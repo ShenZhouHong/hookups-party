@@ -81,6 +81,8 @@
     }
 }
 
+/*
+
 /*  #envelope01 breaking and rotation styles */
 #self-gender-envelope.envelope {
     -webkit-transform: rotate(1deg);
@@ -165,6 +167,17 @@
     font-weight: bolder;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
     color: #FFF;
+}
+
+/*
+    #activity-description contains a short, rich text summary of what each
+    activity is for. This is displayed onhover();
+*/
+
+#activity-description {
+    text-shadow: 0 0 0;
+    font-weight: normal;
+    color: #286090;
 }
 
 /*
