@@ -195,6 +195,11 @@ $(function () {
             addOrRemove(userPreferences.activities, this.id);
         }
 
+        if (userPreferences.activities.length === 4) {
+            StartConfetti();
+            setTimeout(DeactivateConfetti, 2000);
+        }
+
         /*
             If there are no sexual activities chosen, the search button is disabled,
             and the user is prompted by a hint

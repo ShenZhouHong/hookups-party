@@ -12,6 +12,14 @@
     padding-top: 2em !important;
 }
 
+/* Define confetti canvas */
+canvas {
+    display: block;
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+}
+
 .subtitle {
    font-family: 'DancingScriptBold', "Arial Black", sans-serif;
    font-weight: normal;
