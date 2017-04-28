@@ -59,9 +59,9 @@ WaitingList.prototype.mate = function (first, second) {
     var room = this.roomFactory.newRoom();
     first.mate(second, room);
     second.mate(first, room);
-    var msgTemplate = _.template("We've found you a match! You are now chatting with <%= name %>! <%= pronoun %> also wants to <strong><%= activity %></strong>!");
+    var msgTemplate = _.template("Congratulations, we've found you a match! Your anonymous <i>sexy</i> username is <b><%= self_name %></b> and you are now chatting with <b><%= name %></b>! <%= pronoun %> also agreed to <strong><%= activity %></strong> ~ maybe you two will hook up? 😉👄👅💦");
     var activities = _.map(
-            _.intersection(first.userPreferences.activities, second.userPreferences.activities), 
+            _.intersection(first.userPreferences.activities, second.userPreferences.activities),
             function(id) {
                 return id.replace('_', ' ');
             }
@@ -69,6 +69,7 @@ WaitingList.prototype.mate = function (first, second) {
     var firstMsg = {
         text: msgTemplate({
             name: first.name,
+            self_name: second.name,
             pronoun: first.userPreferences.selfGender === "male" ? "He" : (first.userPreferences.selfGender === "female" ? "She" : "They"),
             activity: activities
         }),
@@ -78,6 +79,7 @@ WaitingList.prototype.mate = function (first, second) {
     var secondMsg = {
         text: msgTemplate({
             name: second.name,
+            self_name: first.name,
             pronoun: second.userPreferences.selfGender === "male" ? "He" : (second.userPreferences.selfGender === "female" ? "She" : "They"),
             activity: activities
         }),

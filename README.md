@@ -13,11 +13,14 @@ mobile-first.
 - [X] Get Giuseppe to look at the weird socket bugs in chat. Might be caused by some weird minify edge case?
 - [X] Implement 'bubble-styled' chat UI and replace placeholder well
 - [X] Further modularize CSS for chat
-- [ ] Secure websocket implementation and strictly check inputs
+- [X] Working session management to prevent multiple users on the same client
+- [X] Add match GUI to notify user when a match is found
+- [ ] **Secure websocket implementation and strictly check inputs!!!**
 - [ ] Implement progressive font rendering to prevent FOIC
-- [ ] Working session management to prevent multiple users on the same client
-- [ ] Add match GUI to notify user when a match is found
 - [ ] Add a comprehensive unit testing framework for javascript code
+- [ ] Audio framework for "pop" sounds when messages arrive
+- [ ] On mobile devices, when the phone sleeps the websocket disconnects. Upon wakeup, when client tries to send a message the **node server crashes**
+- [ ] Session checking is still extremely weird. Sometimes, on mobile the session is seen as duplicated, even when it's not.
 
 ## Installation
 ### Prerequisites

@@ -11,6 +11,8 @@ window.initChat = function(userPreferences) {
 
     // When the message form is submit, collect the text and send it
     $("#send-form").submit(function () {
+        event.preventDefault();
+
         var msg = {};
         var rawInput = $('.input-sm').val();
 
