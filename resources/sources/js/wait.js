@@ -2,14 +2,16 @@
 $(function () {
     "use strict";
     var a = function() {
-        var date = new Date();
-        var second = parseInt(date.toLocaleString('en-US', {second: '2-digit', hour12: false, timeZone: 'Asia/Shanghai' }));
-        var minute = parseInt(date.toLocaleString('en-US', {minute: '2-digit', hour12: false, timeZone: 'Asia/Shanghai' }));
-        var hour = parseInt(date.toLocaleString('en-US', {hour: '2-digit', hour12: false, timeZone: 'Asia/Shanghai' }));
-        var remaining = (((23 - hour) * 60) + 30 - minute) * 60 - second;
-        remaining += 20; // better safe than sorry
+        var date = new Date ();
+        var target = new Date();
+        target.setHours(23);
+        target.setMinutes(30);
+        target.setSeconds(0);
+        console.log(date);
+        console.log(target);
+        var remaining = (target.getTime() - date.getTime()) / 1000 + 20;
         console.log(remaining);
-        if (! remaining) {
+        if (remaining < 0 && remaining > -3) {
             location.reload();
         }
         $("#heartbeats").text(remaining);
