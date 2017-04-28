@@ -3,12 +3,24 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', {
-        title: 'Hookups @ CSC',
-        // Included resources
-        js: ['index.min.js'],
-        css: ['index.min.css']
-    });
+    var date = new Date();
+    var minute = parseInt(date.toLocaleString('en-US', {minute: '2-digit', hour12: false, timeZone: 'Asia/Shanghai' }));
+    var hour = parseInt(date.toLocaleString('en-US', {hour: '2-digit', hour12: false, timeZone: 'Asia/Shanghai' }));
+    if (process.env.DEV || (hour === 22 && minute <= 30)) {
+        res.render('index', {
+            title: 'Hookups @ CSC',
+            // Included resources
+            js: ['index.min.js'],
+            css: ['index.min.css']
+        });
+    } else {
+        res.render('wait', {
+            title: 'Wait for Hookups @ CSC',
+            // Included resources
+            js: ['wait.min.js'],
+            css: ['wait.min.css']
+        });
+    }
 });
 
 /* GET information page. */
