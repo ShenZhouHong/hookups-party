@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
     var date = new Date();
     var minute = parseInt(date.toLocaleString('en-US', {minute: '2-digit', hour12: false, timeZone: 'Asia/Shanghai' }));
     var hour = parseInt(date.toLocaleString('en-US', {hour: '2-digit', hour12: false, timeZone: 'Asia/Shanghai' }));
-    if (process.env.DEV || (hour === 22 && minute <= 30)) {
+    if (process.env.DEV || (hour === 23 && minute <= 30)) {
         res.render('index', {
             title: 'Hookups @ CSC',
             // Included resources
