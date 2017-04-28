@@ -5,11 +5,13 @@ var WaitingList = require('./waitinglist');
 var Client = require('./client');
 var sharedsession = require("express-socket.io-session");
 var _ = require("underscore");
+var TIMEOUT = 60000;  // 1 minute reconnection timeout
 
 module.exports = function(server, app) {
     var module = {};
     var io = require('socket.io')(server);
     var clients = [];
+    var idleClients = [];
 
     io.use(sharedsession(app.session, {
         autoSave:true
@@ -22,18 +24,44 @@ module.exports = function(server, app) {
         var isNewConnection = ! _.any(clients, function(client) {
             return client.sessionID === socket.handshake.sessionID;
         });
-
-        if (isNewConnection) {
+        
+        var isOldConnection = _.any(idleClients, function(client) {
+            return client.sessionID = socket.handshake.sessionID;
+        });
+        if (isOldConnection) {  // edge case: the client disconnects because of battery saving but then re-focuses the browser before TIMEOUT has elapsed
+            var client = _.find(idleClients, function (client) {
+                return client.sessionID = socket.handshake.sessionID;
+            }); 
+            console.log("isOldConnection");
+            idleClients = _.without(idleClients, client);
+            clients.push(client);
+            client.assignSocket(socket);
+            //client.reconnect();
+        } else if (isNewConnection) {
             var client = new Client(socket, waiting);
             clients.push(client);
             client.sessionID = socket.handshake.sessionID;
             console.log("valid connection");
-            client.socket.on('disconnecting', function(socket) {
-                clients = _.without(clients, client);
-                client.disconnect();
-            });
         } else {
             socket.emit('my-error', {type: 'already-connected'});
+        }
+
+        if (isOldConnection || isNewConnection) {
+            client.socket.on('disconnecting', function(socket) {  // this function is added upon connection and it's necessary to cover edge-cases
+                clients = _.without(clients, client);
+                if (client.room) {  // if the client is in a chat we don't want him to disconnect immediately
+                    idleClients.push(client);
+                    // This system is kind of shit, but for some reason socket.io does not fire a reconnect. Edge cases, duh.
+                    setTimeout(function () {  // wait one minute before officially disconnecting
+                        if ( idleClients.indexOf(client) !== -1 ) {  // if it's not reconnected
+                            idleClients = _.without(idleClients, client);  // disconnect it for good
+                            client.disconnect();
+                        }
+                    }, TIMEOUT);
+                } else {
+                    client.disconnect();  // if the client is waiting for a match just kill it
+                }
+            });
         }
     });
 

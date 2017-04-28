@@ -6,6 +6,12 @@ var debug = require('debug')('chat');
     Wraps a socket object nicely
 */
 function Client (socket, waitingList) {
+    this.assignSocket(socket, waitingList);
+}
+
+Client.prototype.assignSocket = function (socket, waitingList) {
+    waitingList = waitingList || this.waitingList;
+    this.waitingList = waitingList;
     this.socket = socket; // TODO figure out a way to catch socket exceptions
     var that = this;
 
@@ -46,6 +52,10 @@ function Client (socket, waitingList) {
             waitingList.mate(that, companion);
         }
     });
+
+    if (this.room) {  // edge case handling for client reconnection with a new socket
+        this.room.join(socket);
+    }
 }
 
 

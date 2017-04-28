@@ -16,7 +16,6 @@ Room.prototype.join = function (socket) {
 };
 
 Room.prototype.leave = function (socket) {
-    console.log("leave");
     if (this.sockets.indexOf(socket) === -1)
         return;
     try {
