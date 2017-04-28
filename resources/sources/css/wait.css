@@ -1,0 +1,164 @@
+/*
+    Custom styling for waiting page, when hookups.party is not in session
+    Rather sparse, since most of the styling is taken care of in common.css
+*/
+
+/*
+    The #main-title and .subtitle are all styled in accordence with the device's
+    display width. Using media queries, this allows the logo to break and resize
+     appropriately, making it responsive. Inline logo styles also defined
+*/
+
+.subtitle {
+   font-family: 'DancingScriptBold', "Arial Black", sans-serif;
+   font-weight: normal;
+   font-style: normal;
+   text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+   color: #FFF;
+   margin-top: 0;
+}
+
+.main-title {
+    font-family: 'StratoLinked', "Brush Script MT", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    color: #db0000;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Change text size dynamically using css media queries */
+@media(max-width:767px){
+    .subtitle {
+       font-size: 2em;
+    }
+    .main-title {
+        font-size: 3.5em;
+    }
+    .prompt-text {
+        font-size: 150%;
+    }
+}
+@media(min-width:768px){
+    .subtitle {
+       font-size: 3em;
+    }
+    .main-title {
+        font-size: 5em;
+    }
+    .prompt-text {
+        font-size: 150%;
+    }
+}
+@media(min-width:992px){
+    .subtitle {
+       font-size: 3em;
+    }
+    .main-title {
+        font-size: 7em;
+    }
+    .prompt-text {
+        font-size: 190%;
+    }
+}
+@media(min-width:1200px){
+    .subtitle {
+       font-size: 3em;
+    }
+    .main-title {
+        font-size: 7em;
+    }
+    .prompt-text {
+        font-size: 190%;
+    }
+}
+
+/*
+    Styling for the heartbeats counter
+    Uses media queries to ensure correct size.
+*/
+@media(max-width:767px){
+    #heartbeats {
+        font-size: 3.5em;
+    }
+}
+@media(min-width:768px){
+    #heartbeats {
+        font-size: 4em;
+    }
+}
+@media(min-width:992px){
+    #heartbeats {
+        font-size: 4em;
+    }
+}
+@media(min-width:1200px){
+    #heartbeats {
+        font-size: 4em;
+    }
+}
+
+/*
+    CSS animation for heart svg emoji to beat properly
+    Courtesy of http://www.justinaguilar.com/animations/css/animations.css
+*/
+.pulse{
+	animation-name: pulse;
+	-webkit-animation-name: pulse;
+
+	animation-duration: 1s;
+	-webkit-animation-duration: 1s;
+
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.9);
+		opacity: 0.7;
+	}
+	50% {
+		transform: scale(1.0);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(0.9);
+		opacity: 0.7;
+	}
+}
+
+@-webkit-keyframes pulse {
+	0% {
+		-webkit-transform: scale(0.95);
+		opacity: 0.7;
+	}
+	50% {
+		-webkit-transform: scale(1);
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: scale(0.95);
+		opacity: 0.7;
+	}
+}
+
+/* Styling for the time */
+.time {
+    color: color: #ec971f;
+}
+
+/* Styling for logo inline */
+.logo-inline {
+    font-family: 'StratoLinked';
+    font-weight: normal;
+    font-style: normal;
+    color: #db0000;
+}
+
+.trademark-inline {
+    font-family: 'DancingScriptBold';
+    font-weight: normal;
+    font-style: normal;
+}

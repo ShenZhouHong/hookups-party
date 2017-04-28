@@ -62,6 +62,12 @@ module.exports = function(grunt) {
                         'resources/sources/css/common.css',
                         'resources/sources/css/session.css'
                     ],
+                    'public/css/wait.min.css': [
+                        'node_modules/bootstrap/dist/css/bootstrap.css',
+                        'resources/sources/css/fonts.css',
+                        'resources/sources/css/common.css',
+                        'resources/sources/css/wait.css'
+                    ],
                     'public/css/error.min.css': [
                         'node_modules/bootstrap/dist/css/bootstrap.css',
                         'resources/sources/css/fonts.css',
@@ -102,6 +108,12 @@ module.exports = function(grunt) {
                         'resources/sources/css/fonts.css',
                         'resources/sources/css/common.css',
                         'resources/sources/css/session.css'
+                    ],
+                    'public/css/wait.min.css': [
+                        'node_modules/bootstrap/dist/css/bootstrap.css',
+                        'resources/sources/css/fonts.css',
+                        'resources/sources/css/common.css',
+                        'resources/sources/css/wait.css'
                     ],
                     'public/css/error.min.css': [
                         'node_modules/bootstrap/dist/css/bootstrap.css',
@@ -152,6 +164,11 @@ module.exports = function(grunt) {
                             'node_modules/jquery/dist/jquery.js',
                             'node_modules/bootstrap/dist/js/bootstrap.js',
                     ],
+                    'public/js/wait.min.js': [
+                            'node_modules/jquery/dist/jquery.js',
+                            'node_modules/bootstrap/dist/js/bootstrap.js',
+                            'resources/sources/js/wait.js'
+                    ],
                     'public/js/error.min.js': [
                             'node_modules/jquery/dist/jquery.js',
                             'node_modules/bootstrap/dist/js/bootstrap.js',
@@ -190,6 +207,11 @@ module.exports = function(grunt) {
                             'node_modules/jquery/dist/jquery.js',
                             'node_modules/bootstrap/dist/js/bootstrap.js',
                             'resources/sources/js/information.js',
+                    ],
+                    'public/js/wait.min.js': [
+                            'node_modules/jquery/dist/jquery.js',
+                            'node_modules/bootstrap/dist/js/bootstrap.js',
+                            'resources/sources/js/wait.js'
                     ],
                     'public/js/error.min.js': [
                             'node_modules/jquery/dist/jquery.js',
