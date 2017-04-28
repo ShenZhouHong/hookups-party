@@ -7,6 +7,7 @@ $(function () {
         var minute = parseInt(date.toLocaleString('en-US', {minute: '2-digit', hour12: false, timeZone: 'Asia/Shanghai' }));
         var hour = parseInt(date.toLocaleString('en-US', {hour: '2-digit', hour12: false, timeZone: 'Asia/Shanghai' }));
         var remaining = (((23 - hour) * 60) + 30 - minute) * 60 - second;
+        remaining += 20; // better safe than sorry
         console.log(remaining);
         if (! remaining) {
             location.reload();
