@@ -120,6 +120,7 @@ $(function () {
 
         if ($('#sexual-preference').css('visibility') !== 'visible') {
             $('#sexual-preference').css('visibility','visible').hide().fadeIn();
+            $('#activity-description').css('visibility','visible').hide().fadeIn();
         }
 
         // Finally, update userPreferences with the new values
@@ -141,6 +142,25 @@ $(function () {
         $('.is-gender').addClass('disabled');
         $('.is-looking-for').addClass('disabled');
 
+    });
+
+    /*
+        Dynamically displays a description on hovering over an activity button.
+        Descriptions are correctly gendered usint templating.
+    */
+    $('.activity').hover(function() {
+        if ($(this).is('#cuddle')) {
+            $("#activity-description-text").html("Maybe hooking up isn't your style, but you love the presence of another. For when you just wanna snuggle up in someone's arms, and fall asleep gently 🐻💞💤");
+        }
+        else if ($(this).is('#make_out')) {
+            $("#activity-description-text").html("Life is exciting, and so is variety. When you want to make out, and get to know a friend in an intimate, and wholly pleasurable way 😘🇫🇷👄");
+        }
+        else if ($(this).is('#eat')) {
+            $("#activity-description-text").html("You're frisky and you know it, and wanna <i>get down</i> to business. For when you wanna eat out, and give each other orgasms throughout the night 👅😍💦");
+        }
+        else if ($(this).is('#fuck')) {
+            $("#activity-description-text").html("When you're horny af, and you ain't ashamed to admit it. You just wanna have some awesome sex, no strings attached - and go ride that 🍆/🍑 until it 💦💦💦");
+        }
     });
 
     /*
@@ -173,6 +193,11 @@ $(function () {
 
         if (possibleActivities.indexOf(this.id) !== -1) {
             addOrRemove(userPreferences.activities, this.id);
+        }
+
+        if (userPreferences.activities.length === 4) {
+            StartConfetti();
+            setTimeout(DeactivateConfetti, 2000);
         }
 
         /*

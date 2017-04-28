@@ -11,6 +11,9 @@
         through javascript
     -->
 
+    <!-- Empty canvas element to draw secret easter egg confetti -->
+    <canvas id="canvas"></canvas>
+
     <!-- Begin first slide. Used as the landing page -->
     <div class="slide" id="slide01">
             <!-- First row displays the Hookups @ UWC Changshu China logo -->
@@ -34,6 +37,7 @@
                     <div class="row">
                         <!-- Gender selection prompt -->
                         <div class="col-md-4 col-xs-4">
+
                             <h2 class="text-right prompt-text" id="self-gender">
                                 I am a
                             </h2>
@@ -140,25 +144,28 @@
                     <a class="btn btn-default btn-md activity" href="#" role="button" id="eat">👅 eat</a>
                     <a class="btn btn-default btn-md activity" href="#" role="button" id="fuck">💦 fuck</a>
                 </h2>
-            </div>
-            <div class="row">
-                <!-- An alert shows up here in subsequent presses, telling users that
-                     their gender selection has been updated. Hence, the placeholder -->
-                <div class="col-sm-4 col-sm-offset-4" id="want-confirm-placeholder"></div>
-            </div>
 
-            <!-- Prompts the user that multiple choices can be selected -->
-            <div class="row">
-                <div class="col-xs-16 text-center collapse" id="more-activities-hint">
-                    <p class="hints">
-                        <span class="glyphicon glyphicon-question-sign"  aria-hidden="true"></span>
-                        <strong>Hint:</strong> Multiple 'activities' can be selected
+                <!-- Activity description placeholder. Dynamically puts a rich text
+                description of what each activity is onhover() -->
+                <div class="row">
+                    <p class="hints text-info text-center" id="activity-description" style="visibility: hidden">
+                        <span id="activity-description-text">
+                            Unsure what these mean 😕? You can hover your mouse over the 'activities' for a description!
+                        </span>
                     </p>
                 </div>
             </div>
         </div>
 
-
+        <!-- Prompts the user that multiple choices can be selected -->
+        <div class="row">
+            <div class="col-xs-16 text-center collapse" id="more-activities-hint">
+                <p class="hints">
+                    <span class="glyphicon glyphicon-question-sign"  aria-hidden="true"></span>
+                    Hint: Multiple 'activities' can be selected
+                </p>
+            </div>
+        </div>
 
         <!-- Search button -->
         <div class="row collapse" id="search-prompt">
@@ -224,9 +231,10 @@
             <ul id="chat-messages">
             </ul>
         </div>
-
-
     </div>
+    <!-- Sound div. Sound is dynamically put here - do not remove -->
+    <div id="sound"></div>
+
     <!-- Chat bar. Text is entered here. Sticks to the bottom of screen -->
     <div class="collapse" id="chatrow">
         <div class="text-center">

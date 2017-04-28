@@ -139,6 +139,7 @@ module.exports = function(grunt) {
                             'node_modules/socket.io-client/dist/socket.io.js',
                             'node_modules/bootstrap/dist/js/bootstrap.js',
                             'resources/sources/js/index.js',
+                            'resources/sources/js/confetti.js',
                             'resources/sources/js/chat.js',
                             'resources/sources/js/chat-ui.js'
                     ],
@@ -176,6 +177,7 @@ module.exports = function(grunt) {
                             'node_modules/socket.io-client/dist/socket.io.js',
                             'node_modules/bootstrap/dist/js/bootstrap.js',
                             'resources/sources/js/index.js',
+                            'resources/sources/js/confetti.js',
                             'resources/sources/js/chat.js',
                             'resources/sources/js/chat-ui.js'
                     ],

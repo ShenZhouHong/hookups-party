@@ -59,37 +59,63 @@ WaitingList.prototype.mate = function (first, second) {
     var room = this.roomFactory.newRoom();
     first.mate(second, room);
     second.mate(first, room);
-    var msgTemplate = _.template("Congratulations, we've found you a match! Your anonymous <i>sexy</i> username is <b><%= self_name %></b> and you are now chatting with <b><%= name %></b>! <%= pronoun %> also agreed to <strong><%= activity %></strong> ~ maybe you two will hook up? 😉👄👅💦");
+
+    /* Template messages */
+    var greetingMsgTemplate = _.template("Congratulations, we've found you a match! Your anonymous <i>sexy</i> username is <b><%= self_name %></b> and you are now chatting with <b><%= name %></b>!");
+    var activityMsgTemplate = _.template("Both of you have agreed to <strong><%= activity %></strong> ~ why don't you hook up? 😉👄👅💦 Remember - once you leave this chat room, <i>you may never meet this person again</i>!");
+
+    /*
+        Constructs messages from template with correct SexyNames and pronouns
+    */
+    // Formats activity array into user-readable text
     var activities = _.map(
             _.intersection(first.userPreferences.activities, second.userPreferences.activities),
             function(id) {
                 return id.replace('_', ' ');
             }
         ).join(', ');
-    var firstMsg = {
-        text: msgTemplate({
+
+    // Creates greeting message for the first user
+    var firstGreetingMsg = {
+        text: greetingMsgTemplate({
             name: first.name,
             self_name: second.name,
-            pronoun: first.userPreferences.selfGender === "male" ? "He" : (first.userPreferences.selfGender === "female" ? "She" : "They"),
-            activity: activities
         }),
         name: second.name,
         type: 1
     };
-    var secondMsg = {
-        text: msgTemplate({
+
+    // Creates greeting message for the second user
+    var secondGreetingMsg = {
+        text: greetingMsgTemplate({
             name: second.name,
             self_name: first.name,
-            pronoun: second.userPreferences.selfGender === "male" ? "He" : (second.userPreferences.selfGender === "female" ? "She" : "They"),
-            activity: activities
         }),
         name: first.name,
         type: 1
     };
-    console.log(firstMsg);
-    console.log(secondMsg);
-    first.socket.emit("server message", firstMsg);
-    second.socket.emit("server message", secondMsg);
+
+    // Creates activity message for both users
+    var ActivityMsg = {
+        text: activityMsgTemplate({
+            activity: activities,
+        }),
+        type: 1
+    };
+
+    // Basic logging
+    console.log(firstGreetingMsg);
+    console.log(ActivityMsg);
+    console.log(secondGreetingMsg);
+    console.log(ActivityMsg);
+
+
+    // Sends messages off to both parties when they match
+    first.socket.emit("server message", firstGreetingMsg);
+    first.socket.emit("server message", ActivityMsg);
+    second.socket.emit("server message", secondGreetingMsg);
+    second.socket.emit("server message", ActivityMsg);
+
 
     this.waiting = _.filter(this.waiting, function(cur) {
         return cur.socket != first && cur.socket != second;
