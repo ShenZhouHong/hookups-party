@@ -2,6 +2,7 @@ var util = require('../generatenames')(); // required to generate names
 var _ = require("underscore");
 var xssFilters = require('xss-filters'); // required to sanitize input
 var debug = require('debug')('chat');
+var winston = require('winston');
 /*
     Wraps a socket object nicely
 */
@@ -42,8 +43,12 @@ Client.prototype.assignSocket = function (socket, waitingList) {
     });
 
     this.socket.on('remate', function(msg) {
+        winston.info("REMATE", {
+            sessionID: that.socket.handshake.sessionID,
+            userPreferences: msg
+            });
+
         that.userPreferences = msg;  // TODO validate userPreferences
-        console.log('remate');
         waitingList.push(that);
         //console.log(waiting);
         var companion = waitingList.findMatch(that);
@@ -71,6 +76,7 @@ Client.prototype.mate = function (mate, room) {
     this.socket.emit("mate", mate.name);
     this.room = room;
     this.room.join(this.socket);
+    winston.info("SESSION-OPEN", this.socket.handshake.sessionID);
 };
 
 /*
@@ -98,6 +104,7 @@ Client.prototype.comparePreferences = function (partner) {
     TODO otherwise makes sure to remove the socket from the WaitingList, if any
 */
 Client.prototype.disconnect = function () {
+    winston.info("SESSION-CLOSE", this.socket.handshake.sessionID);
     if (this.room) {
         this.room.leave(this.socket);
         this.room = undefined; // so that there is no call stack

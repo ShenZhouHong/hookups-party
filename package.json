@@ -36,6 +36,7 @@
     "serve-favicon": "^2.4.0",
     "socket.io": "^1.7.3",
     "underscore": "^1.8.3",
+    "winston": "^2.3.1",
     "xss-filters": "^1.2.7"
   }
 }
