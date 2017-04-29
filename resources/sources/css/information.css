@@ -12,29 +12,6 @@
     padding-right: 2em;
 }
 
-.subtitle {
-    font-family: 'DancingScriptBold', "Arial Black", sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
-    color: #FFF;
-    margin-bottom: 1em;
-}
-
-.main-title {
-    font-family: 'StratoLinked', "Brush Script MT", sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
-    color: #db0000;
-}
-
-.trademark-inline {
-    font-family: 'DancingScriptBold';
-    font-weight: normal;
-    font-style: normal;
-}
-
 /* Change text size dynamically using css media queries */
 @media(max-width:767px){
     .subtitle {

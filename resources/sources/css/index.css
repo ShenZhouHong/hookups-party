@@ -1,24 +1,13 @@
 /*
-    The .main-title and .subtitle are all styled in accordence
-    with the device's display width using media queries.
+    Custom styling for index.hbs. Note that most styles, including that of the
+    logo, have been outlined to common.css
 */
-.subtitle {
-    font-family: 'DancingScriptBold', "Arial Black", sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
-    color: #FFF;
-    margin-top: 0;
+#welcome-to {
+    margin: 0;
 }
 
-.main-title {
-    font-family: 'StratoLinked', "Brush Script MT", sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
-    color: #db0000;
-    margin-top: 0;
-    margin-bottom: 0;
+#at-uwc-changshu-china {
+    margin: 0;
 }
 
 #loading-title {
@@ -31,6 +20,8 @@
         font-size: 2em;
     }
     .main-title {
+        /* When device screen size is tiny prevent .main-title from protuding */
+        margin-top: 0.4em;
         font-size: 3.5em;
     }
     .prompt-text {

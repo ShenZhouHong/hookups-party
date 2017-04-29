@@ -1,3 +1,7 @@
+/*
+    Common styling shared across all pages.
+    Generic high-level elements such as body and canvas are included here.
+*/
 body {
     background-color: #0f161d;
 }
@@ -10,9 +14,28 @@ canvas {
 }
 
 /*
-    Styling for inline logo:
-    <span class="logo-inline">Hookups💋</span>
+    Common logo styling are outsourced below.
+    Logos may be modified further through id tags.
 */
+.subtitle {
+    font-family: 'DancingScriptBold', "Arial Black", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    color: #FFF;
+    margin-bottom: 1em;
+}
+
+.main-title {
+    font-family: 'StratoLinked', "Brush Script MT", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    color: #db0000;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 .logo-kiss-emoji {
     display: inline-block;
     vertical-align: middle;
