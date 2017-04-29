@@ -277,7 +277,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-qunit');
 
     // Register seperate production versus development-based tasks
-    grunt.registerTask('development', ['jshint:sources', /*'cssmin:development', 'uglify:development', 'jshint:minified',*/ 'copy']);
+    grunt.registerTask('development', ['jshint:sources', 'cssmin:development', 'uglify:development', 'jshint:minified', 'copy']);
     grunt.registerTask('production', ['cssmin:production', 'uglify:production', 'copy']);
 
 };

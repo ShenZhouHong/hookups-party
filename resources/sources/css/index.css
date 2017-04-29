@@ -1,32 +1,14 @@
 /*
-    The #main-title, .subtitle, and #logo-container are all styled in accordence
-    with the device's display width. Using media queries, this allows the logo
-    to break and resize appropriately, making it responsive.
+    The .main-title and .subtitle are all styled in accordence
+    with the device's display width using media queries.
 */
-/* Begin with defining common styles */
-#slide01 #logo-container {
-    padding-bottom: 2em;
-}
-
-#slide01 {
-    padding-top: 2em !important;
-}
-
-/* Define confetti canvas */
-canvas {
-    display: block;
-    position: fixed;
-    z-index: 0;
-    pointer-events: none;
-}
-
 .subtitle {
-   font-family: 'DancingScriptBold', "Arial Black", sans-serif;
-   font-weight: normal;
-   font-style: normal;
-   text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
-   color: #FFF;
-   margin-top: 0;
+    font-family: 'DancingScriptBold', "Arial Black", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    color: #FFF;
+    margin-top: 0;
 }
 
 .main-title {
@@ -40,13 +22,13 @@ canvas {
 }
 
 #loading-title {
+    /* Makes sure logo does not protude during loading */
     margin-top: 0.5em;
 }
 
-/* Change text size dynamically using css media queries */
 @media(max-width:767px){
     .subtitle {
-       font-size: 2em;
+        font-size: 2em;
     }
     .main-title {
         font-size: 3.5em;
@@ -57,7 +39,7 @@ canvas {
 }
 @media(min-width:768px){
     .subtitle {
-       font-size: 3em;
+        font-size: 3em;
     }
     .main-title {
         font-size: 5em;
@@ -68,7 +50,7 @@ canvas {
 }
 @media(min-width:992px){
     .subtitle {
-       font-size: 3em;
+        font-size: 3em;
     }
     .main-title {
         font-size: 7em;
@@ -79,7 +61,7 @@ canvas {
 }
 @media(min-width:1200px){
     .subtitle {
-       font-size: 3em;
+        font-size: 3em;
     }
     .main-title {
         font-size: 7em;
@@ -90,74 +72,20 @@ canvas {
 }
 
 /*
-
-/*  #envelope01 breaking and rotation styles */
-#self-gender-envelope.envelope {
-    -webkit-transform: rotate(1deg);
-            transform: rotate(1deg);
-}
-
-/* #partner-activity-envelope breaking and rotation styles */
-#partner-activity-envelope.envelope {
-    -webkit-transform: rotate(-0.8deg);
-            transform: rotate(-0.8deg);
-}
-
-/* #envelope03 breaking and rotation styles */
-/* Final envelope media-query wrapping */
-#search-button-envelope.envelope {
-    -webkit-transform: rotate(1deg);
-            transform: rotate(1deg);
-    margin-top: 3em;
-}
-
-/*
-    Toss styling:
-    #envelope01 (title page) is styled to jiggle a little bit, in order to draw
-    the user's attention towards the prompt.
+    Styles for the first slide are modified from the base class, since the
+    landing page needs specific padding requirements.
 */
-.tossing{
-	animation-name: tossing;
-	-webkit-animation-name: tossing;
-
-	animation-duration: 2.5s;
-	-webkit-animation-duration: 2.5s;
-
-	animation-iteration-count: infinite;
-	-webkit-animation-iteration-count: infinite;
+#slide01 {
+    padding-top: 2em !important;
 }
 
-@keyframes tossing {
-	0% {
-		-webkit-transform: rotate(-0.5deg);
-		        transform: rotate(-0.5deg);
-	}
-	50% {
-		-webkit-transform: rotate(0.5deg);
-		        transform: rotate(0.5deg);
-	}
-	100% {
-		-webkit-transform: rotate(-0.5deg);
-		        transform: rotate(-0.5deg);
-	}
-}
-
-@-webkit-keyframes tossing {
-	0% {
-		-webkit-transform: rotate(-0.5deg);
-	}
-	50% {
-		-webkit-transform: rotate(0.5deg);
-	}
-	100% {
-		-webkit-transform: rotate(-0.5deg);
-	}
+#slide01 #logo-container {
+    margin-bottom: 2em;
 }
 
 /*
-    How it works:
-    Uses icons to briefly introduce to the user how Hookups @ CSC would work.
-    Presents everything in a simple 3 step pictogram.
+    Styling for the 'how it works' section of the landing page. Resizes the
+    SVGs and defines custom sizes for the text.
 */
 #how-it-works svg {
     width: 60%;
@@ -181,7 +109,6 @@ canvas {
     #activity-description contains a short, rich text summary of what each
     activity is for. This is displayed onhover();
 */
-
 #activity-description {
     text-shadow: 0 0 0;
     font-weight: normal;
@@ -189,15 +116,11 @@ canvas {
 }
 
 /*
-    Minimalistic footer styling. Essentially just centers the text and makes
-    the  links slightly prettier. EDIT: Rotation is now removed as the top
-    box is animated anyways.
+    Styles the footer with FAQ and Info links. Custom padding, text-shadow,
+    and link styles are implemented here.
 */
-#footer {
-    margin-top: 1em;
-}
-
 #footer a {
+    margin-top: 1em;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
     font-weight: bold;
     padding: 0px 10px;
@@ -206,7 +129,7 @@ canvas {
 }
 
 /*
-    Styling for various hints and popups.
+    Misc styling for various hints, popups, and links.
 */
 .hints {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
@@ -214,23 +137,10 @@ canvas {
     padding: 0px 10px;
     word-wrap: normal;
     color: #ec971f;
-}
-
-#more-activities-hint {
-    /* Rotation for it to match up and look nice */
-    -webkit-transform: rotate(-0.8deg);
-            transform: rotate(-0.8deg);
     margin-top: 1em;
+    margin-bottom: 3em;
 }
 
-#missing-activity-hint {
-    /* Rotation for it to match up and look nice */
-    -webkit-transform: rotate(1deg);
-            transform: rotate(1deg);
-    margin-top: 1em;
-}
-
-/* Reset button for choices */
 #reset-choices {
     font-size: 0.9em;
     color: #777;
