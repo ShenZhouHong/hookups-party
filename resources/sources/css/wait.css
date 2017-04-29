@@ -1,9 +1,4 @@
 /*
-    Custom styling for waiting page, when hookups.party is not in session
-    Rather sparse, since most of the styling is taken care of in common.css
-*/
-
-/*
     Custom media-queries to make the hookups logo extra large.
     Do not remove, this is individual and NOT outlined to common.css
 */
@@ -59,14 +54,14 @@
     }
 }
 
-#heartbeats {
-    transition: all linear 0.3s;
-}
-
 /*
     Styling for the heartbeats counter
     Uses media queries to ensure correct size.
 */
+#heartbeats {
+    transition: all linear 0.3s;
+}
+
 @media(max-width:767px){
     #heartbeats {
         font-size: 3.5em;
@@ -86,9 +81,4 @@
     #heartbeats {
         font-size: 4em;
     }
-}
-
-/* Styling for the time */
-.time {
-    color: #ec971f;
 }
