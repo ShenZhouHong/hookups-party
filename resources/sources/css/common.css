@@ -49,7 +49,10 @@ canvas {
     color: #db0000;
 }
 
-/*  Slide class is used to standardize slide appearance, and set max viewport */
+/*
+    Various styling for containers of content.
+    slides are view-screen-wide deliminators, while envelopes are for prompts.
+*/
 .container-fluid .slide {
     height: 100vh;
     padding-top: 5em;
@@ -57,12 +60,6 @@ canvas {
     padding-right: 2em;
 }
 
-/*
-    The .envelope class is used to create the style and background for the cards
-    that display text and prompts to the user. It's common attributes are first
-    defined here, then it's height is dynamically given through media queries.
-*/
-/*  Begin with defining common styles */
 .envelope {
     background-color: #FFF;
     border:2px dashed #db0000;
@@ -72,30 +69,30 @@ canvas {
     padding-bottom: 0.5em;
 }
 
-/* Logo link styling */
-#logo-containe a:link {
+/*
+    Styling for logo links.
+    Removes the default undershadow and colour for the logo.
+*/
+#logo-container a:link {
     text-decoration: none;
 }
 
-#logo-containe a:visited {
+#logo-container a:visited {
     text-decoration: none;
 }
 
-#logo-containe a:hover {
+#logo-container a:hover {
     text-decoration: none;
 }
 
-#logo-containe a:active {
+#logo-container a:active {
     text-decoration: none;
 }
 
 /*
-    Error styling
-
-    For the generic error box that comes up when anything bad happens. Also used
-    to style <noscript> messages when client has javascript disabled.
+    Styling for error boxes, when the client has javascript disabled, or any
+    other misc. errors that pop up.
 */
-
 .error-box {
     position: fixed;
     top: 10%;
@@ -115,9 +112,8 @@ canvas {
 }
 
 /*
-    Mobile collapsing class
-    The mobile collapsing class is a custom utility class that is designed to
-    hide any div assigned to it below a certain screen size
+    Mobile collapsing class Custom utility class that is designed to
+    hide any div assigned to it below a certain screen size.
 */
 .collapse-non-sm {
     height: 0;
@@ -136,8 +132,7 @@ canvas {
 
 /*
     CSS3 Animations
-    Courtesy of CSS Cheatsheet:
-    http://www.justinaguilar.com/animations/
+    Courtesy of CSS Cheatsheet: http://www.justinaguilar.com/animations/
 */
 .tossing{
 	animation-name: tossing;
