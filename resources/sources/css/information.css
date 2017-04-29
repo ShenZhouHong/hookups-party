@@ -4,14 +4,6 @@
      appropriately, making it responsive. Inline logo styles also defined
 */
 
-/*  Slide class is used to standardize slide appearance, and set max viewport */
-.container-fluid .slide {
-    height: auto !important;
-    padding-top: 5em;
-    padding-left: 2em;
-    padding-right: 2em;
-}
-
 /* Change text size dynamically using css media queries */
 @media(max-width:767px){
     .subtitle {
@@ -34,38 +26,17 @@
     }
 }
 
-/*  #envelope01 breaking and rotation styles */
-#envelope01.envelope {
-    -webkit-transform: rotate(0.5deg);
-            transform: rotate(0.5deg);
-    margin-bottom: 2em;
-}
-
-/*  #envelope02 breaking and rotation styles */
-#envelope02.envelope {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-    margin-bottom: 1em;
-}
-
-#envelope03.envelope {
-    -webkit-transform: rotate(-0.8deg);
-            transform: rotate(-0.8deg);
-    margin-bottom: 1em;
-}
-
 /*
     The .textbox class is used to create an appropriate level of margin, and
     line spacing for large amounts of text. Also contains any other misc.
     typographical improvements
 */
-
-/* Center titles */
 h2 {
     text-align: center;
 }
 
 .textbox {
+    margin-bottom: 1em;
     font-size: 1.2em;
     padding: 0 2.5em !important;
     line-height: 140%;

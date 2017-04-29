@@ -1,130 +1,116 @@
 <!-- Main content div -->
 <div class="container-fluid">
 
-    <!--
-        Webapp is organized into slides. Each slide is a discrete container that
-        holds everything for that slide. Containers are usually set to the max
-        height of the viewpoint (e.g. height: 100vh).
-
-        The first slide is visible as it is the landing page, however subsequent
-        slides are collapsed. They are shown interactively
-        through javascript
-    -->
-
-    <!-- Primary information slide -->
-    <div class="slide" id="slide01">
-        <!-- First row displays the Hookups @ UWC Changshu China logo -->
-        <div class="row">
-            <div class="col-xs-16 text-center">
-                <a href="/">
-                    <h1 class="subtitle">About
-                        <span class="main-title">
-                            Hookups
-                            <svg class="logo-kiss-emoji" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" enable-background="new 0 0 64 64"><path d="m11.2 40.7c3.7-1.9 5.3-2.5-.7-4.3 1.1-.1 7.5 2.1 9.5-.3 1.7-1.2-6.5-2.7-7-3.9 1.6 1 8.6 4.1 9.9 1.3-.2-1-1.2-2.9-4.7-3.9 1 .4 3.1.2 3.9-.6-.3-.9-4.2-3.3-4.6-6.4 1.3 1.8 2.9 4.9 4.9 5.5 0 0 .6-1.5 2.8-2.1-2 0-4-1.2-4.3-2.2 1.4 2.3 6.4 1.1 8.5 3 0 0-.4-1.3 1-3 .1-.4-.8-1.1-.3-1.3.2.2.2.9.8.8 1.3-.5 2.5-2.2 1.7-3.8.6.3.7 1.7.8 2.5.8 0 2.2-.1 3.7 1.3.3-.2.2-.7.5-.9.3 1 .3 3.1 1.7 3 1.1 0 2.5-2.4 2.7-3.4-.1 2.3 1.2 2 1.6 2.1 1-.1 2.1-3.4 2.6-3.4-.2.4-.2 1.7-.1 2.4 1.1.2 3.9-1.1 4.5-1.7-.1.5-.3.7-.2 1.3 1 .2 6.7-2.5 8-5.3-1.5-.7-2.7-1.5-3.9-1.9-.7.6-.7 3.1-1.6 2.9.4-.6 1.4-2.7.6-3.4-3.8-2.6-1.9 2-2.3 2.4 0-.8-1.7-5.5-3.3-5.1-.3.4-.9-2.3-2 3.6.1-1 1.3-4.9-4.5-6.5-.3 1.5 1.7 6 1.2 7-.2-1.9-1.7-6.5-2.7-7.7-2.2-.9-6.1-2.5-7.8-1.9-2 .5 3 5 1.6 6.8.3-2.6-2.8-5.4-4.9-5.4-4.3 2.2-.8 6.3-1.5 8.3-.4-2.4-1.6-2.9-1.4-5.7-1.1.8-1.2 2.2-2.4 3.3-.6.2-.9-.1-1.5 0-1 1.1.9 3.4.5 4.3-.7-1.5-.7-3.7-2.4-3.9-1.4-.9-4.3-.2-6.5 1.3-2.5.7-4.9 7.5-4.8 8.4.2 1.2 2.3 1.4 2.4 2.6-.9-.5-1.2-1.5-2.6-1.4-.5 1.1-.8 1.9-.9 3.5 1.5 1 3.4 1.9 3.9 3.4-1.4-.5-2.2-2.6-4-2-2.3 6.5.5 5.3.8 6.2-.8.3-1.6-.5-1.9 0-1.8 3.3.3 3.3.5 3.9-.4 0-.9 0-1.3 0-.7.6-.8 2.7-.6 3.7 1.5-.7 4.7-1.4 3.9-3.2.8.2 1.7.2 2.2-.2" fill="#c94747"/><path d="m50.7 23.7c-1.7.4-6.9.8-8.2 2.3 1.5 2.4 7.4 2.8 8.9 5.2-2.3-1.4-7-3.4-10-4.2-3.6-.8-2.5 1.2-3.7 4.1.5 1.1 2.2 4.1 2.3 5.1-.9-1-1.7-5.6-3.2-3.1-2.4 3.9 1.3 4.7 2.9 8.3-1-1.4-3-4.1-4.3-5.7l-.9 1.5c-1.5-.4-2.2-.3-2.2-.3.9 2.2 3.7 6.7 4.5 8.1-2.7-2.7-3.9-5.3-5.3-8.2-1.2 0-2.3-.5-3.5-.7-.1 2.5 1 4.1 1 5.9-.9-2.7-1.5-8.5-6.8-6.6-1.5 3.1.7 9.1.8 11.7-1-2.9-.9-7-2.2-9.5-1.7-.1-4.4-.2-3.9.9-3.4.9-12.3 6.2-10.8 7.6 2.7 2.6 8.6 6 12.4 6.7.2-1 .6-2.7 1-3.3.4 1.6.9 3.6 2.5 4 .4-.5-.2-1.8-.1-2.6 1.4 1.7 5.2 3.7 7.9 2.4.3-1-.8-2.4-.2-3.1.4 2.7 6.6 2.9 7.1.5.2-1.1-.9-1.8-.9-2.5.9 1 1.3 2.3 2.8 2.2 3.3-.2 1.1-4.8.5-6.6.8 1.6 1.8 4 3 5.2.9-.2 1.3-1.5.8-2.6 2.9 2 3.2.4 2.1-3.6 0-.1-.1-.2-.1-.3 0 .1.1.2.1.3.3.8 1.4 2.7 2.1 3 2.6-1.1-1.1-5.5-1.6-6.3 1.1.9 2.4 3.8 4.1 4.2.3-.2.3-1.8.5-2.1-.6-3.9-4.5-6.4-6-8.9 2.4 2.2 4.8 6.8 7.9 8.4 1-1.3-.9-4.8-1.5-5.8.9.4 2.4 2.7 3.5 2.8 1.1-.6-.5-3.5-1.2-4.5.5.2 1.9 1.7 2.7 1.5.3-1.4-1.5-3.1-1.9-4.2.5.1 2.1 1.7 2.8 1.7.7-2.9 1.9-6.3 1.7-13.1-1 .1-6.1 3.9-7.4 4.2" fill="#ed4c5c"/></svg>
-                        </span>
-                    </h1>
-                </a>
-            </div>
+    <!-- First row displays the Hookups @ UWC Changshu China logo -->
+    <div class="row">
+        <div class="col-xs-16 text-center">
+            <a href="/">
+                <h1 class="subtitle">About
+                    <span class="main-title">
+                        Hookups
+                        <svg class="logo-kiss-emoji" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" enable-background="new 0 0 64 64"><path d="m11.2 40.7c3.7-1.9 5.3-2.5-.7-4.3 1.1-.1 7.5 2.1 9.5-.3 1.7-1.2-6.5-2.7-7-3.9 1.6 1 8.6 4.1 9.9 1.3-.2-1-1.2-2.9-4.7-3.9 1 .4 3.1.2 3.9-.6-.3-.9-4.2-3.3-4.6-6.4 1.3 1.8 2.9 4.9 4.9 5.5 0 0 .6-1.5 2.8-2.1-2 0-4-1.2-4.3-2.2 1.4 2.3 6.4 1.1 8.5 3 0 0-.4-1.3 1-3 .1-.4-.8-1.1-.3-1.3.2.2.2.9.8.8 1.3-.5 2.5-2.2 1.7-3.8.6.3.7 1.7.8 2.5.8 0 2.2-.1 3.7 1.3.3-.2.2-.7.5-.9.3 1 .3 3.1 1.7 3 1.1 0 2.5-2.4 2.7-3.4-.1 2.3 1.2 2 1.6 2.1 1-.1 2.1-3.4 2.6-3.4-.2.4-.2 1.7-.1 2.4 1.1.2 3.9-1.1 4.5-1.7-.1.5-.3.7-.2 1.3 1 .2 6.7-2.5 8-5.3-1.5-.7-2.7-1.5-3.9-1.9-.7.6-.7 3.1-1.6 2.9.4-.6 1.4-2.7.6-3.4-3.8-2.6-1.9 2-2.3 2.4 0-.8-1.7-5.5-3.3-5.1-.3.4-.9-2.3-2 3.6.1-1 1.3-4.9-4.5-6.5-.3 1.5 1.7 6 1.2 7-.2-1.9-1.7-6.5-2.7-7.7-2.2-.9-6.1-2.5-7.8-1.9-2 .5 3 5 1.6 6.8.3-2.6-2.8-5.4-4.9-5.4-4.3 2.2-.8 6.3-1.5 8.3-.4-2.4-1.6-2.9-1.4-5.7-1.1.8-1.2 2.2-2.4 3.3-.6.2-.9-.1-1.5 0-1 1.1.9 3.4.5 4.3-.7-1.5-.7-3.7-2.4-3.9-1.4-.9-4.3-.2-6.5 1.3-2.5.7-4.9 7.5-4.8 8.4.2 1.2 2.3 1.4 2.4 2.6-.9-.5-1.2-1.5-2.6-1.4-.5 1.1-.8 1.9-.9 3.5 1.5 1 3.4 1.9 3.9 3.4-1.4-.5-2.2-2.6-4-2-2.3 6.5.5 5.3.8 6.2-.8.3-1.6-.5-1.9 0-1.8 3.3.3 3.3.5 3.9-.4 0-.9 0-1.3 0-.7.6-.8 2.7-.6 3.7 1.5-.7 4.7-1.4 3.9-3.2.8.2 1.7.2 2.2-.2" fill="#c94747"/><path d="m50.7 23.7c-1.7.4-6.9.8-8.2 2.3 1.5 2.4 7.4 2.8 8.9 5.2-2.3-1.4-7-3.4-10-4.2-3.6-.8-2.5 1.2-3.7 4.1.5 1.1 2.2 4.1 2.3 5.1-.9-1-1.7-5.6-3.2-3.1-2.4 3.9 1.3 4.7 2.9 8.3-1-1.4-3-4.1-4.3-5.7l-.9 1.5c-1.5-.4-2.2-.3-2.2-.3.9 2.2 3.7 6.7 4.5 8.1-2.7-2.7-3.9-5.3-5.3-8.2-1.2 0-2.3-.5-3.5-.7-.1 2.5 1 4.1 1 5.9-.9-2.7-1.5-8.5-6.8-6.6-1.5 3.1.7 9.1.8 11.7-1-2.9-.9-7-2.2-9.5-1.7-.1-4.4-.2-3.9.9-3.4.9-12.3 6.2-10.8 7.6 2.7 2.6 8.6 6 12.4 6.7.2-1 .6-2.7 1-3.3.4 1.6.9 3.6 2.5 4 .4-.5-.2-1.8-.1-2.6 1.4 1.7 5.2 3.7 7.9 2.4.3-1-.8-2.4-.2-3.1.4 2.7 6.6 2.9 7.1.5.2-1.1-.9-1.8-.9-2.5.9 1 1.3 2.3 2.8 2.2 3.3-.2 1.1-4.8.5-6.6.8 1.6 1.8 4 3 5.2.9-.2 1.3-1.5.8-2.6 2.9 2 3.2.4 2.1-3.6 0-.1-.1-.2-.1-.3 0 .1.1.2.1.3.3.8 1.4 2.7 2.1 3 2.6-1.1-1.1-5.5-1.6-6.3 1.1.9 2.4 3.8 4.1 4.2.3-.2.3-1.8.5-2.1-.6-3.9-4.5-6.4-6-8.9 2.4 2.2 4.8 6.8 7.9 8.4 1-1.3-.9-4.8-1.5-5.8.9.4 2.4 2.7 3.5 2.8 1.1-.6-.5-3.5-1.2-4.5.5.2 1.9 1.7 2.7 1.5.3-1.4-1.5-3.1-1.9-4.2.5.1 2.1 1.7 2.8 1.7.7-2.9 1.9-6.3 1.7-13.1-1 .1-6.1 3.9-7.4 4.2" fill="#ed4c5c"/></svg>
+                    </span>
+                </h1>
+            </a>
         </div>
-        <!-- First envelope -->
-        <div class="row">
-            <div class="col-sm-6 col-sm-offset-3 envelope textbox" id="envelope01">
-                <h2 id="about">What is this? </h2>
-                <p>
-                    <span class="logo-inline">Hookups💋</span>
-                    is a simple web app developed for the purpose of hooking up.
-                    Whether you have never hooked up before, or already have
-                    multiple partners,
-                    <span class="logo-inline">Hookups💋</span>
-                    is always here to help make those new connections.
-                </p>
-                <p>
-                    Wanna experiment? Try something new? Or just do what you know
-                    you like and you're comfortable with? Whatever the type of
-                    encounter,
-                    <span class="logo-inline">Hookups💋</span>
-                    can set you up. Simply select the options you want, and you
-                    will automatically be matched with a partner of the same
-                    preferences.
-                </p>
-                <p>
-                    <strong>
-                        Note: Sexual activity is prohibited on campus,
-                        therefore please do not break the campus rules. Hookups
-                        should only occur outside of campus
-                    </strong>
-                </p>
-            </div>
+    </div>
+
+    <!-- First envelope -->
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 envelope textbox">
+            <h2 id="about">What is this? </h2>
+            <p>
+                <span class="logo-inline">Hookups💋</span>
+                is a simple web app developed for the purpose of hooking up.
+                Whether you have never hooked up before, or already have
+                multiple partners,
+                <span class="logo-inline">Hookups💋</span>
+                is always here to help make those new connections.
+            </p>
+            <p>
+                Wanna experiment? Try something new? Or just do what you know
+                you like and you're comfortable with? Whatever the type of
+                encounter,
+                <span class="logo-inline">Hookups💋</span>
+                can set you up. Simply select the options you want, and you
+                will automatically be matched with a partner of the same
+                preferences.
+            </p>
+            <p>
+                <strong>
+                    Note: Sexual activity is prohibited on campus,
+                    therefore please do not break the campus rules. Hookups
+                    should only occur outside of campus
+                </strong>
+            </p>
         </div>
     </div>
 
     <!-- Frequently asked questions -->
-    <div class="slide" id="slide02">
-        <div class="row">
-            <div class="col-sm-6 col-sm-offset-3 envelope textbox" id="envelope02">
-                <h2 id="FAQ">Frequently Asked Questions<h2>
-                <h3>Why are you doing this?</h3>
-                <p>
-                    Love is free, and should be celebrated. It can be expressed
-                    in many different forms. And although hooking up is not for
-                    everyone, it deserves to be acknowledged as a form of
-                    intimacy. As much as this site is created for faciliating
-                    hookups, it is also an experiment designed for us to
-                    reevaluate our percpetions of sexuality and physical
-                    intimacy.
-                </p>
-                <p>
-                    Sexuality is one of the most fundemental aspects of the
-                    human experience, and much of our society has been built
-                    around our expressions of sexual attraction. Beginning from
-                    the highly ritualized courtships of Medieval romances, to
-                    modern dating culture - the ways we acknowledge and interact
-                    with sexual relationships is changing. Is this the next
-                    step? Who knows?
-                </p>
-                <h3>Is this for real?</h3>
-                <p>
-                    Yes, it is! Simply select your gender, the gender of your
-                    preferred partner, and your sexual preferences. You will be
-                    automatically and anonymously matched with a suitable
-                    person. Give it a try!
-                </p>
-                <h3 id="confused">I'm confused!</h3>
-                <p>
-                    It's okay. This may seem like a unbelievable thing at first,
-                    but trust us - it works!
-                </p>
-                <h3 id="offended">I'm offended!</h3>
-                <p>
-                    We understand that this site may enspouse views that are
-                    different from others. Hookups are not for everybody, and
-                    that is okay. If you wish, you can permanently disable this
-                    website for your computer, so that you will never see it
-                    again.
-                </p>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 envelope textbox">
+            <h2 id="FAQ">Frequently Asked Questions<h2>
+            <h3>Why are you doing this?</h3>
+            <p>
+                Love is free, and should be celebrated. It can be expressed
+                in many different forms. And although hooking up is not for
+                everyone, it deserves to be acknowledged as a form of
+                intimacy. As much as this site is created for faciliating
+                hookups, it is also an experiment designed for us to
+                reevaluate our percpetions of sexuality and physical
+                intimacy.
+            </p>
+            <p>
+                Sexuality is one of the most fundemental aspects of the
+                human experience, and much of our society has been built
+                around our expressions of sexual attraction. Beginning from
+                the highly ritualized courtships of Medieval romances, to
+                modern dating culture - the ways we acknowledge and interact
+                with sexual relationships is changing. Is this the next
+                step? Who knows?
+            </p>
+            <h3>Is this for real?</h3>
+            <p>
+                Yes, it is! Simply select your gender, the gender of your
+                preferred partner, and your sexual preferences. You will be
+                automatically and anonymously matched with a suitable
+                person. Give it a try!
+            </p>
+            <h3 id="confused">I'm confused!</h3>
+            <p>
+                It's okay. This may seem like a unbelievable thing at first,
+                but trust us - it works!
+            </p>
+            <h3 id="offended">I'm offended!</h3>
+            <p>
+                We understand that this site may enspouse views that are
+                different from others. Hookups are not for everybody, and
+                that is okay. If you wish, you can permanently disable this
+                website for your computer, so that you will never see it
+                again.
+            </p>
 
-                <!-- Block button permanently bans this client forever -->
-                <div class="alert alert-danger" role="alert">
-                    <p>
-                        <strong>Warning:</strong>
-                        Do you want to PERMANENTLY stop seeing hookups? If you
-                        click the button, you will be PERMANENTLY BANNED from
-                        visitng the website. This is not a joke. Consider this
-                        your only warning.
-                    </p>
-                    <div class="text-center">
-                        <a class="btn btn-danger btn-md warning" href="/blockme" role="button" id="block">
-                            Block this page forever
-                        </a>
-                    </div>
-                <div>
+            <!-- Block button permanently bans this client forever -->
+            <div class="alert alert-danger" role="alert">
+                <p>
+                    <strong>Warning:</strong>
+                    Do you want to PERMANENTLY stop seeing hookups? If you
+                    click the button, you will be PERMANENTLY BANNED from
+                    visitng the website. This is not a joke. Consider this
+                    your only warning.
+                </p>
+                <div class="text-center">
+                    <a class="btn btn-danger btn-md warning" href="/blockme" role="button" id="block">
+                        Block this page forever
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- First envelope -->
     <div class="row">
-        <div class="col-sm-6 col-sm-offset-3 envelope textbox" id="envelope03">
+        <div class="col-sm-6 col-sm-offset-3 envelope textbox">
             <h2 id="privacy">Privacy Policy</h2>
             <p>
                 Privacy is our most important concern, and we take active measures
@@ -139,18 +125,15 @@
     </div>
 
     <!-- Contact us -->
-    <div class="slide" id="slide03">
-        <div class="row">
-            <div class="col-sm-6 col-sm-offset-3 envelope textbox" id="envelope04">
-                <h2 id="contact">Contact us</h2>
-                <p>
-                    Any suggestions? Thoughts? Feedback? You can contact us here.
-                    Please note that due to time constraints, we may not be able
-                    to respond to all feedback.
-                </p>
-            </div>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 envelope textbox">
+            <h2 id="contact">Contact us</h2>
+            <p>
+                Any suggestions? Thoughts? Feedback? You can contact us here.
+                Please note that due to time constraints, we may not be able
+                to respond to all feedback.
+            </p>
         </div>
     </div>
-
 
 </div>
