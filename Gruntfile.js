@@ -74,12 +74,6 @@ module.exports = function(grunt) {
                         'resources/sources/css/common.css',
                         'resources/sources/css/error.css'
                     ],
-                    'public/css/static-index.min.css': [
-                        'node_modules/bootstrap/dist/css/bootstrap.css',
-                        'resources/sources/css/fonts.css',
-                        'resources/sources/css/common.css',
-                        'resources/sources/css/static-index.css'
-                    ],
                 }
             },
 
@@ -126,12 +120,6 @@ module.exports = function(grunt) {
                         'resources/sources/css/fonts.css',
                         'resources/sources/css/common.css',
                         'resources/sources/css/error.css'
-                    ],
-                    'public/css/static-index.min.css': [
-                        'node_modules/bootstrap/dist/css/bootstrap.css',
-                        'resources/sources/css/fonts.css',
-                        'resources/sources/css/common.css',
-                        'resources/sources/css/static-index.css'
                     ],
                 }
             },
@@ -185,11 +173,6 @@ module.exports = function(grunt) {
                             'node_modules/jquery/dist/jquery.js',
                             'node_modules/bootstrap/dist/js/bootstrap.js',
                     ],
-                    'public/js/static-index.min.js': [
-                            'node_modules/jquery/dist/jquery.js',
-                            'node_modules/bootstrap/dist/js/bootstrap.js',
-                            'resources/sources/js/static-index.js',
-                    ],
                 }
             },
 
@@ -234,11 +217,7 @@ module.exports = function(grunt) {
                             'node_modules/jquery/dist/jquery.js',
                             'node_modules/bootstrap/dist/js/bootstrap.js',
                     ],
-                    'public/js/static-index.min.js': [
-                            'node_modules/jquery/dist/jquery.js',
-                            'node_modules/bootstrap/dist/js/bootstrap.js',
-                            'resources/sources/js/static-index.js',
-                    ],
+
                 }
             },
         },
