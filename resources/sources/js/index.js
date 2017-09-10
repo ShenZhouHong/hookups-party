@@ -173,8 +173,15 @@ $(function () {
         $('#more-activities-hint').fadeIn();
 
         // Fades in the search prompt after a short delay
-        $('#search-prompt').delay(1100).fadeIn();
+        $('#consent-prompt').delay(1100).fadeIn();
 
+        // Checks to make sure all 3 consent-ful checkboxes are checked
+        $(".consent-check").change(function(){
+            if ($('.consent-check:checked').length == $('.consent-check').length) {
+                $('#consent-prompt').fadeOut();
+                $('#search-prompt').delay(1100).fadeIn();
+            }
+        });
 
         /*
             Since sexual activities are not multually exclusive, checkbox-styled

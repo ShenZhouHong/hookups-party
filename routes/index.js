@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
     target.setHours(23);
     target.setMinutes(00);
     target.setSeconds(0);
-    if (process.env.DEV || (target.getTime() - date.getTime()) <= 0) {
+    if (!process.env.production || (target.getTime() - date.getTime()) <= 0) {
         res.render('index', {
             title: 'Hookups @ CSC',
             // Included resources
