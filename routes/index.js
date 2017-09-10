@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
     var date = new Date ();
     var target = new Date();
     target.setHours(23);
-    target.setMinutes(30);
+    target.setMinutes(00);
     target.setSeconds(0);
     if (process.env.DEV || (target.getTime() - date.getTime()) <= 0) {
         res.render('index', {
