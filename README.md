@@ -15,10 +15,10 @@ mobile-first.
 - [X] Further modularize CSS for chat
 - [X] Working session management to prevent multiple users on the same client
 - [X] Add match GUI to notify user when a match is found
+- [X] Audio framework for "pop" sounds when messages arrive
 - [ ] **Secure websocket implementation and strictly check inputs!!!**
 - [ ] Implement progressive font rendering to prevent FOIC
 - [ ] Add a comprehensive unit testing framework for javascript code
-- [ ] Audio framework for "pop" sounds when messages arrive
 - [ ] On mobile devices, when the phone sleeps the websocket disconnects. Upon wakeup, when client tries to send a message the **node server crashes**
 - [ ] Session checking is still extremely weird. Sometimes, on mobile the session is seen as duplicated, even when it's not.
 
@@ -78,6 +78,12 @@ rerun the commands desired, and the files will be overwritten.
 **Please note:** compiled and minified javascript and CSS files are **NOT**
 including as a part of the project repository! Therefore, in order to run the
 project, these files must be built with `grunt`!
+
+When that is done, start the node server by simply running:
+
+```
+npm start
+```
 
 #### Build Pipeline Overview
 When running `grunt development`:
