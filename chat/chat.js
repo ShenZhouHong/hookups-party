@@ -5,7 +5,7 @@ var WaitingList = require('./waitinglist');
 var Client = require('./client');
 var sharedsession = require("express-socket.io-session");
 var _ = require("underscore");
-var TIMEOUT = 60000;  // 1 minute reconnection timeout
+var TIMEOUT = 15000;  // 1 minute reconnection timeout
 var winston = require('winston');
 
 module.exports = function(server, app) {
@@ -16,7 +16,7 @@ module.exports = function(server, app) {
 
     io.use(sharedsession(app.session, {
         autoSave:true
-    })); 
+    }));
 
     var waiting = new WaitingList(new RoomFactory());
 
@@ -34,7 +34,7 @@ module.exports = function(server, app) {
         if (isOldConnection) {  // edge case: the client disconnects because of battery saving but then re-focuses the browser before TIMEOUT has elapsed
             var client = _.find(idleClients, function (client) {
                 return client.sessionID = socket.handshake.sessionID;
-            }); 
+            });
             idleClients = _.without(idleClients, client);
             clients.push(client);
             client.assignSocket(socket);
