@@ -153,3 +153,13 @@ input {
     top: -1px;
     *overflow: hidden;
 }
+
+.queue {
+    font-family: 'StratoLinked', "Brush Script MT", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    color: #db0000;
+    margin-top: 0;
+    margin-bottom: 0;
+}
