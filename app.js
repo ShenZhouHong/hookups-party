@@ -27,6 +27,7 @@ if ('production' == env) {
 
     console.info("App is now running in production mode.")
     console.info("Gzip content encoding and HTML minify is enabled.")
+    console.info("To switch to development mode, EXPORT NODE_ENV=DEV")
 
     /* Minifies the HTML when npm is run as production mode */
     app.use(minifyHTML({
@@ -85,6 +86,8 @@ else {
     console.info("Note: App is NOT running in production mode.")
     console.info("HTML minify, cache-time, and gzip compression features")
     console.info("are disabled for development.")
+    console.info("To switch to production mode, EXPORT NODE_ENV=production")
+
 }
 
 app.use('/', index);

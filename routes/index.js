@@ -1,4 +1,5 @@
 var express = require('express');
+var app = express();
 var router = express.Router();
 
 router.use(function (req, res, next) {
@@ -16,7 +17,7 @@ router.get('/', function(req, res, next) {
     target.setHours(23);
     target.setMinutes(00);
     target.setSeconds(0);
-    if (process.env.DEV || (target.getTime() - date.getTime()) <= 0) {
+    if (app.settings.env !== "production" || (target.getTime() - date.getTime()) <= 0) {
         res.render('index', {
             title: 'Hookups @ CSC',
             // Included resources
