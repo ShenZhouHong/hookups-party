@@ -33,6 +33,10 @@ window.initChat = function(userPreferences) {
     // When the server reports that a match is found, display the chat UI
     socket.on('mate', function(msg) {
         DisplayChat();
+        // Displays confetti
+        console.log("Attempting to start confetti");
+        StartConfetti();
+        setTimeout(DeactivateConfetti, 2000);
     });
 
     // Aparently not self-explanatory
