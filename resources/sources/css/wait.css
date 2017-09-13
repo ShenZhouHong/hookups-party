@@ -7,6 +7,28 @@
     margin: 0 0 10px 0 !important;
 }
 
+#welcome-to {
+    margin: 0;
+}
+
+#at-uwc-changshu-china {
+    margin: 0;
+}
+
+#time-explanation {
+    margin-top: 1em;
+}
+
+#heartbeats {
+    font-family: 'StratoLinked', "Brush Script MT", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    color: #db0000;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 @media(max-width:767px){
     .subtitle {
         font-size: 2em;
@@ -55,30 +77,49 @@
 }
 
 /*
-    Styling for the heartbeats counter
-    Uses media queries to ensure correct size.
+    Styling for the 'how it works' section of the landing page. Resizes the
+    SVGs and defines custom sizes for the text.
 */
-#heartbeats {
-    transition: all linear 0.3s;
+#explanation-title {
+    padding-top: 1em;
 }
 
-@media(max-width:767px){
-    #heartbeats {
-        font-size: 3.5em;
-    }
+.explanation-text {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    color: #FFF;
 }
-@media(min-width:768px){
-    #heartbeats {
-        font-size: 4em;
-    }
+
+#how-it-works svg {
+    width: 60%;
 }
-@media(min-width:992px){
-    #heartbeats {
-        font-size: 4em;
-    }
+
+#how-it-works h3 {
+    font-family: 'DancingScriptBold', "Arial Black", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    color: #FFF;
 }
-@media(min-width:1200px){
-    #heartbeats {
-        font-size: 4em;
-    }
+
+#how-it-works p {
+    font-weight: bolder;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    color: #FFF;
+}
+
+#learn-more {
+    margin-top: 1em;
+}
+
+/*
+    Styles the footer with FAQ and Info links. Custom padding, text-shadow,
+    and link styles are implemented here.
+*/
+#footer a {
+    margin-top: 1em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    font-weight: bold;
+    padding: 0px 10px;
+    word-wrap: normal;
+    display: inline-block;
 }

@@ -1,45 +1,134 @@
 <!-- Main content div -->
 <div class="container-fluid">
 
+    <!-- First slide landing page -->
     <div class="slide" id="slide01">
         <!-- First row displays the Hookups @ UWC Changshu China logo -->
         <div class="row">
-            <div class="col-xs-16 text-center">
+            <div class="col-xs-16 text-center" id="logo-container">
                 <h1 class="main-title">
                     Hookups
                     <svg class="logo-kiss-emoji" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" enable-background="new 0 0 64 64"><path d="m11.2 40.7c3.7-1.9 5.3-2.5-.7-4.3 1.1-.1 7.5 2.1 9.5-.3 1.7-1.2-6.5-2.7-7-3.9 1.6 1 8.6 4.1 9.9 1.3-.2-1-1.2-2.9-4.7-3.9 1 .4 3.1.2 3.9-.6-.3-.9-4.2-3.3-4.6-6.4 1.3 1.8 2.9 4.9 4.9 5.5 0 0 .6-1.5 2.8-2.1-2 0-4-1.2-4.3-2.2 1.4 2.3 6.4 1.1 8.5 3 0 0-.4-1.3 1-3 .1-.4-.8-1.1-.3-1.3.2.2.2.9.8.8 1.3-.5 2.5-2.2 1.7-3.8.6.3.7 1.7.8 2.5.8 0 2.2-.1 3.7 1.3.3-.2.2-.7.5-.9.3 1 .3 3.1 1.7 3 1.1 0 2.5-2.4 2.7-3.4-.1 2.3 1.2 2 1.6 2.1 1-.1 2.1-3.4 2.6-3.4-.2.4-.2 1.7-.1 2.4 1.1.2 3.9-1.1 4.5-1.7-.1.5-.3.7-.2 1.3 1 .2 6.7-2.5 8-5.3-1.5-.7-2.7-1.5-3.9-1.9-.7.6-.7 3.1-1.6 2.9.4-.6 1.4-2.7.6-3.4-3.8-2.6-1.9 2-2.3 2.4 0-.8-1.7-5.5-3.3-5.1-.3.4-.9-2.3-2 3.6.1-1 1.3-4.9-4.5-6.5-.3 1.5 1.7 6 1.2 7-.2-1.9-1.7-6.5-2.7-7.7-2.2-.9-6.1-2.5-7.8-1.9-2 .5 3 5 1.6 6.8.3-2.6-2.8-5.4-4.9-5.4-4.3 2.2-.8 6.3-1.5 8.3-.4-2.4-1.6-2.9-1.4-5.7-1.1.8-1.2 2.2-2.4 3.3-.6.2-.9-.1-1.5 0-1 1.1.9 3.4.5 4.3-.7-1.5-.7-3.7-2.4-3.9-1.4-.9-4.3-.2-6.5 1.3-2.5.7-4.9 7.5-4.8 8.4.2 1.2 2.3 1.4 2.4 2.6-.9-.5-1.2-1.5-2.6-1.4-.5 1.1-.8 1.9-.9 3.5 1.5 1 3.4 1.9 3.9 3.4-1.4-.5-2.2-2.6-4-2-2.3 6.5.5 5.3.8 6.2-.8.3-1.6-.5-1.9 0-1.8 3.3.3 3.3.5 3.9-.4 0-.9 0-1.3 0-.7.6-.8 2.7-.6 3.7 1.5-.7 4.7-1.4 3.9-3.2.8.2 1.7.2 2.2-.2" fill="#c94747"/><path d="m50.7 23.7c-1.7.4-6.9.8-8.2 2.3 1.5 2.4 7.4 2.8 8.9 5.2-2.3-1.4-7-3.4-10-4.2-3.6-.8-2.5 1.2-3.7 4.1.5 1.1 2.2 4.1 2.3 5.1-.9-1-1.7-5.6-3.2-3.1-2.4 3.9 1.3 4.7 2.9 8.3-1-1.4-3-4.1-4.3-5.7l-.9 1.5c-1.5-.4-2.2-.3-2.2-.3.9 2.2 3.7 6.7 4.5 8.1-2.7-2.7-3.9-5.3-5.3-8.2-1.2 0-2.3-.5-3.5-.7-.1 2.5 1 4.1 1 5.9-.9-2.7-1.5-8.5-6.8-6.6-1.5 3.1.7 9.1.8 11.7-1-2.9-.9-7-2.2-9.5-1.7-.1-4.4-.2-3.9.9-3.4.9-12.3 6.2-10.8 7.6 2.7 2.6 8.6 6 12.4 6.7.2-1 .6-2.7 1-3.3.4 1.6.9 3.6 2.5 4 .4-.5-.2-1.8-.1-2.6 1.4 1.7 5.2 3.7 7.9 2.4.3-1-.8-2.4-.2-3.1.4 2.7 6.6 2.9 7.1.5.2-1.1-.9-1.8-.9-2.5.9 1 1.3 2.3 2.8 2.2 3.3-.2 1.1-4.8.5-6.6.8 1.6 1.8 4 3 5.2.9-.2 1.3-1.5.8-2.6 2.9 2 3.2.4 2.1-3.6 0-.1-.1-.2-.1-.3 0 .1.1.2.1.3.3.8 1.4 2.7 2.1 3 2.6-1.1-1.1-5.5-1.6-6.3 1.1.9 2.4 3.8 4.1 4.2.3-.2.3-1.8.5-2.1-.6-3.9-4.5-6.4-6-8.9 2.4 2.2 4.8 6.8 7.9 8.4 1-1.3-.9-4.8-1.5-5.8.9.4 2.4 2.7 3.5 2.8 1.1-.6-.5-3.5-1.2-4.5.5.2 1.9 1.7 2.7 1.5.3-1.4-1.5-3.1-1.9-4.2.5.1 2.1 1.7 2.8 1.7.7-2.9 1.9-6.3 1.7-13.1-1 .1-6.1 3.9-7.4 4.2" fill="#ed4c5c"/></svg>
                 </h1>
-                <h2 class="subtitle">is not open yet...</h2>
+                <h2 class="subtitle" id="at-uwc-changshu-china">is not open yet!</h2>
             </div>
         </div>
 
-        <!-- Second row displays a countdown -->
+        <!-- Second row has as the timer -->
         <div class="row">
-            <div class="col-xs-16 text-center" id="countdown-container">
-                <h2 class="subtitle">
-                    Please come back in
+            <div class="col-sm-4 col-sm-offset-4 envelope text-center tossing" id="countdown-container">
+                <h2>
+                    Next round opens in <span id="heartbeats" style="opacity: 0;">696969</span>
+                    heartbeats <svg class="pulse" style="display: inline-block; vertical-align: middle; height: 1em; margin-top: -0.3em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" enable-background="new 0 0 64 64"><path d="m61.1 18.2c-6.4-17-27.2-9.4-29.1-.9-2.6-9-22.9-15.7-29.1.9-6.9 18.5 26.7 35.1 29.1 37.8 2.4-2.2 36-19.6 29.1-37.8" fill="#db0000"/></svg>
                 </h2>
-                <h1 class="subtitle">
-                    <span class="main-title" id="heartbeats" style="opacity: 0;">696969</span>
-                    heartbeats
-                    <svg class="pulse" style="display: inline-block; vertical-align: middle; height: 1em; margin-top: -0.3em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" enable-background="new 0 0 64 64"><path d="m61.1 18.2c-6.4-17-27.2-9.4-29.1-.9-2.6-9-22.9-15.7-29.1.9-6.9 18.5 26.7 35.1 29.1 37.8 2.4-2.2 36-19.6 29.1-37.8" fill="#db0000"/></svg>
-                </h1
             </div>
         </div>
 
+        <!-- Opening hours -->
         <div class="row">
-            <div class="col-xs-16 text-center" id="time-explanation">
+            <div class="col-md-6 col-md-offset-3 text-center" id="time-explanation">
                 <h2 class="subtitle">
                     <span class="logo-inline">Hookups💋</span> is open this
                     evening,
                 </h2>
                 <h2 class="subtitle">
-                    <!-- between <span class="time">10:00pm</span> to <span class="time">10:30pm</span>. Don't be late! -->
-                    between <span class="time">11:00pm</span> to <span class="time">12:00pm</span>. <span style="display: inline-block;" class="floating">Don't be late!</span>
+                    between <span class="time">11:00pm</span> to <span class="time">12:00pm</span>.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <a class="btn btn-default btn-md floating" id="learn-more" href="#" role="button">👋 Learn more</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide" id="slide02">
+        <div class="row">
+            <div class="col-xs-16">
+                <h2 class="subtitle text-center">
+                    What is <span class="logo-inline">Hookups💋</span> @ CSC?
                 </h2>
             </div>
         </div>
+        <div class="row">
+            <!-- Short pictographic explanation of how everything works -->
+            <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 text-center" id="how-it-works">
+                <!-- Step 1 -->
+                <div class="col-xs-4">
+                    <h3>Step 1:</h3>
+                    <!-- Inline SVG embed -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" enable-background="new 0 0 64 64">
+                        <g fill="#ffdd67"><path d="m48.6 32.8l-6.6 4.7c0 0-3.3-9.2-5.8-15.1-1-2.4-4.2-3.2-5.7-6.6-2.6-5.8.5-10.8 3.5-7.2 3.5 4.2 8.7 7.3 9.8 9.7 1.7 4 4.8 14.5 4.8 14.5"/><path d="m53.8 36.6c.5 3.2.1 8.1-2.7 13.9 0 0-5.7-6.8-6.4-10 0 0-1.6-11.9-3.3-19.5-.7-3.1-4.3-4.9-5.2-9.3-1.6-7.6 3.2-12.9 6-7.8 3.2 5.9 8.6 10.9 9.3 14 1.2 5.3 1.7 14.1 2.3 18.7"/></g><path d="m45.4 30.6c0 0-.5-4.5-2.2-12.1-.7-3.1-4.3-4.9-5.2-9.3-.6-2.6-.4-5 .3-6.7-1.7 1.3-3.1 4.9-2.2 9.3.9 4.4 4.6 6.2 5.2 9.3.7 3.3 1.3 6.7 1.3 6.7l-5-1.9 7.8 4.7" fill="#eba352"/><path d="m51.4 35.4c-6.6-6-14-9.7-18.8-12-7.1-3.5-5.2 1.3-17.3 4.5-1.6.4-3.5 1.6-2 4.6 1.4 2.9 12.8.7 14.6-1 0 0 4.8 5.9 9.6 5.7 0 0-.8 3.9.3 5.8 0 0-6.8 3.5-9.7 6.6l-8-5.4c-.6-8.3-2.1-10.8-6.2-10.4-3.8.4-3.4 4-3.3 6.9.1 5.3-1.3 6.2 0 8.3 4.9 8 11.2 13 22.8 13 4.3 0 7.1-.1 9.8-1.4 4.4-2.3 15.5-18.5 8.2-25.2" fill="#ffdd67"/><g fill="#eba352"><path d="m52.7 37c2.5 7.6-6.4 20.1-10.3 22-2.7 1.3-5.4 1.4-9.8 1.4-11.5 0-17.7-4.9-22.6-12.8.1.4.3.9.5 1.3 5 8.1 11.3 13.1 22.9 13.1 4.3 0 7.1-.1 9.8-1.4 4.1-2.1 14-16.2 9.5-23.6"/><path d="m18.6 44.4c0 0 7.5 4.8 9.3 5.1l-7.9-5.3c.3-8.4-2.1-11.1-6.2-10.4-.3.1-.6.1-.9.2 4.1-.5 6 2.2 5.7 10.4"/><path d="m27.9 31.5c0 0 4.8 5.8 9.6 5.7v-1.1c-4.8.1-9.6-5.7-9.6-5.7-1.8 1.8-13.2 4-14.6 1-.2-.5-.4-1-.5-1.4-.1.6 0 1.4.5 2.5 1.4 2.9 12.8.7 14.6-1"/></g>
+                    </svg>
+                    <p>Enter your preferences!</p>
+                </div>
 
+                <!-- Step 2 -->
+                <div class="col-xs-4">
+                    <h3>Step 2:</h3>
+                    <!-- Inline SVG embed -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" enable-background="new 0 0 64 64">
+                        <path fill="#428bc1" d="m30.9 49.5v-.1z"/><path d="m43.6 6.9c-6.8 0-13-1.9-17.4-4.9-.8 3.6-1.3 7.6-1.3 11.8 0 17.6 18.6 31.9 18.6 31.9s18.5-14.3 18.5-31.9c0-4.1-.4-8-1.3-11.6-4.4 2.9-10.4 4.7-17.1 4.7" fill="#42ade2"/><g fill="#3e4347"><path d="m51.6 32.6c0-1.8-3.7-7.1-8.2-7.1-4.5 0-8.2 5.4-8.2 7.1 0 1.8 3.7-.8 8.2-.8 4.6 0 8.2 2.5 8.2.8"/><path d="m41.2 14.9c-1.2-.5-3.6-1.6-5.2-1.6-1.4 0-4 1-5.3 1.6-1.1.5-1.3.9-1 1.6.2.7 1 1.1 1.8.9 0 0 3.2-1.5 4.4-1.5 1.2 0 4.5 1.5 4.5 1.5.8.2 1.6-.2 1.8-.9.3-.6.1-1.1-1-1.6"/><path d="m56.7 14.9c-1.2-.5-3.6-1.6-5.2-1.6-1.4 0-4 1-5.3 1.6-1.1.5-1.3.9-1 1.6.2.7 1 1.1 1.8.9 0 0 3.2-1.5 4.4-1.5 1.2 0 4.5 1.5 4.5 1.5.8.2 1.6-.2 1.8-.9.3-.6.1-1.1-1-1.6"/></g><path d="m19.5 26.7c-6.2 2.3-12.5 2.6-17.5 1.3.4 3.6 1.3 7.4 2.7 11.1 5.8 16.1 27.4 22.9 27.4 22.9s12.1-19.1 6.3-35.1c-1.3-3.7-3-7.1-5-10.1-3 4.1-7.9 7.7-13.9 9.9" fill="#ff717f"/><g fill="#3e4347"><path d="m33.6 42.8c.6 1.6-1 7.7-5.1 9.2-4.1 1.5-9.2-2.2-9.8-3.8-.6-1.6 3.6-.5 7.7-2 4.1-1.5 6.6-5 7.2-3.4"/><path d="m19.3 35c-1.3-.1-3.8-.3-5.2.2-1.3.5-3.3 2.3-4.2 3.2-.9.8-.9 1.3-.5 1.8.4.6 1.3.7 2 .2 0 0 2.4-2.4 3.5-2.8 1.1-.4 4.6-.1 4.6-.1.8-.1 1.4-.7 1.4-1.4-.1-.7-.4-1.1-1.6-1.1"/><path d="m33.4 29.8c-1.3-.1-3.8-.3-5.2.2-1.3.5-3.3 2.3-4.2 3.2-.8.8-.8 1.3-.4 1.8.4.6 1.3.7 2 .2 0 0 2.4-2.4 3.5-2.8 1.1-.4 4.6-.1 4.6-.1.8-.1 1.4-.7 1.4-1.4-.2-.6-.5-1-1.7-1.1"/></g><path d="m25 13.8c-.2 1.8-.6 3.5-1.3 5.2-.3.8-.8 1.6-1.3 2.4-.6.8-1.3 1.5-2.3 1.9-1 .4-2.2.3-3-.1-.9-.4-1.6-.9-2.3-1.5-1.4-1.1-2.8-2.3-3.8-3.8-.5-.8-.9-1.7-1.1-2.6-.2-1-.2-1.9 0-2.9.3-1.9 1.3-3.7 2.5-5.1 1.3-1.4 2.9-2.5 4.6-3.1 1.7-.7 3.7-.9 5.4-.2v.2c-1.7 0-3.3.6-4.7 1.4-1.4.8-2.6 1.9-3.7 3.1-1 1.2-1.9 2.6-2.2 4.1-.4 1.5-.2 3.1.4 4.6.6 1.5 1.7 2.9 3.1 3.9.7.5 1.5.9 2.2 1 .8.1 1.5 0 2-.4 1.1-.8 2.1-2.2 2.9-3.6.9-1.5 1.6-3 2.5-4.5h.1" fill="#dbb046"/><path d="m24.8 13.9c-1.8-1.2-3.9-1.7-5.7-1.4-.9.1-1.7.5-2.1 1.1-.4.6-.5 1.5-.3 2.4.1.5.2.9.4 1.4.2.5.4 1.1.5 1.6.2 1.1.2 2.3 0 3.4-.5 2.2-2.1 4.2-4.4 4.9-1.1.4-2.4.4-3.6-.1-1.2-.5-2.1-1.4-2.8-2.4-.7-1-1.2-2.1-1.4-3.3-.3-1.2-.2-2.4-.1-3.5.3-2.3 1.1-4.3 1.6-6.3.3-1 .5-2 .2-2.9-.2-.8-1-1.6-1.9-2.1l.1-.2c.5.1 1.1.3 1.6.6.5.3 1 .8 1.2 1.3.6 1.2.5 2.4.4 3.5-.3 2.2-.9 4.3-1.1 6.3-.2 2 0 3.9 1 5.6.9 1.6 2.6 2.7 4.6 2.4.9-.2 1.9-.6 2.6-1.3.7-.7 1.2-1.7 1.4-2.7.2-1 0-2-.4-3-.2-.5-.4-.9-.7-1.4-.3-.5-.5-1-.7-1.6-.2-.6-.3-1.2-.2-1.9 0-.7.3-1.4.7-1.9.9-1.2 2.3-1.6 3.4-1.7 2.4-.1 4.7 1 6 2.8l-.3.4" fill="#ffce31"/><circle cx="24.9" cy="13.8" r="2.5" fill="#ffd86c"/><path d="m42.1 38.6c-1.1 1.5-1.9 3.1-2.6 4.9-.3.9-.5 1.9-.6 2.9-.1 1 0 2.1.6 3.2.5 1.1 1.6 1.9 2.6 2.3 1 .4 2 .5 3 .7 1.9.2 3.9.4 5.9 0 1-.2 1.9-.6 2.8-1.1.8-.6 1.6-1.3 2.1-2.2 1.1-1.7 1.6-3.8 1.5-5.8-.1-2-.6-4.1-1.6-5.9-.5-.9-1.1-1.8-1.8-2.6l-.7.9c.4.7.7 1.5 1 2.3.6 1.7.9 3.5.9 5.2 0 1.7-.3 3.4-1 4.8-.7 1.4-2 2.5-3.5 3.2-1.6.7-3.5.9-5.3.5-.9-.1-1.8-.5-2.6-1-.8-.5-1.2-1.2-1.4-1.9-.4-1.4-.2-3.2.1-5 .3-1.8.8-3.5 1.1-5.4h-.5" fill="#dbb046"/><path d="m40.9 37.9c2.2.8 4.2 2.3 5.3 4.1.6.9.8 1.9.6 2.6-.2.7-.8 1.4-1.7 1.8-.4.2-.9.4-1.4.6-.5.2-1.1.4-1.7.6-1 .6-2 1.4-2.6 2.4-1.4 1.9-1.8 4.6-.7 7.1.5 1.2 1.5 2.4 2.7 3.1 1.2.7 2.6 1 3.9.9 1.3-.1 2.5-.4 3.7-1 1.1-.6 2.1-1.4 2.9-2.2 1.6-1.8 2.7-3.8 3.9-5.6.6-.9 1.3-1.7 2.1-2.1.9-.4 2-.2 3.1.3l.1-.2c-.5-.4-1-.8-1.6-1-.6-.2-1.3-.3-2-.2-1.3.3-2.3 1.2-3.1 2-1.6 1.7-2.8 3.6-4.3 5.1-1.4 1.5-3.1 2.6-5.2 2.8-2 .3-4.1-.5-5.2-2.4-.6-.9-.9-2.1-.8-3.2 0-1.1.4-2.2 1.1-3 .7-.8 1.6-1.3 2.7-1.6.5-.1 1-.2 1.6-.3.6-.1 1.2-.2 1.8-.4.6-.2 1.2-.5 1.7-1 .5-.5.9-1.1 1.1-1.9.3-1.5-.3-3-1.2-4.1-1.7-2.2-4.3-3.4-6.6-3.4l-.2.2" fill="#ffce31"/><ellipse transform="matrix(.7695-.6386.6386.7695-14.7314 34.8373)" cx="40.9" cy="37.8" rx="2.5" ry="2.8" fill="#ffd86c"/>
+                    </svg>
+                    <p>We'll find you a match!</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="col-xs-4">
+                    <h3>Step 3:</h3>
+                    <!-- Inline SVG embed -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" enable-background="new 0 0 64 64"><path d="m57 26.2c0 0-3 2.8-8.1 6.1-1.4-8.1-5.3-18.1-12.9-30.3 0 0-2.5 13.1-10.8 25.4-3.6-5.6-5.2-10-5.2-10-26 26.1-4.4 44.6 9.2 44.6 17.4 0 32.7-8.4 27.8-35.8" fill="#ff9d33"/>
+                        <path d="m46.7 49.4c1.5-3.3 2.6-7.6 2.8-13 0 0-2.1 1.8-5.7 4.1-1-5.4-3.7-12-9-20.2 0 0-1.7 8.7-7.5 17-2.5-3.7-3.6-6.7-3.6-6.7-4.3 6.8-6 12.2-6.1 16.5-2.4-.9-3.9-1.6-3.9-1.6 4.1 12.2 12.6 14.9 16.4 14.9 6.8 0 13.7-2 20.5-11.7 0-.1-1.5.3-3.9.7" fill="#ffce31"/><path d="m21.9 43.9c0 0 2.8 3.8 4.9 2.9 0 0 4-6.3 9.8-9.8 0 0-1.2 9.6.2 11.3 1.8 2.3 6.7-2.5 6.7-2.5 0 5.7-6.2 12.8-11.8 12.8-5.4 0-13.2-6.2-9.8-14.7" fill="#ffdf85"/><g fill="#ff9d33"><path d="m49.8 18.1c2.1-3 3.5-6.2 3.5-6.2 3.5 5.8 1.4 9.3-.1 10.4-2.1 1.6-5.8-.7-3.4-4.2"/><path d="m11.6 17.1c-2.1-3.5-2.3-7.9-2.3-7.9-5 7.5-3.1 11.7-1.4 12.9 2.2 1.7 6-.9 3.7-5"/><path d="m23.2 9.3c.3-2.4-.7-4.8-.7-4.8 4.7 3.1 4.7 5.7 4.1 6.8-.9 1.3-3.7.7-3.4-2"/></g></svg>
+                    <p>Connect, talk, and flirt!</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <h2 class="subtitle" id="explanation-title">
+                    Makin' Romantic Liasons, since 1998!
+                </h2>
+                <p class="explanation-text">
+                    It's like Tinder, for UWC!
+                </p>
+                <p class="explanation-text">
+                    Every evening, between <b>11:00pm to 12:00pm</b>, <span class="logo-inline">Hookups💋</span>
+                    will open it's doors! We're a matchmaker for horny teens
+                    with empty beds -- and we'll further your international
+                    understanding in a wholly more <i> intimate </i> way 😉.
+                </p>
+                <p class="explanation-text">
+                    The matchmaking process is entirely anonymous. Enter your
+                    gender, the gender of your partner (we're LGBT-friendly!),
+                    as well as the things you wanna do. Press enter, and our
+                    match-making algorithmn will find someone else that matches
+                    your choices, and drop you both into a chat room ☎️
+                </p>
+                <p class="explanation-text">
+                    Not down to fuck? Don't worry! We know that sometimes, all
+                    it takes is some cuddles, a good movie, or just to
+                    hold someone else at night. Simply choose <i>cuddle</i> and
+                    we'll match you with someone else that wants cuddles too ❤️
+                </p>
+                <p class="explanation-text">
+                    From now on, it's up to you! Chat and flirt, and schedule
+                    a time to meet up. No chemistry? Don't worry, there's always
+                    a chance for another match! Simply click <i>"Leave"</i> and
+                    we'll sort out the excuses 👋
+                </p>
+                <p class="explanation-text">
+                    We're open here every night. Be sure to tell your friends!
+                </p>
+            </div>
+        </div>
+        <!-- Information links to the FAQ -->
+        <div class="row">
+            <div class="col-xs-16 text-center" id="footer">
+                <a href="information/#about">About us</a>
+                <a href="information/#FAQ">FAQ</a>
+                <a href="information/#privacy">Privacy</a>
+                <a href="information/#offended">Offended?</a>
+            </div>
+        </div>
     </div>
-
 </div>
