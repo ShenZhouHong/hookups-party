@@ -5,7 +5,7 @@ var WaitingList = require('./waitinglist');
 var Client = require('./client');
 var sharedsession = require("express-socket.io-session");
 var _ = require("underscore");
-var TIMEOUT = 15000;  // 1 minute reconnection timeout
+var TIMEOUT = 10000;  // 10 seconds reconnection timeout
 var winston = require('winston');
 
 module.exports = function(server, app) {

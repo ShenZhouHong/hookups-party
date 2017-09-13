@@ -16,6 +16,7 @@ mobile-first.
 - [X] Working session management to prevent multiple users on the same client
 - [X] Add match GUI to notify user when a match is found
 - [X] Audio framework for "pop" sounds when messages arrive
+- [X] Added Webkit notifications on match
 - [ ] **Secure websocket implementation and strictly check inputs!!!**
 - [ ] Implement progressive font rendering to prevent FOIC
 - [ ] Add a comprehensive unit testing framework for javascript code

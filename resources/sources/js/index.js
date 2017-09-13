@@ -20,11 +20,43 @@ var userPreferences = {
     activities: []
 };
 
+/*
+    Notification function wrapper
+*/
+var PushNotification = function(title, message, icon) {
+    if (!Notification) {
+        console.info('Desktop notifications not available in your browser. Try Chromium.');
+        return;
+    }
+    if (Notification.permission !== "granted")
+        Notification.requestPermission();
+    else {
+        var notification = new Notification(title, {
+            icon: icon,
+            body: message,
+        });
+
+        notification.onclick = function () {
+            window.focus();
+            this.cancel();
+        };
+    }
+};
+
 /* Makes sure that the DOM is only manipulated when ready */
 $(function () {
     "use strict";
 
     console.log( "ready!" );
+
+    /*
+        Asks for permission to display notifications using the notification Attempting
+    */
+    document.addEventListener('DOMContentLoaded', function () {
+        if (Notification.permission !== "granted")
+        Notification.requestPermission();
+    });
+
     /*
         Generic button toggler. Implements radio buttion functionality on a group
         of buttons with a shared class (the 'group' argument).
