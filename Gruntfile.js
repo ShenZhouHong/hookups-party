@@ -167,7 +167,9 @@ module.exports = function(grunt) {
                     'public/js/wait.min.js': [
                             'node_modules/jquery/dist/jquery.js',
                             'node_modules/bootstrap/dist/js/bootstrap.js',
-                            'resources/sources/js/wait.js'
+                            'resources/sources/js/wait.js',
+                            'resources/sources/js/confetti.js'
+
                     ],
                     'public/js/error.min.js': [
                             'node_modules/jquery/dist/jquery.js',
@@ -211,7 +213,8 @@ module.exports = function(grunt) {
                     'public/js/wait.min.js': [
                             'node_modules/jquery/dist/jquery.js',
                             'node_modules/bootstrap/dist/js/bootstrap.js',
-                            'resources/sources/js/wait.js'
+                            'resources/sources/js/wait.js',
+                            'resources/sources/js/confetti.js'
                     ],
                     'public/js/error.min.js': [
                             'node_modules/jquery/dist/jquery.js',

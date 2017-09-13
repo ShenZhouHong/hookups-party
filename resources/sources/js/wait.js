@@ -24,5 +24,8 @@ $(function () {
         $('html, body').animate({
             scrollTop: $("#slide02").offset().top
         }, 1000);
+
+        StartConfetti();
+        setTimeout(DeactivateConfetti, 4000);
     });
 });
