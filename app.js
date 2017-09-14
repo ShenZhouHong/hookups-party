@@ -7,14 +7,16 @@ var $                   = require('jquery');
 var sessionMiddleware   = require('express-session');
 var index               = require('./routes/index');
 var users               = require('./routes/users');
+var winston             = require('winston');
 const chalk             = require('chalk');
 
 var app = express();
 var env = app.settings.env || 'production';
 
-console.log(chalk.bold.red(`
+// Configure winston logger to use command line mode
+winston.cli();
 
-
+winston.info(chalk.bold.red(`
         __  __            __
        / / / /___  ____  / /____  ______  _____
       / /_/ / __ \\/ __ \\/ //_/ / / / __ \\/ ___/
@@ -49,12 +51,11 @@ if ('production' == env) {
         }
     }));
 
-    console.log(
-        chalk.bold.bgBlue("INFO:") + " " +
+    winston.info(
         chalk.bold.red("Hookups💋 ") + "is currently " +
         chalk.underline("in production mode") + ":" + "\n" +
-        "      " + "gzip content encoding and HTML minify are enabled." + "\n" +
-        "      " + "For development mode, set " +
+        "\t " + "gzip content encoding and HTML minify are enabled." + "\n" +
+        "\t " + "For development mode, set " +
         chalk.underline("NODE_ENV=development") + "\n"
     );
 };
@@ -98,19 +99,17 @@ if ('production' == env) {
 }
 else {
     app.use(express.static(path.join(__dirname, 'public'), { maxAge: 0 }));
-    console.log(
-        chalk.bold.bgBlue("INFO:") + " " +
+    winston.info(
         chalk.bold.red("Hookups💋 ") + "is currently " +
         chalk.underline("in development mode") + ":" + "\n" +
-        "      " + "gzip content encoding and HTML minify are " +
+        "\t " + "gzip content encoding and HTML minify are " +
         chalk.underline("disabled") + "." + "\n" +
-        "      " + "For production mode, set " +
+        "\t " + "For production mode, set " +
         chalk.underline("NODE_ENV=production") + "\n"
     );
 }
 
-console.log(
-    chalk.bold.bgBlue("INFO:") + " " +
+winston.info(
     "In order to exit " + chalk.bold.red("Hookups💋") + ", press " +
     chalk.underline("CTL+C") + "\n"
 );

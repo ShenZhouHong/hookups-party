@@ -1,25 +1,34 @@
 module.exports = function(server, app) {
     var io      = require('socket.io')(server);
     const chalk = require('chalk');
+    var winston = require('winston');
+    var columnify = require('columnify')
 
     io.on('connection', function(socket){
-        console.log(
-            chalk.bold.bgBlue("INFO:") + " " +
-            "A client has connected to socket " + chalk.bold.underline(socket.id) + ": " +
-            "\n      Remote IP : " + chalk.bold.underline(socket.request.connection.remoteAddress) +
-            "\n      User-Agent: " + chalk.bold.underline(socket.request.headers['user-agent'])
 
-        );
-
+        /* Socket listeners */
         socket.on('requestQueue', function(msg) {
-            console.log(
-                "\n      UserPrefs :" + msg
+            /* Logs basic connection information to console */
+            winston.info(
+                "A client has submitted a queue request to socket " +
+                chalk.bold.underline(socket.id) + ": "
             );
+            winston.info(
+                "- Remote IP : " +
+                chalk.bold.underline(socket.request.connection.remoteAddress)
+            );
+            winston.info(
+                "- User-Agent: " +
+                chalk.bold.underline(socket.request.headers['user-agent'])
+            );
+            winston.info("- selfGender: " + chalk.bold.underline(msg.selfGender));
+            winston.info("- lookingfor: " + chalk.bold.underline(msg.partnerGender));
+            winston.info("- romantic ?: " + chalk.bold.underline(msg.romance));
+            winston.info("- activities: " + chalk.bold.underline(msg.activities));
         });
 
         socket.on('disconnect', function(){
-            console.log(
-                chalk.bold.bgBlue("INFO:") + " " +
+            winston.info(
                 "A client has disconnected from socket " +
                 chalk.bold.underline(socket.id)
             );
