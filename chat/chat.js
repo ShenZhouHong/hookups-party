@@ -1,12 +1,13 @@
 var adjectives, animals;
-var util = require('../generatenames');
-var RoomFactory = require('./roomfactory');
-var WaitingList = require('./waitinglist');
-var Client = require('./client');
-var sharedsession = require("express-socket.io-session");
-var _ = require("underscore");
-var TIMEOUT = 10000;  // 10 seconds reconnection timeout
-var winston = require('winston');
+var util            = require('../generatenames');
+var RoomFactory     = require('./roomfactory');
+var WaitingList     = require('./waitinglist');
+var Client          = require('./client');
+var sharedsession   = require("express-socket.io-session");
+var _               = require("underscore");
+var TIMEOUT         = 10000;  // 10 seconds reconnection timeout
+const chalk         = require('chalk');
+var winston         = require('winston');
 
 module.exports = function(server, app) {
     var module = {};
@@ -20,14 +21,30 @@ module.exports = function(server, app) {
 
     var waiting = new WaitingList(new RoomFactory());
 
+    /* On connection with client */
     io.on('connection', function(socket) {
         var isNewConnection = ! _.any(clients, function(client) {
             return client.sessionID === socket.handshake.sessionID;
         });
-        winston.info("CONNECTION", {
-            userAgent: socket.handshake.headers["user-agent"],
-            sessionID: socket.handshake.sessionID
-            });
+
+        /* Begin detailed logging of connection */
+        winston.info(
+            "A client has submitted a queue request to socket " +
+            chalk.bold.underline(socket.id) + ": "
+        );
+        winston.info(
+            "- Session ID: " +
+            chalk.bold.underline(socket.handshake.sessionID)
+        );
+        winston.info(
+            "- Remote IP : " +
+            chalk.bold.underline(socket.request.connection.remoteAddress)
+        );
+        winston.info(
+            "- User-Agent: " +
+            chalk.bold.underline(socket.request.headers['user-agent'])
+        );
+
         var isOldConnection = _.any(idleClients, function(client) {
             return client.sessionID = socket.handshake.sessionID;
         });

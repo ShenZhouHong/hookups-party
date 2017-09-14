@@ -1,33 +1,43 @@
 /* Requires all packages */
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var $ = require('jquery');
-var sessionMiddleware = require('express-session');
-var index = require('./routes/index');
-var users = require('./routes/users');
-var winston = require('winston');
-winston.add(winston.transports.File, { timestamp: true, filename: 'chatRequests.log' });
+var express             = require('express');
+var path                = require('path');
+var favicon             = require('serve-favicon');
+var logger              = require('morgan');
+var cookieParser        = require('cookie-parser');
+var bodyParser          = require('body-parser');
+var $                   = require('jquery');
+var sessionMiddleware   = require('express-session');
+var index               = require('./routes/index');
+var users               = require('./routes/users');
+var winston             = require('winston');
+const chalk             = require('chalk');
 
 var app = express();
+var env = app.settings.env || 'production';
+
+// Configure winston logger to use command line mode
+winston.cli();
+
+winston.info(chalk.bold.red(`
+        __  __            __
+       / / / /___  ____  / /____  ______  _____
+      / /_/ / __ \\/ __ \\/ //_/ / / / __ \\/ ___/
+     / __  / /_/ / /_/ / ,< / /_/ / /_/ (__  )
+    /_/ /_/\\____/\\____/_/|_|\\__,_/ .___/____/
+                                /_/
+    `) + "\n" +
+    chalk.bold.blue("Hello! Welcome to ") + chalk.bold.red("Hookups💋") + "\n"
+);
 
 /*
     Production mode specific configuration. Enables gzip content encoding, and
     minifies rendered HTML for faster content transmission.
     Of course, it logs to the console to let you know once it's enabled :P
 */
-var env = app.settings.env || 'production';
 if ('production' == env) {
     // Packages only required for Production
-    var minifyHTML = require('express-minify-html');
+    var minifyHTML  = require('express-minify-html');
     var compression = require('compression');
-
-    console.info("App is now running in production mode.")
-    console.info("Gzip content encoding and HTML minify is enabled.")
-    console.info("To switch to development mode, EXPORT NODE_ENV=DEV")
 
     /* Minifies the HTML when npm is run as production mode */
     app.use(minifyHTML({
@@ -42,6 +52,14 @@ if ('production' == env) {
             minifyJS:                  true
         }
     }));
+
+    winston.info(
+        chalk.bold.red("Hookups💋 ") + "is currently " +
+        chalk.underline("in production mode") + ":" + "\n" +
+        "\t " + "gzip content encoding and HTML minify are enabled." + "\n" +
+        "\t " + "For development mode, set " +
+        chalk.underline("NODE_ENV=development") + "\n"
+    );
 };
 
 // view engine setup
@@ -50,7 +68,6 @@ app.set('view engine', 'hbs');
 
 // Favicon rendering
 app.use(favicon(path.join(__dirname, 'public/img', 'favicon.ico')));
-//app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
@@ -63,6 +80,7 @@ var session = sessionMiddleware({
     resave: true,
     // store: new FileStore()
 });
+
 app.use(session);
 
 app.session = session;
@@ -83,12 +101,20 @@ if ('production' == env) {
 }
 else {
     app.use(express.static(path.join(__dirname, 'public'), { maxAge: 0 }));
-    console.info("Note: App is NOT running in production mode.")
-    console.info("HTML minify, cache-time, and gzip compression features")
-    console.info("are disabled for development.")
-    console.info("To switch to production mode, EXPORT NODE_ENV=production")
-
+    winston.info(
+        chalk.bold.red("Hookups💋 ") + "is currently " +
+        chalk.underline("in development mode") + ":" + "\n" +
+        "\t " + "gzip content encoding and HTML minify are " +
+        chalk.underline("disabled") + "." + "\n" +
+        "\t " + "For production mode, set " +
+        chalk.underline("NODE_ENV=production") + "\n"
+    );
 }
+
+winston.info(
+    "In order to exit " + chalk.bold.red("Hookups💋") + ", press " +
+    chalk.underline("CTL+C") + "\n"
+);
 
 app.use('/', index);
 app.use('/users', users);
