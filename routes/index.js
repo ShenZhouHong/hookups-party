@@ -1,7 +1,10 @@
 var express = require('express');
-var app = express();
-var router = express.Router();
+var app     = express();
+var router  = express.Router();
+var winston = require('winston');
+const chalk = require('chalk');
 
+/* If blocked, redirect to fishing site */
 router.use(function (req, res, next) {
     if (req.cookies.blocked === "blocked") {
         res.redirect("http://www.solidhookups.com/");
@@ -13,11 +16,8 @@ router.use(function (req, res, next) {
 /* GET home page. */
 router.get('/', function(req, res, next) {
     var date = new Date ();
-    var target = new Date();
-    target.setHours(23);
-    target.setMinutes(00);
-    target.setSeconds(0);
-    if (app.settings.env !== "production" || (target.getTime() - date.getTime()) <= 0) {
+
+    if (app.settings.env !== "production" || (target.getTime() - date.getTime()) <= 1000) {
         res.render('index', {
             title: 'Hookups @ CSC',
             // Included resources

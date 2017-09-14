@@ -111,6 +111,29 @@ else {
     );
 }
 
+/*
+    Logs the startup date of the server, so we can properly check if the
+    timezone and opening hours are set properly.
+*/
+var startupdate = new Date();
+var target = new Date();
+target.setHours(23);
+target.setMinutes(00);
+target.setSeconds(0);
+
+winston.info(
+    "Setting site opening hours as:"
+);
+winston.info(
+    "- targetTime: " + target.getTime()
+);
+winston.info(
+    "- time now  : " + startupdate.getTime()
+);
+winston.info(
+    "- difference: " + (target.getTime() - startupdate.getTime()) + "\n"
+);
+
 winston.info(
     "In order to exit " + chalk.bold.red("Hookups💋") + ", press " +
     chalk.underline("CTL+C") + "\n"
