@@ -140,7 +140,7 @@ same process is repeated for the javascript files.
         │   ├── fonts.css
         │   └── index.css
         └── js
-            ├── chat.js
+            ├── client-chat.js
             └── index.js
 ```
 

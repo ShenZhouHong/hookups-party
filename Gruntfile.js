@@ -152,8 +152,8 @@ module.exports = function(grunt) {
                             'node_modules/bootstrap/dist/js/bootstrap.js',
                             'resources/sources/js/index.js',
                             'resources/sources/js/confetti.js',
-                            'resources/sources/js/chat.js',
-                            'resources/sources/js/chat-ui.js'
+                            'resources/sources/js/client-chat.js',
+                            'resources/sources/js/client-chat-ui.js'
                     ],
                     'public/js/information.min.js': [
                             'node_modules/jquery/dist/jquery.js',
@@ -197,8 +197,8 @@ module.exports = function(grunt) {
                             'node_modules/bootstrap/dist/js/bootstrap.js',
                             'resources/sources/js/index.js',
                             'resources/sources/js/confetti.js',
-                            'resources/sources/js/chat.js',
-                            'resources/sources/js/chat-ui.js'
+                            'resources/sources/js/client-chat.js',
+                            'resources/sources/js/client-chat-ui.js'
                     ],
                     'public/js/information.min.js': [
                             'node_modules/jquery/dist/jquery.js',
