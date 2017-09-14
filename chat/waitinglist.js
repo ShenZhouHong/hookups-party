@@ -107,13 +107,6 @@ WaitingList.prototype.mate = function (first, second) {
         type: 1
     };
 
-    // Basic logging
-    console.log(firstGreetingMsg);
-    console.log(ActivityMsg);
-    console.log(secondGreetingMsg);
-    console.log(ActivityMsg);
-
-
     // Sends messages off to both parties when they match
     first.socket.emit("server message", firstGreetingMsg);
     first.socket.emit("server message", ActivityMsg);
@@ -127,7 +120,7 @@ WaitingList.prototype.mate = function (first, second) {
     if (this.waiting.length === l) {
         winston.error("FUCKING WAITING LIST");
     } else {
-        winston.info("GOOD");
+        // winston.info("GOOD");
     }
 };
 

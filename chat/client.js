@@ -2,6 +2,7 @@ var util = require('../generatenames')(); // required to generate names
 var _ = require("underscore");
 var xssFilters = require('xss-filters'); // required to sanitize input
 var debug = require('debug')('chat');
+const chalk         = require('chalk');
 var winston = require('winston');
 /*
     Wraps a socket object nicely
@@ -43,10 +44,29 @@ Client.prototype.assignSocket = function (socket, waitingList) {
     });
 
     this.socket.on('remate', function(msg) {
-        winston.info("REMATE", {
-            sessionID: that.socket.handshake.sessionID,
-            userPreferences: msg
-            });
+
+        // Log userPreferences information
+        winston.info(
+            "User " +
+            chalk.bold.underline(socket.handshake.sessionID) +
+            " (session ID) has been added to queue:"
+        );
+        winston.info(
+            "- selfGender: " +
+            chalk.bold.underline(msg.selfGender)
+        );
+        winston.info(
+            "- seeking a : " +
+            chalk.bold.underline(msg.partnerGender)
+        );
+        winston.info(
+            "- romantic ?: " +
+            chalk.bold.underline(msg.romance)
+        );
+        winston.info(
+            "- activities: " +
+            chalk.bold.underline(msg.activities) + "\n"
+        );
 
         that.userPreferences = msg;  // TODO validate userPreferences
         waitingList.push(that);
@@ -76,7 +96,14 @@ Client.prototype.mate = function (mate, room) {
     this.socket.emit("mate", mate.name);
     this.room = room;
     this.room.join(this.socket);
-    winston.info("SESSION-OPEN", this.socket.handshake.sessionID);
+
+    // Log sexy displaynames of participants
+    winston.info(
+        "User " +
+        chalk.bold.green(this.socket.handshake.sessionID) +
+        " (session ID) is joining a session with sexy name " +
+        chalk.bold.red(this.name)
+    );
 };
 
 /*
@@ -105,7 +132,12 @@ Client.prototype.comparePreferences = function (partner) {
     TODO otherwise makes sure to remove the socket from the WaitingList, if any
 */
 Client.prototype.disconnect = function () {
-    winston.info("SESSION-CLOSE", this.socket.handshake.sessionID);
+    winston.warn(
+        "User " +
+        chalk.bold.green(this.socket.handshake.sessionID) +
+        " has left the chat room (SESSION-CLOSE)"
+    );
+
     if (this.room) {
         this.room.leave(this.socket);
         this.room = undefined; // so that there is no call stack

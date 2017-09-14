@@ -1,4 +1,5 @@
-var _ = require('underscore');
+var _       = require('underscore');
+const chalk = require('chalk');
 var winston = require('winston');
 /*
     Provides a higher abstraction level that socket.io rooms.
@@ -16,9 +17,16 @@ Room.prototype.join = function (socket) {
     socket.join(this.name);
 
     if (this.sockets.length > 1) {
-        winston.info("JOINROOM", {
-            sessionIDs: _.reduce(this.sockets, function(memo, sock) { return memo + sock.handshake.sessionID + ", ";}, ""),
-        });
+        // Log the successful match
+        winston.info(
+            chalk.bold.bgGreen.black(
+                "Success! " +
+                _.reduce(this.sockets, function(memo, sock) {
+                    return memo + sock.handshake.sessionID + ", ";
+                }, "") +
+                " are matched!"
+            ) + ""
+        );
     }
 };
 
