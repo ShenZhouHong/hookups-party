@@ -13,6 +13,8 @@ var winston             = require('winston');
 const chalk             = require('chalk');
 
 var app = express();
+app.enable('trust proxy')  // This gives us correct IP from our reverse-proxy
+
 var env = app.settings.env || 'production';
 
 // Configure winston logger to use command line mode
