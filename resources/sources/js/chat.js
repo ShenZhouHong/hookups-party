@@ -33,9 +33,10 @@ window.initChat = function(userPreferences) {
 
     // When the server reports that a match is found, display the chat UI
     socket.on('mate', function(msg) {
+        // Creates a browser notification to let the user know they are matched
         PushNotification(
             "Hookups💋: You got matched!",
-            "😘 Looks who's lucky! You got matched with a partner. Go on and say hello! 👋",
+            "😘 Looks who's lucky! You got matched! Go on and say hello! 👋",
             "../img/favicon.ico"
         );
         DisplayChat();
