@@ -5,7 +5,7 @@ var WaitingList     = require('./waitinglist');
 var Client          = require('./client');
 var sharedsession   = require("express-socket.io-session");
 var _               = require("underscore");
-var TIMEOUT         = 30000;  // 30 seconds reconnection timeout
+var TIMEOUT         = 500;  // 0.5 seconds reconnection timeout
 const chalk         = require('chalk');
 var winston         = require('winston');
 
@@ -92,7 +92,7 @@ module.exports = function(server, app) {
             winston.warn(
                 "User " +
                 chalk.bold.underline(socket.handshake.sessionID) +
-                " (session ID) is already connected, killing connection" + "\n"
+                " (session ID) is already connected, killing connection"
             );
             socket.emit('my-error', {type: 'already-connected'});
         }
@@ -126,7 +126,7 @@ module.exports = function(server, app) {
                             winston.warn(
                                 "User " +
                                 chalk.bold.underline(client.sessionID) +
-                                " (session ID) is disconnected" + "\n"
+                                " (session ID) is disconnected"
                             );
                             // disconnect it for good
                             client.disconnect();
@@ -136,7 +136,7 @@ module.exports = function(server, app) {
                     winston.warn(
                         "User " +
                         chalk.bold.underline(client.sessionID) +
-                         " (session ID) is disconnected through" + chalk.bold.red("TIMEOUT") + "\n"
+                         " (session ID)'s socket disconnected " + chalk.bold.red("(TIMEOUT)")
                     );
                     // if the client is waiting for a match just kill it
                     client.disconnect();

@@ -4,7 +4,7 @@ function sendMessage(socket, msg) {
 }
 
 window.initChat = function(userPreferences) {
-    var socket = io();
+    var socket = io({ forceNew: true });
     socket.emit("login");
     // tell the server I want a match with these preferences
     console.log(userPreferences);

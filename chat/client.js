@@ -134,8 +134,8 @@ Client.prototype.comparePreferences = function (partner) {
 Client.prototype.disconnect = function () {
     winston.warn(
         "User " +
-        chalk.bold.green(this.socket.handshake.sessionID) +
-        " has left the chat room (SESSION-CLOSE)"
+        chalk.bold.underline(this.socket.handshake.sessionID) +
+        " (session ID) is removed from the chatroom (SESSION-CLOSE)"
     );
 
     if (this.room) {
