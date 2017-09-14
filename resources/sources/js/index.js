@@ -276,7 +276,7 @@ $(function () {
         $('#loading04').delay(2200).fadeIn();
 
         // Sends the user preferences over
-        initChat(userPreferences);
+        requestQueue(userPreferences);
     });
 
     /*
