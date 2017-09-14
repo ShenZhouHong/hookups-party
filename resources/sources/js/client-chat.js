@@ -3,3 +3,7 @@ var requestQueue = function(userPreferences) {
     var socket = io({forceNew: true});
     socket.emit("requestQueue", userPreferences);
 };
+
+var submitMessage = function(message) {
+    
+}
