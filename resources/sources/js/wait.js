@@ -10,7 +10,6 @@ $(function () {
         console.log(date);
         console.log(target);
         var remaining = (target.getTime() - date.getTime()) / 1000 + 20;
-        console.log(remaining);
         if (remaining < 0 && remaining > -3) {
             location.reload();
         }
