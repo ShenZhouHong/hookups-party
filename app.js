@@ -10,9 +10,28 @@ var sessionMiddleware = require('express-session');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var winston = require('winston');
+// Used to have pretty color terminal messages
+const chalk = require('chalk');
+
 winston.add(winston.transports.File, { timestamp: true, filename: 'chatRequests.log' });
 
 var app = express();
+
+
+/* Prints pretty introduction */
+console.log(chalk.bold.red(`
+        __  __            __
+       / / / /___  ____  / /____  ______  _____
+      / /_/ / __ \\/ __ \\/ //_/ / / / __ \\/ ___/
+     / __  / /_/ / /_/ / ,< / /_/ / /_/ (__  )
+    /_/ /_/\\____/\\____/_/|_|\\__,_/ .___/____/
+                                /_/
+`));
+console.log(
+    chalk.bold.blue("Hello! Welcome to ") +
+    chalk.bold.red("Hookups💋") +
+    "\n"
+);
 
 /*
     Production mode specific configuration. Enables gzip content encoding, and
@@ -25,9 +44,18 @@ if ('production' == env) {
     var minifyHTML = require('express-minify-html');
     var compression = require('compression');
 
-    console.info("App is now running in production mode.")
-    console.info("Gzip content encoding and HTML minify is enabled.")
-    console.info("To switch to development mode, EXPORT NODE_ENV=DEV")
+    console.log(
+        chalk.bold.bgBlue("INFO:") + " " +
+        chalk.bold.red("Hookups💋 ") + "is currently" +
+        chalk.underline("in production mode") + ":"
+    );
+    console.log(
+        "      " + "gzip content encoding and HTML minify are enabled."
+    );
+    console.log(
+        "      " + "For development mode, set " +
+        chalk.underline("NODE_ENV=development") + "\n"
+    );
 
     /* Minifies the HTML when npm is run as production mode */
     app.use(minifyHTML({
@@ -83,12 +111,27 @@ if ('production' == env) {
 }
 else {
     app.use(express.static(path.join(__dirname, 'public'), { maxAge: 0 }));
-    console.info("Note: App is NOT running in production mode.")
-    console.info("HTML minify, cache-time, and gzip compression features")
-    console.info("are disabled for development.")
-    console.info("To switch to production mode, EXPORT NODE_ENV=production")
+    console.log(
+        chalk.bold.bgBlue("INFO:") + " " +
+        chalk.bold.red("Hookups💋 ") + "is currently " +
+        chalk.underline("in development mode") + ":"
+    );
+    console.log(
+        "      " + "gzip content encoding and HTML minify are " +
+        chalk.underline("disabled") + "."
+    );
+    console.log(
+        "      " + "For production mode, set " +
+        chalk.underline("NODE_ENV=production") + "\n"
+    );
 
 }
+
+console.log(
+    chalk.bold.bgBlue("INFO:") + " " +
+    "In order to exit " + chalk.bold.red("Hookups💋") + ", press " +
+    chalk.underline("CTL+C") + "\n"
+);
 
 app.use('/', index);
 app.use('/users', users);
