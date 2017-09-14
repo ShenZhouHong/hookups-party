@@ -5,10 +5,9 @@ $(function () {
         var date = new Date ();
         var target = new Date();
         target.setHours(23);
-        target.setMinutes(30);
+        target.setMinutes(00);
         target.setSeconds(0);
-        console.log(date);
-        console.log(target);
+
         var remaining = (target.getTime() - date.getTime()) / 1000 + 20;
         console.log(remaining);
         if (remaining < 0 && remaining > -3) {
