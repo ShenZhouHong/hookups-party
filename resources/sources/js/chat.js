@@ -1,3 +1,4 @@
+// Sends chat messages
 function sendMessage(socket, msg) {
     socket.emit('chat message', msg);
 }
