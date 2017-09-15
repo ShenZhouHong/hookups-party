@@ -7,22 +7,34 @@
 /* Change text size dynamically using css media queries */
 @media(max-width:767px){
     .subtitle {
-       font-size: 3em;
+        font-size: 3em;
+    }
+    .quote {
+        font-size: 3em;
     }
 }
 @media(min-width:768px){
     .subtitle {
-       font-size: 4em;
+        font-size: 4em;
+    }
+    .quote {
+        font-size: 4em;
     }
 }
 @media(min-width:992px){
     .subtitle {
-       font-size: 4em;
+        font-size: 4em;
+    }
+    .quote {
+        font-size: 4em;
     }
 }
 @media(min-width:1200px){
     .subtitle {
-       font-size: 5em;
+        font-size: 5em;
+    }
+    .quote {
+        font-size: 5em;
     }
 }
 
@@ -35,10 +47,44 @@ h2 {
     text-align: center;
 }
 
+.quote {
+    font-family: 'DancingScriptBold', "Arial Black", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    color: #FFF;
+}
+
+.emoji {
+    display: block;
+}
+
+.emoji svg {
+    height: 3em;
+}
+
+.quotebox {
+    margin-bottom: 3em;
+}
+
 .textbox {
-    margin-bottom: 1em;
+    margin: 2em;
     font-size: 1.2em;
-    padding: 0 2.5em !important;
+    padding: 2.5em !important;
     line-height: 140%;
     text-align: justify;
+}
+
+.return-button {
+    font-family: 'DancingScriptBold', "Arial Black", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    color: #FFF;
+    font-size: 2em;
+    margin: 2em;
+}
+
+a:hover {
+    text-decoration: underline;
 }

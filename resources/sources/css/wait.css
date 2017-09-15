@@ -110,16 +110,3 @@
 #learn-more {
     margin-top: 1em;
 }
-
-/*
-    Styles the footer with FAQ and Info links. Custom padding, text-shadow,
-    and link styles are implemented here.
-*/
-#footer a {
-    margin-top: 1em;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
-    font-weight: bold;
-    padding: 0px 10px;
-    word-wrap: normal;
-    display: inline-block;
-}

@@ -4,4 +4,12 @@ $(function () {
 
     console.log( "ready!" );
 
+    $('#learn-more').on('click', function(event) {
+        $('html, body').animate({
+            scrollTop: $("#slide02").offset().top
+        }, 1000);
+
+        StartConfetti();
+        setTimeout(DeactivateConfetti, 1000);
+    });
 });
