@@ -108,7 +108,7 @@ module.exports = function(server, app) {
 
                 if (client.room) {
                     /*
-                        if the client is in a chat we don't want him to
+                        If the client is in a chat we don't want him to
                         disconnect immediately
                     */
 
