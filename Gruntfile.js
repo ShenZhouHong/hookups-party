@@ -74,6 +74,12 @@ module.exports = function(grunt) {
                         'resources/sources/css/common.css',
                         'resources/sources/css/error.css'
                     ],
+                    'public/css/offended.min.css': [
+                        'node_modules/bootstrap/dist/css/bootstrap.css',
+                        'resources/sources/css/fonts.css',
+                        'resources/sources/css/common.css',
+                        'resources/sources/css/offended.css'
+                    ],
                     'public/css/50x.min.css': [
                         'node_modules/bootstrap/dist/css/bootstrap.css',
                         'resources/sources/css/fonts.css',
@@ -126,6 +132,12 @@ module.exports = function(grunt) {
                         'resources/sources/css/fonts.css',
                         'resources/sources/css/common.css',
                         'resources/sources/css/error.css'
+                    ],
+                    'public/css/offended.min.css': [
+                        'node_modules/bootstrap/dist/css/bootstrap.css',
+                        'resources/sources/css/fonts.css',
+                        'resources/sources/css/common.css',
+                        'resources/sources/css/offended.css'
                     ],
                     'public/css/50x.min.css': [
                         'node_modules/bootstrap/dist/css/bootstrap.css',
@@ -181,9 +193,12 @@ module.exports = function(grunt) {
                             'node_modules/bootstrap/dist/js/bootstrap.js',
                             'resources/sources/js/wait.js',
                             'resources/sources/js/confetti.js'
-
                     ],
                     'public/js/error.min.js': [
+                            'node_modules/jquery/dist/jquery.js',
+                            'node_modules/bootstrap/dist/js/bootstrap.js',
+                    ],
+                    'public/js/offended.min.js': [
                             'node_modules/jquery/dist/jquery.js',
                             'node_modules/bootstrap/dist/js/bootstrap.js',
                     ],
@@ -232,7 +247,10 @@ module.exports = function(grunt) {
                             'node_modules/jquery/dist/jquery.js',
                             'node_modules/bootstrap/dist/js/bootstrap.js',
                     ],
-
+                    'public/js/offended.min.js': [
+                            'node_modules/jquery/dist/jquery.js',
+                            'node_modules/bootstrap/dist/js/bootstrap.js',
+                    ],
                 }
             },
         },

@@ -78,6 +78,19 @@ router.get('/information', function(req, res, next) {
     );
 });
 
+/* GET offended page. */
+router.get('/offended', function(req, res, next) {
+    res.render('offended', {
+      title: 'So you\'re offended?',
+      // Included resources
+      js: ['offended.min.js'],
+      css: ['offended.min.css']
+    });
+    winston.warn(
+        chalk.bold.underline(req.ip) + " connected: GET /offended:"
+    );
+});
+
 /* GET session error page. */
 router.get('/session', function(req, res, next) {
     res.render('session', {
