@@ -74,6 +74,12 @@ module.exports = function(grunt) {
                         'resources/sources/css/common.css',
                         'resources/sources/css/error.css'
                     ],
+                    'public/css/50x.min.css': [
+                        'node_modules/bootstrap/dist/css/bootstrap.css',
+                        'resources/sources/css/fonts.css',
+                        'resources/sources/css/common.css',
+                        'resources/sources/css/50x.css'
+                    ],
                 }
             },
 
@@ -120,6 +126,12 @@ module.exports = function(grunt) {
                         'resources/sources/css/fonts.css',
                         'resources/sources/css/common.css',
                         'resources/sources/css/error.css'
+                    ],
+                    'public/css/50x.min.css': [
+                        'node_modules/bootstrap/dist/css/bootstrap.css',
+                        'resources/sources/css/fonts.css',
+                        'resources/sources/css/common.css',
+                        'resources/sources/css/50x.css'
                     ],
                 }
             },
