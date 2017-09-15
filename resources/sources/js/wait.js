@@ -10,7 +10,7 @@ $(function () {
     var countdown = function() {
         var date = new Date ();
 
-        var remaining = (target.getTime() - date.getTime()) / 1000 + 20;
+        var remaining = Math.floor((target.getTime() - date.getTime()) / 1000);
         console.log(remaining);
         if (remaining < 0 && remaining > -3) {
             location.reload();
