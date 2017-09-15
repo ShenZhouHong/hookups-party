@@ -18,7 +18,7 @@ router.use(function (req, res, next) {
 
 var target = new Date();
 target.setHours(23);
-target.setMinutes(00);
+target.setMinutes(0);
 target.setSeconds(0);
 
 /* GET home page. */

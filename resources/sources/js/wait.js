@@ -1,12 +1,14 @@
 /* Makes sure that the DOM is only manipulated when ready */
 $(function () {
     "use strict";
-    var a = function() {
+
+    var target = new Date();
+    target.setHours(23);
+    target.setMinutes(0);
+    target.setSeconds(0);
+
+    var countdown = function() {
         var date = new Date ();
-        var target = new Date();
-        target.setHours(23);
-        target.setMinutes(00);
-        target.setSeconds(0);
 
         var remaining = (target.getTime() - date.getTime()) / 1000 + 20;
         console.log(remaining);
@@ -15,7 +17,9 @@ $(function () {
         }
         $("#heartbeats").text(remaining);
     };
-    a();
+
+    countdown();
+
     $("#heartbeats").css("opacity", 1);
     window.setInterval(a, 1000);
 
