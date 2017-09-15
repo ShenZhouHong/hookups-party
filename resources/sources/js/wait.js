@@ -21,7 +21,7 @@ $(function () {
     countdown();
 
     $("#heartbeats").css("opacity", 1);
-    window.setInterval(a, 1000);
+    window.setInterval(countdown, 1000);
 
     $('#learn-more').on('click', function(event) {
         $('html, body').animate({
@@ -29,6 +29,6 @@ $(function () {
         }, 1000);
 
         StartConfetti();
-        setTimeout(DeactivateConfetti, 4000);
+        setTimeout(DeactivateConfetti, 1000);
     });
 });
