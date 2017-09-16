@@ -19,10 +19,11 @@ router.use(function (req, res, next) {
 /* GET home page. */
 router.get('/', function(req, res, next) {
     var date = new Date ();
+    var compensatedTime = ((localTime.getHours() + parseInt(process.env.TIMEZONEOFFSET)) % 24)
 
     if (
         app.settings.env !== "production" ||
-        (date.getHours() >= 23)
+        (date.getHours() + compensatedTime >= 23)
     ) {
         res.render('index', {
             title: 'Hookups @ CSC',
@@ -51,7 +52,7 @@ router.get('/', function(req, res, next) {
             "- Hour now  : " + date.getHours()
         );
         winston.info(
-            "- Must wait : " + (23 - date.getHours()) + "more hours \n"
+            "- Must wait : " + (23 - date.getHours()) + " more hours... \n"
         );
     }
 });
