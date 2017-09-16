@@ -18,7 +18,7 @@ router.use(function (req, res, next) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    var date = new Date ();
+    var localTime = new Date ();
     var compensatedTime = ((localTime.getHours() + parseInt(process.env.TIMEZONEOFFSET)) % 24);
 
     if (

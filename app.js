@@ -118,7 +118,7 @@ else {
     timezone and opening hours are set properly.
 */
 var localTime = new Date();
-var compensatedTime = (localTime.getHours() + parseInt(process.env.TIMEZONEOFFSET)) % 24;
+var compensatedTime = ((localTime.getHours() + parseInt(process.env.TIMEZONEOFFSET)) % 24);
 
 winston.info(
     "Current hour is (rounded down): ~" + compensatedTime + ":00."
