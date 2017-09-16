@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
 
     if (
         app.settings.env !== "production" ||
-        (date.getHours() + compensatedTime >= 23)
+        (compensatedTime >= 23)
     ) {
         res.render('index', {
             title: 'Hookups @ CSC',
