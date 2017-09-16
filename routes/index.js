@@ -49,10 +49,10 @@ router.get('/', function(req, res, next) {
             chalk.bold.underline(req.ip) + " connected, deferred to waiting screen:"
         );
         winston.info(
-            "- Hour now  : " + date.getHours()
+            "- Hour now  : " + compensatedTime
         );
         winston.info(
-            "- Must wait : " + (23 - date.getHours()) + " more hours... \n"
+            "- Must wait : " + (23 - compensatedTime) + " more hours... \n"
         );
     }
 });
