@@ -127,7 +127,7 @@ if ('production' == env) {
     winston.warn(
         "Please note that " + chalk.bold.underline.red("opening hours are in effect")
     );
-    winston.warn("Hookups💋 will only be open from 23:00 to 24:00\n");
+    winston.warn("Hookups💋 will only be open from 23:00 to 1:00\n");
 }
 if ('production' !== env) {
     winston.warn(
