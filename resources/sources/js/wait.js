@@ -11,7 +11,6 @@ $(function () {
         var date = new Date ();
 
         var remaining = Math.floor((target.getTime() - date.getTime()) / 1000);
-        console.log(remaining);
         if (remaining < 0 && remaining > -3) {
             location.reload();
         }
@@ -23,7 +22,7 @@ $(function () {
     $("#heartbeats").css("opacity", 1);
     window.setInterval(countdown, 1000);
 
-    $('#learn-more').on('click', function(event) {
+    /* $('#learn-more').on('click', function(event) {
         $('html, body').animate({
             scrollTop: $("#slide02").offset().top
         }, 1000);
@@ -31,4 +30,5 @@ $(function () {
         StartConfetti();
         setTimeout(DeactivateConfetti, 1000);
     });
+    */
 });
