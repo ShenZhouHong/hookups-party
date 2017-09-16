@@ -117,24 +117,22 @@ else {
     Logs the startup date of the server, so we can properly check if the
     timezone and opening hours are set properly.
 */
-var startupdate = new Date();
-var target = new Date();
-target.setHours(23);
-target.setMinutes(0);
-target.setSeconds(0);
+var localTime = new Date();
 
 winston.info(
-    "Setting site opening hours as:"
+    "Current hour is (rounded down): ~" + localTime.getHours() + ":00."
 );
-winston.info(
-    "- targetTime: " + target.getTime()
-);
-winston.info(
-    "- time now  : " + startupdate.getTime()
-);
-winston.info(
-    "- difference: " + (target.getTime() - startupdate.getTime()) + "\n"
-);
+if ('production' == env) {
+    winston.warn(
+        "Please note that " + chalk.bold.underline.red("opening hours are in effect")
+    );
+    winston.warn("Hookups💋 will only be open from 23:00 to 24:00\n");
+}
+if ('production' !== env) {
+    winston.warn(
+        "Please note that " + chalk.bold.underline.blue("opening hours are NOT in effect\n")
+    );
+}
 
 winston.info(
     "In order to exit " + chalk.bold.red("Hookups💋") + ", press " +

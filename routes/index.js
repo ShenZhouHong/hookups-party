@@ -16,18 +16,13 @@ router.use(function (req, res, next) {
     }
 })
 
-var target = new Date();
-target.setHours(23);
-target.setMinutes(0);
-target.setSeconds(0);
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
     var date = new Date ();
 
     if (
         app.settings.env !== "production" ||
-        (target.getTime() - date.getTime()) <= 1000
+        (date.getHours() >= 23)
     ) {
         res.render('index', {
             title: 'Hookups @ CSC',
@@ -49,18 +44,14 @@ router.get('/', function(req, res, next) {
             css: ['wait.min.css']
         });
 
-        // Logs the deferral to waiting */
         winston.info(
             chalk.bold.underline(req.ip) + " connected, deferred to waiting screen:"
         );
         winston.info(
-            "- targetTime: " + target.getTime()
+            "- Hour now  : " + date.getHours()
         );
         winston.info(
-            "- time now  : " + date.getTime()
-        );
-        winston.info(
-            "- difference: " + (target.getTime() - date.getTime()) + "\n"
+            "- Must wait : " + (23 - date.getHours()) + "more hours \n"
         );
     }
 });
