@@ -136,12 +136,13 @@ canvas {
 */
 #footer a {
     margin-top: 1em;
+    margin-bottom: 1em;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
     font-weight: bold;
     padding: 0px 10px;
     word-wrap: normal;
     display: inline-block;
-    color: #ffc107;
+    color: #ffc107 !important;
     font-size: 1.1em;
 }
 
