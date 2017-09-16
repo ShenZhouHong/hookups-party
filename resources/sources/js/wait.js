@@ -22,13 +22,12 @@ $(function () {
     $("#heartbeats").css("opacity", 1);
     window.setInterval(countdown, 1000);
 
-    /* $('#learn-more').on('click', function(event) {
+    $('#testimonials').on('click', function(event) {
         $('html, body').animate({
-            scrollTop: $("#slide02").offset().top
+            scrollTop: $("#stories-heading").offset().top
         }, 1000);
 
         StartConfetti();
         setTimeout(DeactivateConfetti, 1000);
     });
-    */
 });

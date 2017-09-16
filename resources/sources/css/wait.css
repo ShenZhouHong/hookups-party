@@ -80,8 +80,19 @@
     Styling for the 'how it works' section of the landing page. Resizes the
     SVGs and defines custom sizes for the text.
 */
-#explanation-title {
-    padding-top: 1em;
+#changelog-div {
+    margin-top: em;
+    margin-bottom: 2em;
+}
+
+#changelog-heading, #changelog-subheading {
+    color: #ffc107;
+}
+
+#changelog-text {
+    font-size: 0.8em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    color: #FFF;
 }
 
 .explanation-text {
@@ -107,6 +118,26 @@
     color: #FFF;
 }
 
-#learn-more {
-    margin-top: 1em;
+#learn-more, #testimonials {
+    margin: 1em;
+}
+
+.quote {
+    font-family: 'DancingScriptBold', "Arial Black", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    color: #FFF;
+}
+
+.emoji {
+    display: block;
+}
+
+.emoji svg {
+    height: 3em;
+}
+
+.quotebox {
+    margin-bottom: 3em;
 }
