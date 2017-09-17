@@ -24,7 +24,7 @@ $(function () {
 
     $('#testimonials').on('click', function(event) {
         $('html, body').animate({
-            scrollTop: $("#stories-heading").offset().top
+            scrollTop: $("#slide03").offset().top
         }, 1000);
 
         StartConfetti();
