@@ -22,8 +22,7 @@ router.get('/', function(req, res, next) {
     var compensatedTime = ((localTime.getHours() + parseInt(process.env.TIMEZONEOFFSET)) % 24);
 
     if (
-        app.settings.env !== "production" ||
-        (compensatedTime >= 23) || (compensatedTime < 1)
+        true //Disable time gate// app.settings.env !== "production" || (compensatedTime >= 23) || (compensatedTime < 1)
     ) {
         res.render('index', {
             title: 'Hookups @ CSC',
